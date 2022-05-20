@@ -1,5 +1,5 @@
 ---
-title: Web3 Development: Choose the Best Blockchain Platform for Your Dapp
+title: Web3 Development Choose the Best Blockchain Platform for Your Dapp
 description: Starting and scaling a blockchain project as a web3 developer takes more than just a great project idea. The most fundamental things to consider is the blockchain platform with the right tools and adequate support
 permalink: blogposts/web3/web3-development-choose-the-best-blockchain-platform-for-your-dapp.md
 ---
