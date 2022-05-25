@@ -9,10 +9,11 @@ The IoTeX Blockchain implements a full-featured Ethereum Virtual Machine (EVM), 
 In addition to that, any IoTeX gateway nod provides a full Ethereum API, so that any Ethereum client can also interact with the IoTeX blockchain without any change to the code.
 
 # Core information
-This tutorial teach you that:
+This tutorial teach you how to:
 
-1. You can creating an IoTeX smart contract using [Solidity](https://docs.soliditylang.org/en/v0.8.14/)
-2. You can deploy a smart contract using the official IoTeX endpoint for Ethereum clients: https://babel-api.testnet.iotex.io
+1. Create an IoTeX smart contract using [Solidity](https://docs.soliditylang.org/en/v0.8.14/)
+
+2. Deploy a smart contract using the official IoTeX endpoint for Ethereum clients: https://babel-api.testnet.iotex.io
 
 # Tools that you need
 We will use the popular [Hardhat](https://hardhat.org) developer environment to deploy a very simple "Hello World" Solidity contract on IoTeX. You can follow the ["Setting up the environment](https://hardhat.org/tutorial/setting-up-the-environment.html) HardHat tutorial to set up NodeJS on your system before getting started.  
