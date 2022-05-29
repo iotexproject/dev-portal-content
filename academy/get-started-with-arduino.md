@@ -1,6 +1,7 @@
 ---
 title: Get started with Arduino and IoTeX
 description: Learn how to connect an Arduino board to the IoTeX blockchain
+permalink: academy/get-started-with-arduino.md
 ---
 # Introduction
 In this geting started guide we will show how you can interact with the IoTeX Blockchain from an embedded device.
