@@ -22,13 +22,13 @@ We will use a development board based on the ESP-WROVER-32 chip. If you have nev
 1. open the `Tools->Board->ESP32 Arduino` menu and select `ESP32 Wrover Module`.
 2. open the `Tools->Port`menu and select the serial port of your board (it should look similar to `/dev/cu.SLAB_USBtoUART`) 
 
-<img width="2470" alt="image" src="https://user-images.githubusercontent.com/11096047/170865100-0d738ad7-afb3-4faa-8dfd-8b5651b34bd6.png">
+![](https://user-images.githubusercontent.com/11096047/170865100-0d738ad7-afb3-4faa-8dfd-8b5651b34bd6.png)
 
 # Installing the IoTeX SDK for Arduino
 In the Arduino IDE, create and save a new sketch, then open the `Tools->Manage Libraries...` menu item. 
 In the Library Manager dialog, search for IoTeX-blockchain-client and click `install`. 
 
-<img width="2084" alt="image" src="https://user-images.githubusercontent.com/11096047/170863513-500f4dd8-2010-418d-844d-6aff187a3545.png">
+![](https://user-images.githubusercontent.com/11096047/170863513-500f4dd8-2010-418d-844d-6aff187a3545.png)
 
 # The full Sketch
 Copy-paste the following sketch in the IDE (edit your WiFi network configuration), hit the `upload` button in the IDE and wait for the software to be flashed into the board (notice that some boards require you to press the one of the available buttons sometimes called `boot` to allow it to be flashed the software).
