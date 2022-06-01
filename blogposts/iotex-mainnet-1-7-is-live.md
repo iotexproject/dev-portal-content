@@ -1,7 +1,7 @@
 ---
 title: IoTeX Mainnet v1.7 is LIVE!
-description: Today marks another major release of the IoTeX blockchain and brings significant improvements to the IoTeX protocol. 
-permalink: blogposts/announcements/iotex-mainnet-1-7-is-live.md
+description: Today marks another major release of the IoTeX blockchain and brings significant improvements to the IoTeX protocol.
+path: blogposts/iotex-mainnet-1-7-is-live.md
 ---
 
 Today marks another major release of the IoTeX blockchain and brings significant improvements to the IoTeX protocol. [iotex-core 1.7.0](https://github.com/iotexproject/iotex-core) was released for node operators on March 15th and has just been activated. [Approximately 03/24/2022 around 11pm UTC]. This release brings many API improvements that will speed up dApp development and debugging of complex smart contracts. Node operators will benefit from a simpler architecture of the Ethereum API service and better log management. Database and network performance have increased as well. IoTeX is always building, refining, and working iteratively to facilitate easier dApp development and onboarding. In addition to dApps now being simpler to build, the blockchain is more reliable and more secure with enhanced performance. Let's take a closer look at some of the major changes...
@@ -28,7 +28,7 @@ Upon 1.7.0 activation, when querying transaction receipts, the `transactionIndex
 
 ### Native Ethereum JSON API
 
-The blockchain release 1.2.0 marked a great milestone for IoTeX developers. With native support of Ethereum-signed transactions by the IoTeX node and the release of the Ethereum JSON API service ("Babel"), the IoTeX-Ethereum compatibility was complete. This allows any Ethereum dApp to be ported to IoTeX without requiring any change to the contracts nor to the client code. However, the Ethereum API was implemented as an external service that had to be deployed separately and "pointed" to an actual IoTeX node to make it work. With iotex-core 1.7.0, the Ethereum API server is now integrated natively and exposed directly by the IoTeX nodes. There is no need to run, configure and manage an external service. Simply enable the *Gateway* functionality of your IoTeX node to get both the IoTeX native API and the Ethereum API exposed.
+The blockchain release 1.2.0 marked a great milestone for IoTeX developers. With native support of Ethereum-signed transactions by the IoTeX node and the release of the Ethereum JSON API service ("Babel"), the IoTeX-Ethereum compatibility was complete. This allows any Ethereum dApp to be ported to IoTeX without requiring any change to the contracts nor to the client code. However, the Ethereum API was implemented as an external service that had to be deployed separately and "pointed" to an actual IoTeX node to make it work. With iotex-core 1.7.0, the Ethereum API server is now integrated natively and exposed directly by the IoTeX nodes. There is no need to run, configure and manage an external service. Simply enable the _Gateway_ functionality of your IoTeX node to get both the IoTeX native API and the Ethereum API exposed.
 
 ### Log Rotation
 

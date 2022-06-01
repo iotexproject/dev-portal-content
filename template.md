@@ -1,7 +1,7 @@
 ---
 title: Post title
 description: Post description
-permalink: Post permalink
+path: Post path
 ---
 
 # Content

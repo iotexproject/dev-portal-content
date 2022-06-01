@@ -1,7 +1,7 @@
 ---
 title: Query Pebble Tracker Oracle using nodejs
 description: Learn how to query the Pebble Tracker Open Oracle using node.js
-permalink: academy/quickStarts/Query-Pebble-Tracker-Oracle-using-nodejs.md
+path: academy/Query-Pebble-Tracker-Oracle-using-nodejs.md
 ---
 
 ## Init the application
@@ -47,14 +47,14 @@ main();
 async function main() {
     // Query the most recent latitudes longitudes temperature and timestamps
     const LIST_LOCATIONS_QUERY =
-        gql 
+        gql
         `{
             pebble_device_record(
-            limit: 1,  
-            order_by: {timestamp: desc}, 
+            limit: 1,
+            order_by: {timestamp: desc},
             where: {
                 imei: {_eq: "${imeiNumber}"},
-                latitude: {_neq: "200.0000000"}}) 
+                latitude: {_neq: "200.0000000"}})
                 {
                     latitude, longitude, temperature, timestamp
                 }
@@ -68,7 +68,7 @@ async function main() {
         })).data.pebble_device_record;
 
     } catch (er) { console.log(er);	}
-        
+
     // Return data to the frontend
     console.log(queryResult);
 }
