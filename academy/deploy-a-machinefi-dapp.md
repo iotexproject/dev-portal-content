@@ -16,7 +16,7 @@ git clone github.com/iotexproject/w3bstream-get-started
 cd w3bstream-get-started/blockchain
 npx hardhat deploy
 
-<img width="1154" alt="image" src="https://user-images.githubusercontent.com/11096047/171911935-16147cd0-1364-4437-86a8-747eb0e7ea07.png">
+![]("https://user-images.githubusercontent.com/11096047/171911935-16147cd0-1364-4437-86a8-747eb0e7ea07.png")
 
 # Get DevicesRegistry contract address + deploy height and put them in project.yaml
 nano projects/app/project.yaml
