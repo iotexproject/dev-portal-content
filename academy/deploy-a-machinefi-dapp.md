@@ -5,7 +5,7 @@ path: academy/deploy-a-machinefi-dapp.md
 ---
 
 ```
-# Clone the w3bstream-get-started repository
+# Clone the machinefi-getstarted-preview repository
 git clone github.com/iotexproject/w3bstream-get-started
 
 # Set your testnet private key in hardhat.config.ts
