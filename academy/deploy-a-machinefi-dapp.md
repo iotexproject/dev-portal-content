@@ -4,7 +4,7 @@ description: Create and deploy the minimal architecture for a MachineFi Dapp on 
 path: academy/deploy-a-machinefi-dapp.md
 ---
 
-```
+
 ## Requirements
 
 - NodeJS: tested using version 14
@@ -325,4 +325,25 @@ Device is registered. Processing data
 ```
 
 Now the data should be stored in the database.  
-```
+
+## Visualizing the data in Hasura
+
+The graphql image provides a Hasura web interface that can be used to visualize the data.  
+In order to do this, navigate to http://localhost:9090/ . Make sure you use the port you set in docker-compose if you have modified it.  
+You should see the Hasura interface  
+
+<img width="1430" alt="image" src="https://user-images.githubusercontent.com/82106612/172644818-5004bc18-994a-4100-8256-8317203f17b7.png">
+
+Click on Connect your first database  
+Enter the database name and url (you can find them in `docker-compose.yaml`)  
+
+<img width="911" alt="image" src="https://user-images.githubusercontent.com/82106612/172646367-3923bbbc-ef16-4e67-b7ee-0a500e7c2d20.png">
+
+Click Connect database. Once connected click the `app` database on the left panel  
+
+<img width="1430" alt="image" src="https://user-images.githubusercontent.com/82106612/172646787-0118fdd7-7845-461b-83dd-332839e5d9dc.png">
+
+Click Track all beside Untracked tables or views  
+You can now visualize the database tables. The device data will be stored in the `device_data` table. See an example below  
+
+<img width="1431" alt="image" src="https://user-images.githubusercontent.com/82106612/172647369-5a020341-78d9-4f42-91c5-b114c611fcc6.png">
