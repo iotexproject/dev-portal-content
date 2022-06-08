@@ -9,7 +9,7 @@ IoTeX has a vision for the **Internet of Trusted Things**, an open ecosystem whe
 # What is W3bstream?
 W3bstream is a first-of-its-kind protocol developed by the IoTeX Foundation that makes verifiable, real-time data from IoT devices available to developers. Combining tamper-proof hardware and software, W3bstream provides a **blockchain-agnostic** framework to create cryptographically signed data streams that can be trusted, utilized, and monetized on the IoTeX Network and beyond. W3bstream specifically addresses real-time IoT data streams, which along with 5G connectivity and edge computing has the potential to enable decentralized automation, zero-latency decision-making, and human-to-machine and machine-to-machine interactions.
 
-<img width="1000" alt="image" src="https://user-images.githubusercontent.com/11096047/172179742-501d137b-9cbc-4c14-a264-71444df53753.png">
+![](https://user-images.githubusercontent.com/11096047/172179742-501d137b-9cbc-4c14-a264-71444df53753.png)
 
 W3bstream synchronizes with secure hardware devices like [Pebble Tracker](https://iotex.io/pebble) that generate verifiable data using a tamper-proof hardware layer called a _Trusted Execution Environment_ (TEE). This cryptographically signed data is transmitted to W3bstream over popular IoT protocols like MQTT or HTTP, providing easy onboarding for IoT developers. On the other side, W3bstream will have data processing and storage capabilities on top of different possible architectures that can be centralized, decentralized with/or without privacy-preservation.
 
@@ -29,7 +29,7 @@ The importance of verifiable data cannot be understated in our modern world. As 
 
 W3bstream will be introduced alongside Pebble to the Industrial Internet Consortium (IIC) with the goal of understanding how secure hardware and blockchain can help global enterprises. As the co-chairs of the IIC’s Blockchain Working Group, IoTeX will present W3bstream to leading IoT institutions as part of the IIC Q4 Member Meeting on December 4–7. W3bstream will be added to an exciting list of IIC technical contributions from IoTeX.
 
-<img width="1602" alt="image" src="https://user-images.githubusercontent.com/11096047/172181476-8d26afb1-406f-4a7e-9367-e4af2bb1cf74.png">
+![](https://user-images.githubusercontent.com/11096047/172181476-8d26afb1-406f-4a7e-9367-e4af2bb1cf74.png)
 
 
 Finally, the official launch of Pebble is coming soon after months of extensive testing and development — a truly unprecedented device! As a protocol designed for secure hardware devices like Pebble, W3bstream will be utilized extensively by Pebble developers who will be able to use verifiable data such as location, climate, motion, and light to fuel verifiable solutions. 
