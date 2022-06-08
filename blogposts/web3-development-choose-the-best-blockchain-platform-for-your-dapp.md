@@ -16,7 +16,7 @@ Too many factors make a network a great fit for your Dapp projects and in fact, 
 4. Real-world data oracles
 5. Community and grants
 
-<img alt="" src="https://iotex.io/blog/content/images/2022/03/Five-Essential-Factors.png">
+![](https://iotex.io/blog/content/images/2022/03/Five-Essential-Factors.png)
 
 ### Ethereum Compatibility
 
