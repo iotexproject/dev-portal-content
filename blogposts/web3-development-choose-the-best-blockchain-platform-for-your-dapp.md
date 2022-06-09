@@ -4,6 +4,12 @@ description: Starting and scaling a blockchain project as a web3 developer takes
 path: blogposts/web3-development-choose-the-best-blockchain-platform-for-your-dapp.md
 ---
 
+
+
+https://user-images.githubusercontent.com/64008830/172865331-320dccde-ba88-42a6-bbae-c189784f2744.mov
+
+
+
 Starting and scaling a blockchain project as a web3 developer takes more than just a great project idea. It needs a dedicated team, expertise, and even more importantly, a blockchain platform having what it takes for a project to succeed. A lot goes into choosing or switching to a blockchain platform for developers. Among the most fundamental things to consider is the blockchain platform with the right tools and adequate support to develop your project.
 
 ## Five essential factors to consider before choosing a blockchain platform for Dapp development.
