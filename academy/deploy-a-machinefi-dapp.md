@@ -4,7 +4,6 @@ description: Create and deploy the minimal architecture for a MachineFi Dapp on 
 path: academy/deploy-a-machinefi-dapp.md
 ---
 
-```
 ## Requirements
 
 - NodeJS: tested using version 14
