@@ -14,7 +14,7 @@ path: academy/deploy-a-machinefi-dapp.md
 ## Clone the repository and install the data layer dependencies
 
 ```shell
-git clone -b get_started https://github.com/iotexproject/machinefi-getstarted-preview.git
+git clone https://github.com/iotexproject/machinefi-getstarted-preview.git
 cd trustream-v2
 npm install
 ```
