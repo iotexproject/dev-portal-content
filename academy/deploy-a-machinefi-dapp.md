@@ -15,7 +15,7 @@ path: academy/deploy-a-machinefi-dapp.md
 
 ```shell
 git clone https://github.com/iotexproject/machinefi-getstarted-preview.git
-cd trustream-v2
+cd machinefi-getstarted-preview
 npm install
 ```
 
