@@ -1,9 +1,3 @@
----
-title: How to run a IoTeX Full Node on a Raspberry Pi Board
-description: Learn how to run and IoTeX full node as a network gateway on a Raspberry Pi
-path: academy/how-to-run-a-iotex-full-node-on-a-raspberry-pi-board.md
----
-
 # 1. Overview
 
 ## What You'll Learn
