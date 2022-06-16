@@ -2,8 +2,11 @@
 title: Build a decentralized data marketplace
 description: Learn how to create a decentralized marketplace where the data stream from smart devices may be traded between device owners and subscribers. 
 ---
-# What does this marketplace contract do? 
-The marketplace contract allows a user to register their smart device and generate revenue as other users subscribe to the device's data stream. The logic of this marketplace can be divided into three steps:
+In this guide, we share the implementation
+details for a smart contract that can be used to realize decentralized IoT data authorization mechanism.
+
+# High level description of the contract 
+This contract allows a user to register their devices that can provide some sort of real-time IoT data, and generate revenue as other users subscribe to the device's data stream. The logic of this marketplace can be divided into three steps:
 
 1. First, the **contract owner** needs to set up the device registration and subscription **fees**, and pre-register each authorized device's id hash into the contract.
 
