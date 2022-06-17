@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/11096047/174313958-be49eeb6-5300-49d9-
 In this guide, we share the implementation
 details for a smart contract that realizes an authorization mechanism to a fully decentralized IoT data marketplace.
 
-# High level description of the contract 
+# Overview
 This contract allows a user to register their devices that can provide some sort of real-time IoT data, and generate revenue as other users subscribe to the device's data stream. The logic of this marketplace can be divided into three steps:
 
 1. First, the **contract owner** needs to set up the device registration and subscription **fees**, and pre-register (or "*whitelist*") each authorized device into the contract.
