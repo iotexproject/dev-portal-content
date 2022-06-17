@@ -91,21 +91,21 @@ Let's now look at the logic in more detail.
 For this contract we only import *SafeMath* and *Pausable* to get some security-related benefits.
 
 Pausable is also inheriting from *Ownable*, which gives us the `onlyOwer` modifier. The SafeMath library will be used when dealing with unsigned integers. 
-If you'd like to dig deeper into the *Pausable* and *Ownable* anchestor contracts you can check out the [Openzeppelin documantation](https://docs.openzeppelin.com/contracts/4.x/).
+If you'd like to dig deeper into the *Pausable* and *Ownable* anchestor contracts you can check out the [Openzeppelin documentation](https://docs.openzeppelin.com/contracts/4.x/).
 
 ### Events
-Lines 10 to 13 are describing the events that will be emitted appropriately by some of the functions we'll be adding to the contract in just a few minutes. The events will be emitted when a new device is Registered by a device owner, when a registered device is Updated, when a user has Subscribed to a device's data stream, and when a device's owner has Claimed their funds. 
+Lines 10 to 13 are describing the events that will be emitted appropriately by some of the functions we'll be adding to the contract in just a few minutes. The events will be emitted when a new device is *Registered* by a device owner, when a registered device is *Updated*, when a user has *Subscribed* to a device's data stream, and when a device's owner has *Claimed* their funds. 
 
 ### Mappings
 Lines 16 to 19 handle storage. There is an array of `bytes32` elements called `deviceIDs`, while the other mappings handle the storage of any authorized device id, registered devices, and data orders. 
 
 ### Global Variables
-The global variables help to keep track of the registration and subscription fees **set only by the contract owner**. These variables also track the total fees, which comes in handy when the contract owner decides to claim their funds. Also note that we established the maximum length allowed for a subscription to 90 days, set in the constant `maxDuration`.Since in this contract we measure duration in **IoTeX blocks**, given a 5-second block time we simply calculate how many blocks are contained in 90 days to find the maxDuration in blocks.  
+The global variables help to keep track of the registration and subscription fees **set only by the contract owner**. These variables also track the total fees, which comes in handy when the contract owner decides to claim their funds. Also note that we established the maximum length allowed for a subscription to 90 days, set in the constant `maxDuration`. Since in this contract we measure duration in **IoTeX blocks**, given a 5-second block time we simply calculate how many blocks are contained in 90 days to find the maxDuration in blocks.  
 
 ### Structs
-There are two custom data types representing a `Device` and a data `Order`. Note that upon registration of a device, the user will be able to input its data frequency `freq`, its price per block `pricePerBlock` in terms of IOTX tokens, and more importantly, the two components of the device RSA public key: `rsaPubkeyN` and `rsaPubkeyE`. We are assuming that the device is capable of **secure RSA keys generation**, digital signature and decyption. One example of such a device is [Pebble Tracker](https://iotex.io/pebble).
+There are two custom data types representing a `Device` and a data `Order`. Note that upon registration of a device, the user will be able to input its data frequency `freq`, its price per block `pricePerBlock` in terms of IOTX tokens, and more importantly, the two components of the device RSA public key: `rsaPubkeyN` and `rsaPubkeyE`. We are assuming that the device is capable of **secure RSA keys generation**, digital signature and decryption. An example of such device is [Pebble Tracker](https://iotex.io/pebble).
 
-When a new subscriber decides to create an Order for a device, they will use this public key to encrypt the storage endpoint where the data is suposed to be sent and any token required to get access to the endpoint. The device, will then be able to decrypt these values with its private key, and will know where to send the data (`storageEPoint`) as well as the required "password" (`storageToken`). 
+When a new subscriber decides to create an *Order* for a device, they will use this public key to encrypt the storage endpoint where the data is supposed to be sent and any token required to get access to the endpoint. The device, will then be able to decrypt these values with its private key, and will know where to send the data (`storageEPoint`) as well as the required "password" (`storageToken`). 
 
 ### Constructor 
 The constructor in this case is empty and may be omitted.
@@ -139,20 +139,20 @@ contract Marketplace is Pausable {
 }
 ```
 
-`setRegistrationFee()` and `setSubscriptionFee` allow to optionally set a fee to be paid to the contract owner by device owners each time they register a new device, and by data consumers each time they subscribe to a device's data stream. Of course only the contract owner can set these fees.
+`setRegistrationFee()` and `setSubscriptionFee` allow to optionally set a fee to be paid to the contract owner by device owners each time they register a new device, and by data consumers each time they subscribe to a device's data stream. Of course, only the contract owner can set these fees.
 
-`preRegisterDevice()` is also exclusive to the contract owner, ad here is where they can "authorize" devices, i.e. set which device is actually allowed to be used in the data marketplace (for example, because the contract owner has control over, or trusts, the firmware of these devices).
+`preRegisterDevice()` is also exclusive to the contract owner. This is how the contract owner can "authorize" devices, i.e. set which device is actually allowed to be used in the data marketplace (for example, because the contract owner has control over, or trusts, the firmware of these devices).
 
 To prevent an observer that would look at the contract data from "stealing" the ids of authorized devices before they are assigned to the device's actual owner, this function expectes the **hash of the device id** to be provided instead of the actual device id (whatever has been chosen as the unique id for these devices).
 
 In `allowedIDHashes` we paired each device id hash with a boolean as an efficient way to check if an hash has already been pre-registered or not. 
-If the id hash is found as a key inside `allowedIDHashes` and it correspond to a "true" value, then it means it's already been registers and we halt the execution. If not, the mapping is updated with a true value for that hash to mark it as a valid device. 
+The execution is halted if the id hash is found as a key inside `allowedIDHashes` and it corresponds to a "true" value, meaning that it has already been registered. Otherwise, the mapping is updated with a true value for that hash to mark it as a valid device. 
 
 
 ## Registering and updating a device
 
 ### Registering a newdevice
-Let's now cover how a device owner is supposed to **register** a new device. Device's owners act "data sellers" in this marketplace, and the device registration is suposed to happen only once per device, and it basically intended to assign an *owner account* to a specific device. In the same operation, also the device and data stream configuration has to be specified. 
+Let's now cover how a device owner is supposed to **register** a new device. Device's owners act as "data sellers" in this marketplace, and the device registration is supposed to happen only once per device, as it is basically intended to assign an *owner account* to a specific device. In the same operation, the device and data stream configuration have to be specified as well. 
 
 ```solidity
 contract Marketplace is Pausable {
@@ -188,17 +188,17 @@ contract Marketplace is Pausable {
 }
 ```
 
-This function starts with a series of require statements (lines 15 to 22). The function expects the actual device id to be passed by the device owner and it requires that the hash of the device id is actually inluded in the list of pre-authorized devices (line 15). 
+This function starts with a series of *require* statements (lines 15 to 22). The function expects the actual device id to be passed by the device owner and it requires that the hash of the device id is actually inluded in the list of pre-authorized devices (line 15). 
 
-Next, the function requires that the device has not yet been registered, by simply checking that there is no valid device in the Devices mapping corresponding to that id (it's enough to just check for a field like rsaPubkeyN: if there was an device already registered with the same id that field would never be "0", as specified by the next two requires).
+Next, the function requires that the device has not yet been registered, by simply checking that there is no valid device in the *devices* mapping corresponding to that id (it's enough to just check for a field like rsaPubkeyN: if there was an device already registered with the same id that field would never be "0", as specified by the next two requirements).
 
 Line 20 requires the caller to set a positive data frequency for their device. 
-`_spec` is supposed to be a url pointing to some technical specifications for that device and Line 21 requires it not to be null. Finally we expect the user to pay the registration fee as defined by the contract owner.
+`_spec` is supposed to be a url pointing to some technical specifications for that device and line 21 requires it not to be null. Finally we expect the user to pay the registration fee as defined by the contract owner.
  
 After all the requirements are met, the function will finally register the device in the contract: line 24 updates the registration fee pool and Line 25 sets the `allowedIDHashes` mapping for the device ID to false, to prevent it for being registered again (as per line 15). 
-Line 26 is finally creating the device object, that is then added to the `Devices` mapping and can be later retrieved using its corresponding ID. 
+Line 26 is finally creating the device object, that is then added to the `devices` mapping and can be later retrieved using its corresponding ID. 
 
-Line 27 then "pushes" the device ID to the `deviceIDs` array (we assume that the chosen device id is no longer than 32 bytes, e.g. an IMEI number). The `deviceIDs` array's Length will be used to quickly tell how many devices have been registered. 
+Line 27 then "pushes" the device ID to the `deviceIDs` array (we assume that the chosen device id is no longer than 32 bytes, e.g. an IMEI number). The `deviceIDs` array's length will be used to quickly tell how many devices have been registered. 
 
 Back to the code. Line 28 emits the `Registered` event confirming that the the caller of this function has indeed successfully registered the device with the given ID. 
 
@@ -247,7 +247,7 @@ contract Marketplace is Pausable {
 Based on the previous function, the require statements should be self-explanatory. 
 It's worth noticing, however, how line 17 checks whether the function caller **is indeed the device's owner**.
 
-Let's now focus on the `if()` statement on line 23. This line checks to see if the device used in this function has its `hasOrder` property set to true, to check if there has ever been an order associated with it (this property is set in the next function that handles a user's subscription to a device's data stream). If an order has been associated with the device in the past, then we check that it is not stil ongoing (line 14): if an order is still ongoing we don't allow the device owner to change the properties of the device, as that would affect the corrent order. If this requirement is met, the device mapping can be updated (lines 27 to 31) and the Updated event is emitted (line 32).
+Let's now focus on the `if()` statement on line 23. This line checks to see if the device used in this function has its `hasOrder` property set to true. This checks whether there has ever been an order associated with it (this property is set in the next function that handles a user's subscription to a device's data stream). If an order has been associated with the device in the past, then we check that it is not stil ongoing (line 14): if an order is still ongoing we don't allow the device owner to change the properties of the device, as that would affect the current order. If this requirement is met, the device mapping can be updated (lines 27 to 31) and the Updated event is emitted (line 32).
 
 ## Subscribing to a device data stream
 
@@ -269,9 +269,10 @@ contract Marketplace is Pausable {
     
 }
 ```
- You can see that the user needs to specify the device Id and the duration of the subscription (in IoTeX blocks), as well as a storage endpoint (`_storageEPoint`), and a storage access token (`_storageToken`). The function is basically asking the user for the device they want to subscribe to, for how long, and where to send the data. Both `_storageEPoint` and `_storageToken` are supposed to be encrypted using the device's RSA public key, and can therefore only be decrypted using the device's private key and that's how it will know where to send the data **while  keeping it private in the smart contract**.
 
-The next bit of code will be about require statements: 
+ You can see that the user needs to specify the device Id and the duration of the subscription (in IoTeX blocks), as well as a storage endpoint (`_storageEPoint`), and a storage access token (`_storageToken`). The function is basically asking the user for the device they want to subscribe to, for how long, and where to send the data. Both `_storageEPoint` and `_storageToken` are supposed to be encrypted using the device's RSA public key, and can therefore only be decrypted using the device's private key. That's how a device will know where to send the data **while  keeping it private in the smart contract**.
+
+The next bit of code will handle the require statements: 
 
  ```solidity   
     require(devices[_deviceId].rsaPubkeyN.length != 0, "no such device");
@@ -339,10 +340,10 @@ function subscribe(
 }
 ```
 
-The subscription fee is added to the subscription pool (line 10). Now, if the device already has a pending balance, it belongs to the previous subscription and needs to be "archived" into the `settledBalance`, then we set it to the amount paid for this new subscription (i.e. the value of the transaction minus the contract subscription fee). 
+The subscription fee is added to the subscription pool (line 10). Now, if the device already has a pending balance from a previous subscription, it is "archived" into the `settledBalance`. Otherwise, the pending balance is set to the amount paid for this new subscription (i.e. the value of the transaction minus the contract subscription fee). 
 
 Once all the balances are updated, the respective event has to be emitted:
-```
+```solidity
  function subscribe(
     bytes32 _deviceId,
     uint256 _duration,
@@ -381,14 +382,14 @@ contract Marketplace is Pausable {
 }
 ```
 First, confirm that the device exists (lines 7 and 8). Then make sure that the person calling this function is actually the owner of the device (line 9). 
-Now, for a device to have a claimable balance, there must have been at least one completed order associated with it (lines 10, 11) and any past order should have been completed (line 12).
+Now, for a device to have a claimable balance, there must have been at least one completed order associated with it (lines 10, 11). Any past order should have also been completed (line 12).
 
 So far so good - let's move to the next bit of logic. 
 
 At this point `pendingBalance` stores the fee relative to the very last order, while `settledBalance` stores all the fees accumulated by any previous order. Therefore, we only have to add any pending balance to the `settledBalance` and make sure to reset both balances to "0" before actually performing the transfer (again, to prevent reentrancy attacks):
 
 The code below reflects this logic: 
-```
+```solidity
 function claim(bytes32 _deviceId) public whenNotPaused returns (bool) {
 
  ...
@@ -406,7 +407,7 @@ function claim(bytes32 _deviceId) public whenNotPaused returns (bool) {
 }
 ```
 
-Finally the `Claimed()` event is emitted and the function returns true after successful completion: 
+Finally the `Claimed` event is emitted and the function returns true after successful completion: 
 
 ```solidity
 function claim(bytes32 _deviceId) public whenNotPaused returns (bool) {
@@ -419,7 +420,7 @@ function claim(bytes32 _deviceId) public whenNotPaused returns (bool) {
 ```
 
 ## Claiming marketplace fees
-Let's look at how the contract order can collect marketplace fees:
+Let's look at how the contract owner can collect marketplace fees:
 
 ```solidity
 function collectFees() onlyOwner public returns (bool) {
@@ -433,7 +434,7 @@ function collectFees() onlyOwner public returns (bool) {
 }
 ```
 
-We start by creating a new unsigned integer variable called total, representing the sum of the pooled registration fees and subscription fees. There is a chance that this total may be zero, so it's better to create conditional statement (line 3) to check for that. 
+We start by creating a new unsigned integer variable called total, representing the sum of the pooled registration fees and subscription fees. There is a chance that this total may be zero, so it's better to create a conditional statement (line 3) to check for that. 
 As usual, we change the value of both `registrationFeeTotal` and `subscriptionFeeTotal` back to zero before inititiating any token transfer. 
 
 ## View Functions
@@ -457,7 +458,7 @@ function getDeviceIDs(uint256 _offset, uint8 limit)
   }
 ```
 
-One more useful function retrieves information on a specific device, given its unique identifier:
+Let's add another useful function that retrieves information on a specific device, given its unique identifier:
 
 ```solidity
 function getDeviceInfoByID(
