@@ -13,8 +13,10 @@ paradigm fueled by Web3 that underpins the new machine economy, whereby machine 
 A MachineFi Dapp can be broken into 3 main components:
 
 1. Smart devices / Machines that generate data 
+
 2. An off-chain, Layer-2 compute network that verifies, stores and generates "Proofs" of real-world facts on top of the data
-3. An on-chain, Layer-1 Dset of contracts that manages authorizations and the token-economy based on the real world facts.
+
+3. An on-chain, Layer-1 set of contracts that manages authorizations and the token-economy based on the real world facts.
 
 ![img](https://user-images.githubusercontent.com/11096047/174353904-52b5869b-ed67-4ae9-b32d-30b17130d9df.png)
 
