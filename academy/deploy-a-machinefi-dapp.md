@@ -38,8 +38,8 @@ git clone https://github.com/iotexproject/machinefi-getstarted-preview.git
 cd machinefi-getstarted-preview
 npm install
 ```
-
-# Setup the environment configuration
+# Installation
+## Setup the environment configuration
 
 Create your `.env` config file from the template    
 ```shell
@@ -47,7 +47,7 @@ cp .env.template .env
 ```
 You can modify the configuration or use the provided one  
 
-# Start the required services
+## Start the required services
 
 The db, graphql and mqtt services can be started in docker containers using docker-compose.  
 Make sure you have `docker` and `docker-compose` installed and running in your machine.  
@@ -63,7 +63,7 @@ graphql-engine_1  | {"type":"startup","timestamp":"2022-06-08T13:24:33.916+0000"
 
 Leave these terminal window open and running and proceed with the next steps in a separate terminal.  
 
-# Create the database
+## Create the database
 
 Before starting the data layer, you must create the database and schema.  
 Make sure the database and schema names matches your `DB_NAME` and `PROJECT` values respectively, in your `.env`.  
@@ -88,7 +88,7 @@ CREATE SCHEMA
 Database created
 ```
 
-# Deploy the device registry contract on layer 1
+## Deploy the device registry contract on layer 1
 
 The device registry contract should be deployed on Layer 1. It is used by the application to determine which devices are registered (ie. which devices are valid data sources). If data is received from an unregistered device, it will not be processed.  
 
@@ -128,7 +128,7 @@ block: 14737849
 
 Take note of the contract address and block height. They will be needed later to configure the application.  
 
-# Configure the data layer blockchain interface to use the contract you just deployed
+## Configure the data layer blockchain interface to use the contract you just deployed
 
 The configuration file for the data layer application is located in `src/projects/app/project.yaml`. You must edit it to suit your deployment as follows:
 
@@ -163,7 +163,7 @@ Initialized DB with the following:  14737849
 
 **Note:** You should run `initdb` every time you need to reset db data, e.g. when you redeploy the smart contracts or modify the models.  
 
-# Start the data layer service
+# Start the layer-2 data service
 
 ## Option 1 - Start the data layer service using npm:
 
@@ -190,7 +190,7 @@ pm2 start all.yml && pm2 log 0
 
 Keep this terminal open and running and proceed with the following steps in a new terminal.  
 
-# Verify the data layer is running
+## Verify the data layer is running
 
 The data layer service should start indexing a few blocks of the IoTeX blockchain (see the endpoint set in .env to switch chain) before reaching the current tip, then it will keep scanning the chain on every new block.  
 When a new event is detected (ie. a device registration) some logs will be printed and the event will be processed.  
@@ -225,6 +225,7 @@ catchUp end at 14737993
 ```
 
 # Send simulated data
+## Run the device simulator
 
 A simulator script is provided that sends some randomly generated data.  
 The simulator is located in the `simulator` directory. The environment file at `simulator/.env` is used to configure the simulator.  Use the `SEND_INTERVAL_SECONDS` variable to change the interval in which messages are being sent.  
@@ -252,7 +253,7 @@ not registered
 
 Follow the next steps in order to register your device.  
 
-# Authorize the device simulator in the smart contract
+## Authorize the device simulator in the smart contract
 
 You can use the provided `registerDevice` hardhat script to register your own device.  
 In order to do it follow the steps below.  
@@ -319,7 +320,7 @@ Device is registered. Processing data
 
 Now the data should be stored in the database.  
 
-# Visualizing the data in Hasura
+## Visualizing the data in Hasura
 
 The graphql image provides a Hasura web interface that can be used to visualize the data.  
 In order to do this, navigate to http://localhost:9090/ . Make sure you use the port you set in docker-compose if you have modified it.  
