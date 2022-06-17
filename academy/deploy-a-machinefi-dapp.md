@@ -16,7 +16,7 @@ A MachineFi Dapp can be broken into 3 main components:
 2. An off-chain, Layer-2 compute network that verifies, stores and generates "Proofs" of real-world facts on top of the data
 3. An on-chain, Layer-1 Dset of contracts that manages authorizations and the token-economy based on the real world facts.
 
-![img](https://user-images.githubusercontent.com/11096047/174353336-fcfb80ae-f0a5-4ab2-b847-a67cfeea4c96.png)
+![img](https://user-images.githubusercontent.com/11096047/174353779-38f8b66e-06d2-4bff-95b3-593be25b3d66.png)
 
 
 At the end of this quick start you will have a working infrastructure including a device data simulator, an off-chain data layer that receives, verifies and stores data, and asimpla Layer one device authorization contract. 
