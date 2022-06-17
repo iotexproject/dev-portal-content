@@ -76,7 +76,7 @@ See here for more: https://www.compose.com/articles/postgresql-tips-installing-t
 
 Create the database using the provided script
 ```shell
-./createDb.sh
+./create-db.sh
 ```
 
 Example:  
