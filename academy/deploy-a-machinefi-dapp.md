@@ -24,21 +24,22 @@ A MachineFi Dapp can be broken into 3 main components:
 At the end of this quick start you will have a working infrastructure including a device data simulator, an off-chain data layer that receives, verifies and stores data, and asimpla Layer one device authorization contract. 
 
 
-# Requirements
+## Requirements
 
 - NodeJS: tested using version 14
 - Python 3
 - Npm
 - Docker and docker-compose
 
-# Clone the repository and install the data layer dependencies
+# Installation
+
+## Clone the repository and install the data layer dependencies
 
 ```shell
 git clone https://github.com/iotexproject/machinefi-getstarted-preview.git
 cd machinefi-getstarted-preview
 npm install
 ```
-# Installation
 ## Setup the environment configuration
 
 Create your `.env` config file from the template    
