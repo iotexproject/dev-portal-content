@@ -1,5 +1,5 @@
 # Introduction
-In tutorial we will describe how to generate verifiable IoT data that can power IoTeX Dapps from the Arduino Nano 33 IoT board. 
+In this tutorial we will describe how to generate verifiable IoT data that can power IoTeX Dapps from the Arduino Nano 33 IoT board. 
 
 ## Data message
 Although this board integrates an accelerometer and a gyroscope, for the sake of simplicity for this tutorial we will just generate some "fake" data, pretending that the board is part of a device that is an heartrate onitor and we will just generate a simple data message where the data is composed of the heartrate measured at a specific time and the respective timestamp.
