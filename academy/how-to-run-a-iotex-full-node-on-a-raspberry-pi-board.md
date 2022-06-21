@@ -157,11 +157,10 @@ Source .profile to apply the changes:
 source ~/.profile
 ```
 
-Make sure `git`
-is installed with
+Make sure `git` is installed with
 ```
 sudo apt install git
-
+```
 
 then you can build the image with
 ```
