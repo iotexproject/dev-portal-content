@@ -140,7 +140,7 @@ You can also build a Docker image directly on your system ([full instructions](h
 
 You will need Golang >= 1.17.3 installed:
 ```
-wget https://dl.google.com/go/go1.17.3.linux-armv64.tar.gz
+wget https://dl.google.com/go/go1.17.3.linux-arm64.tar.gz
 sudo tar -C /usr/local -xzf go1.17.3.linux-arm64.tar.gz
 rm  go1.17.3.linux-arm64.tar.gz
 nano ~/.profile
