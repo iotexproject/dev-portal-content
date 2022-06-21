@@ -77,14 +77,14 @@ From your PC, type the following:
 
 For Raspberry boards:
 
-```
+```shell
 ssh ubuntu@192.168.1.105
 password: ubuntu
 ```
 
 For the Odroid N2 board
 
-```
+```shell
 ssh odroid@192.168.1.105
 password: odroid
 ```
@@ -97,21 +97,21 @@ Using a USB hard drive is highly recommended to store the Blockchain Database. Y
 
 Create the iotex-var folder in your home directory
 
-```
+```shell
 cd ~
 mkdir iotex-var
 ```
 
 List the current disks
 
-```
+```shell
 lsblk
 ```
 
 Connect your hard disk to a USB port, and list the disks again: you should see a new sdadisk with one or more partitions (sda1, sda2....) depending on the disk you connected.
 
 Mount the partition:
-```
+```shell
 sudo mount /dev/sda1 ~/iotex-var
 ```
 
@@ -120,7 +120,7 @@ sudo mount /dev/sda1 ~/iotex-var
 ## Install Docker
 The preferred way to run an IoTeX full node is through a Docker image. You can install simply install Docker with:
 
-```
+```shell
 curl -sSL https://get.docker.com | sh
 
 sudo usermod -aG docker $(whoami)
@@ -131,7 +131,7 @@ logout and then login again to make sure all changes are applied.
 ## Pull an existing Docker image
 You will have to build your own Docker image of the IoTeX node **to run it on an ARM machine**. Alternatively, you can check a Docker repository provided by a trusted IoTeX community member, like this one: [the IoTeXLab public Docker Repository](https://hub.docker.com/r/iotexlab/iotex-core-arm/tags), and pull the latest image with:
 
-```
+```shell
 docker pull iotexlab/iotex-core-arm:v1.8.1-rc0
 ```
 
@@ -139,41 +139,42 @@ docker pull iotexlab/iotex-core-arm:v1.8.1-rc0
 You can also build a Docker image directly on your system ([full instructions](https://github.com/iotexproject/iotex-core#building-the-source-code)):
 
 You will need Golang >= 1.17.3 installed:
-```
+```shell
 wget https://dl.google.com/go/go1.17.3.linux-arm64.tar.gz
 sudo tar -C /usr/local -xzf go1.17.3.linux-arm64.tar.gz
 rm  go1.17.3.linux-arm64.tar.gz
 nano ~/.profile
 ```
 Scroll all the way down to the end of the file and add the following:
-```
+```shell
 PATH=$PATH:/usr/local/go/bin
 GOPATH=$HOME/golang
 ```
 Type `Ctrl + X` then `Y`to save and exit the editon. 
 Source .profile to apply the changes:
 
-```
+```shell
 source ~/.profile
 ```
 
 Make sure `git` is installed with
-```
+```shell
 sudo apt install git
 ```
 
 then you can build the image with
-```
+```shell
 git clone https://github.com/iotexproject/iotex-core.git
 cd iotex-core
 
 make docker
 ```
+
 this will take some time, especially if you are running the system off a slow micro SD card, and depending on your internet connection speed. We measured ~4m on an Odroid N2 + a Class10 V30 micro SD card.
 
 It's also convenient to buid the official IoTeX command line client `ioctl` at this point, as it will become useful later to interact with the blockchain using the full-node itself:
 
-```
+```shell
 make ioctl
 sudo cp bin/ioctl /usr/local/bin
 ```
@@ -184,12 +185,12 @@ Once you have a docker image of the full node for ARM64 systems, just follow the
 
 If you are using a third party image, just replace the official IoTeX Docker repository `iotex/iotex-core` with the IoTeXLab repository `iotexlab/iotex-core-arm` (replace the release with the current one):
 
-```
+```shell
 docker pull iotexlab/iotex-core-arm:v1.17.0
 ```
 
 if you built your docker image then you don't need to pull, just heck out the image name/tag by typing:
-```
+```shell
 docker image ls
 ```
 
@@ -216,13 +217,13 @@ docker run -d --restart on-failure --name iotex \
 ```
 
 to kill a running node
-```
+```shell
 docker kill iotex
 docker rm iotex
 ```
 
 to show the log (requires `jq` installed: `sudo apt install jq`)
-```
+```shell
 docker logs -f --since 1m iotex | jq
 ```
 
@@ -230,19 +231,20 @@ docker logs -f --since 1m iotex | jq
 [iotcl](https://docs.iotex.io/get-started/iotex-wallets/command-line-client) is the officilal command line client to manage IoTeX blockchain accounts and interact with a full node. You should have built and installed it at the end of previous step:
 
 First, configure ioctl to interact with the local node:
-```
+ioctlshell config set endpoint localhost:14014 --insecure
+```shell
 ioctl config set endpoint localhost:14014 --insecure
 ```
 
 now you can use it to query or broadcast transactions to the blockachain:
 
 **Get basic info about the blockchain**
-```
+```shell
 ioctl bc info
 ```
 
 **List the current consensus delegates**
-```
+```shell
 ioctl node delegate
 ```
 
