@@ -33,7 +33,7 @@ Download [Ubuntu 22.04](https://ubuntu.com/download/raspberry-pi/thank-you?versi
 
 Download [Ubuntu 18.04](http://de.eu.odroid.in/ubuntu_18.04lts/N2/ubuntu-18.04.3-4.9-minimal-odroid-n2-20190806.img.xz).
 
-**Default login:** odroid
+**Default login:** root
 
 **Default password:** odroid
 
