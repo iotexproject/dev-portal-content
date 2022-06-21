@@ -12,7 +12,7 @@
 - an ARM board like: Raspberry 3b+ (not recommended), Raspberry 4b, Odroid N2or similar ARM boards
 - a power supply compatible with your board
 - a PC with an SD card reader
-- a 32GB Micro SD card (consider an adapter if requred by your PC)
+- a 32GB Micro SD card (consider an adapter if requred by your PC, and possibly pick a fast SD card, at least **Class 10 - V30**)
 - an internet connection
 - optionally: a USB hard-drive
 
@@ -109,8 +109,8 @@ lsblk
 ```
 
 Connect your hard disk to a USB port, and list the disks again: you should see a new sdadisk with one or more partitions (sda1, sda2....) depending on the disk you connected.
-Mount the partition
 
+Mount the partition:
 ```
 sudo mount /dev/sda1 ~/iotex-var
 ```
@@ -150,6 +150,17 @@ Scroll all the way down to the end of the file and add the following:
 PATH=$PATH:/usr/local/go/bin
 GOPATH=$HOME/golang
 ```
+Type `Ctrl + X` then `Y`to save and exit the editon. 
+Source .profile to apply the changes:
+
+```
+source ~/.profile
+```
+
+Make sure `git`
+is installed with
+```
+sudo apt install git
 
 then you can build the image with
 ```
@@ -158,8 +169,9 @@ cd iotex-core
 
 make docker
 ```
+this will take some time, especially if you are running the system off a slow micro SD card, and depending on your internet connection speed. We measured ~4m on an Odroid N2 + a Class10 V30 micro SD card.
 
-It's also convenient to buid the official IoTeX command line client `ioctl` at this point, as it will become useful later to interact with the blockchain:
+It's also convenient to buid the official IoTeX command line client `ioctl` at this point, as it will become useful later to interact with the blockchain using the full-node itself:
 
 ```
 make ioctl
