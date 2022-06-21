@@ -17,7 +17,7 @@ Eventually, a data message will look like this:
         "az": 0.29,
         "timestamp": 1655543438
     },
-    "signature": "4ea68ad12dafad17583a180bd50ceeb2427cf65ff3e75b91379e8b830a45cbfc67dc6fabadebd4b59becdaef1e9a7fd5811e365261d0e8623c71a155323e7c82",
+    "signature": "4ea68ad12dafad17583a180...7fd5811e365261d0e8623c71a155323e7c82",
     "cryptography": "ECC",
     "curve": "secp256r1",
     "hashing": "sha256"
