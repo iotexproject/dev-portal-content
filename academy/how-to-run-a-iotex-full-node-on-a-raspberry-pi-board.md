@@ -162,6 +162,7 @@ is installed with
 ```
 sudo apt install git
 
+
 then you can build the image with
 ```
 git clone https://github.com/iotexproject/iotex-core.git
