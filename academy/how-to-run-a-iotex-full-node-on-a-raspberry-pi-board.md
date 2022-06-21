@@ -198,7 +198,7 @@ docker image ls
 You can create a few convenient scripts to manage the node (make sure you replace `iotex/iotex-core-arm` with the correct tag for your docker image and that you are using the latest version of the ):
 
 Start the node
-```
+```shell
 lastRelease=$(curl --silent "https://api.github.com/repos/iotexproject/iotex-core/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
 docker run -d --restart on-failure --name iotex \
         -p 4689:4689 \
@@ -221,7 +221,7 @@ docker kill iotex
 docker rm iotex
 ```
 
-to show the log (requires `jq`installed)
+to show the log (requires `jq` installed: `sudo apt install jq`)
 ```
 docker logs -f --since 1m iotex | jq
 ```
