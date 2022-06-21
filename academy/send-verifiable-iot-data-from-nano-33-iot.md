@@ -1,33 +1,33 @@
 # Introduction
-In this tutorial we will describe how to generate verifiable IoT data that can power IoTeX Dapps from the Arduino Nano 33 IoT board. 
+In this tutorial we describe how to generate verifiable IoT data from the Arduino Nano 33 IoT board, making use of the ATECC608B integrated crypto chip. The data is then transmitted over WiFi unsing the MQTT protocol to be further processed by the IoTeX Layer-2 nodes to serve MachineFi Dapps the the IoTeX Blockchain.
 
 ## Data message
-Although this board integrates an accelerometer and a gyroscope, for the sake of simplicity for this tutorial we will just generate some "fake" data, pretending that the board is part of a device that is an heartrate onitor and we will just generate a simple data message where the data is composed of the heartrate measured at a specific time and the respective timestamp.
-
-```js
-{
-  message: {
-    heartreate: 64,
-    timestamp: 1655734667,
-    ...
-  }
-}
-```
+This board integrates an accelerometer and a gyroscope, for the sake of simplicity for this tutorial we will just read accelerometer data and generate a simple data message that includes the 3 axis instant acceleration every few seconds. A real world application will probably send more meaningful messages, for example only send acceleration data when it's over a preset threshold in order to detect specific events.
 
 ## Data signature
-We make use of the ATECC608B secure crypto chip that is integrated in this board to generate and securely store a private key. While the correspondig public key can be used as a unique id to serve as a decentralized identity pointer, the chip itself will be used to securely sign the data message using the private key (the private key does never leave the chip).
-Eventually, the data message will look like this:
+We make use of the ATECC608B secure crypto chip that is integrated in this board to generate and securely store and use a private key. The chip itself will be used to securely sign the data message using the private key, while we will use the hash of the correspondig public key as the unique id of the device (e.g. to be used to create a list of authorized devices on the blockchain).
+
+Eventually, a data message will look like this:
+
 ```json
 {
-  "message": {
-     "heartRate": 64, 
-     "timestamp": 1655734985
-   }, 
-   "signature": "zE8Xpa0qzm2lqDSvLj14R04UnWEbAeP74o6ekrd5mc50DAfCNbDIAz7cG9+y4TVNGo2oWpc2fQnxm35LFJqB/hw=",
+    "message": {
+        "ax": 0.01,
+        "ay": -0.97,
+        "az": 0.29,
+        "timestamp": 1655543438
+    },
+    "signature": "4ea68ad12dafad17583a180bd50ceeb2427cf65ff3e75b91379e8b830a45cbfc67dc6fabadebd4b59becdaef1e9a7fd5811e365261d0e8623c71a155323e7c82",
+    "cryptography": "ECC",
+    "curve": "secp256r1",
+    "hashing": "sha256"
 }
 ```
 
-## Warning!
+# Verification
+Notice that we added the signature to the message plus some metadata to let the receiver know how to verify the signature. Once this message is received by the IoTeX Layer-2 node, the signature can be used to recover the public key using elliptic curve cryptography with the secp256r1 curve. The public key can be hashed using SHA256 to obtain the device id which in turn could be verified as an authorized device if it's been registered as a DID on the IoTeX blockchain.
+
+## A note about the public key
 The ATECC608B chip provides elliptic curve digital signature using the **`secp256r1`** curve. Please notice that this is not compatible with IoTeX or Ethereum-compatible blockchain cryptography (which uses **`secp256k1`** instead). Therefore this board will never be able to sign valid blockchain transactions: make sure you don't use any "address" derived from the public key to receive crypto currencies as **they will be lost forever**.
 
 # Requirements
@@ -39,21 +39,29 @@ To complete this tutorial you need:
 
 # Configure the ATECC08 crypto chip
 
-The ATECC608A needs to be configured and **locked** before it can be used. The [ArduinoECCX08 library](https://github.com/arduino-libraries/ArduinoECCX08) provides a [sketch that can be used to configure the chip](https://github.com/arduino-libraries/ArduinoECCX08/blob/master/examples/Tools/ECCX08CSR/ECCX08CSR.ino).  
-In order to configure the chip, flash the [ECCX08CSR.ino](https://github.com/arduino-libraries/ArduinoECCX08/blob/master/examples/Tools/ECCX08CSR/ECCX08CSR.ino) sketch and follow the steps shown in the serial monitor. At the end, the device will produce a CSR (Certificate signing request). It is recommended to save this CSR for future use, but for the purposes of this example we will not be using certificates.  
+The ATECC608A needs to be configured and **locked** before it can be used. 
+
+The [ArduinoECCX08 library](https://github.com/arduino-libraries/ArduinoECCX08) provides a [sketch that can be used to configure the chip](https://github.com/arduino-libraries/ArduinoECCX08/blob/master/examples/Tools/ECCX08CSR/ECCX08CSR.ino).  
+Just flash the [ECCX08CSR.ino](https://github.com/arduino-libraries/ArduinoECCX08/blob/master/examples/Tools/ECCX08CSR/ECCX08CSR.ino) sketch and follow the steps shown in the serial monitor: 
+
+![image](https://user-images.githubusercontent.com/11096047/174830458-430d5e4a-24dd-4c22-b311-fa1e8aee82f6.png)
+
+
+
+At the end of the process, the device will produce a CSR (Certificate signing request). You can save this CSR for future use, but for the purposes of this example we will not be using certificates. You will anyway be able to regenerate tha certificate using the same sketch on an already locked board. 
 
 # Coding the Sketch
-The full code for this sketch is included in https://github.com/iotexproject/machinefi-getstarted-preview/blob/main/devices/nano-33-iot.ino
+The full code for this sketch is available at https://github.com/iotexproject/machinefi-getstarted-preview/tree/main/devices/nano-33-iot
 
 ## Install dependencies
 
 Using the Arduino library manager, install the following dependencies for the sketch:  
 
-- [IoTeX-blockchain-client](https://www.arduino.cc/reference/en/libraries/iotex-blockchain-client/)
 - [ArduinoMqttClient](https://www.arduino.cc/reference/en/libraries/arduinomqttclient/)
 - [FlashStorage](https://www.arduino.cc/reference/en/libraries/flashstorage/)
 - [WiFiNINA](https://www.arduino.cc/reference/en/libraries/wifinina/)
 - [ArduinoECCX08](https://www.arduino.cc/reference/en/libraries/arduinoeccx08/)
+- [Arduino_LSM6DS3](https://www.arduino.cc/reference/en/libraries/arduino_lsm6ds3/)
 
 Make sure you include them in your sketch:
 ```c++
@@ -62,20 +70,19 @@ Make sure you include them in your sketch:
 
 #include <ArduinoMqttClient.h>
 #include <WiFiNINA.h>
-#include <IoTeX-blockchain-client.h>
 #include <ArduinoECCX08.h>
+#include <Arduino_LSM6DS3.h>
+
 ```
 
-Unfortunately, the ATECC608B does not support `keccak` hashing, so we imported the [IoTeX Blockchain client for Arduino](https://github.com/iotexproject/arduino-sdk) only to use the hashing function that it privides (we use it in `getDeviceId()`). 
-
 ## Configure the sketch
-The next section can be used to confihure the MQTT endpoint intended to receive the data messages, and the WiFi network for the device to connect to the Internet:
+The next section can be used to configure the MQTT endpoint intended to receive the data messages, and the WiFi network for the device to connect to the Internet:
 
 ```c++
 // MQTT broker, eg. "test.mosquitto.org".
 const char mqttBroker[] = "<YOUR_MQTT_BROKER>";
 // MQTT port, eg. 1883. 
-const int mqttPort = <YOUR_MQTT_PORT>;
+const int mqttPort = 1883;
 // Wifi ssid.
 const char wifiSsid[] = "<YOUR_WIFI_SSID>";
 // Wifi password.
@@ -135,7 +142,7 @@ void setup() {
 ```
 
 ## Generate the device unique id
-The `setup()`function ends with the generation of a unique id for the device, by obtaining the public from the ATECC608B secure element
+The `setup()`function ends with obtaining the public key from the ATECC608B secure element
 ```c++
 ...
   // Retrieve the public key for the corresponding slot in the ECC508/ECC608.
@@ -143,7 +150,8 @@ The `setup()`function ends with the generation of a unique id for the device, by
 ...
 ```
 
-then a convenient unique id can be created from the public key by hashing it and then taking say the last 20 bytes (see the `getDeviceId`function below). The unique id can then be used the foundation for a decentralized identity for this device on the IoTeX blockchain.
+and creating an hypotetical device unique id by hashing it (see the `getDeviceId`function below). The unique id can then be used the foundation for a decentralized identity for this device on the IoTeX blockchain that would be created during the device manufacturing process.
+
 ```c++
   // Generate the device id from the public key.
   deviceId = getDeviceId(publicKey);
@@ -154,19 +162,17 @@ then a convenient unique id can be created from the public key by hashing it and
 }
 ```
 
-We have also pre-computed an hypotetical the MQTT destination topic for data collection in the form of `/device/<id>/data`.
+We have also pre-computed an hypotetical MQTT destination topic for data collection in the form of `/device/<deviceId>/data`.
 
 ## Send verifiable data
-The `loop()` function if finally in charge of generating some fake data, sign and send it to the MQTT broker.
-The code is pretty self-explanatory, let's see it:
+The `loop()` function is finally in charge of reading some accelerometer, sign the data and send it to the MQTT broker.
+The code included in the loop() is pretty self-explanatory:
 
-First we generate the data message using some fake data (these will be real sensors data in a production device):```
+First we generate the data message using accelerometer data:```
 ```c++
-  // Build a message using a random heart rate value.
-  String heartRate = String(ECCX08.random(150));
-  // TODO Sync the RTC using WiFi and get the real epoch. Using a hardcoded one for now.
-  String timestamp = "1655543438"; 
-  String message = buildMessage(heartRate, timestamp);
+ void loop() {
+  // Wait until some relevant accelerometer data is available
+  readAccelerometer(x,y,z);
 ```
 
 Next, we hash the message (here, we used the hardware-accelerated SHA256 hashing function provided by the ATECC608B to hash the message)
@@ -196,37 +202,58 @@ finally, we can use the mqtt client to send out the signed message:
   mqttClient.endMessage();
 ```
 
-So to summarize:
+So to summarize the steps:
 
-1. Obtains the public key from the ATECC608A.
-2. Calculate the device id from the public key. In our example application, device id is created in a similar way as Ethereum addresses (the last 20 bytes of the keccak256 hash of the public key). However, note that this is application specific. Any application can choose it's own process for creating device ids and use it later to verify device identities.
-4. Produces a message with sensor data (fake heartrate and timestamp in our case).  
+1. Obtain the public key from the ATECC608A.
+2. Calculate the device id from the public key (note that this is application specific. Any application can choose it's own process for creating device ids and use it later to verify device identities).
+4. Produce a JSON message with sensor data
 5. Get the sha256 hash of the message from the ATECC608A.   
-6. Get the ECC signature of the message hash
-7. The message along with the signature is sent to the server. The MQTT topic contains the device id so we do not include it in the message.
+6. Get the ECC signature of the message hash from the ATECC608A.   
+7. The message along with the signature and some metadata is sent to the server. 
+
+Given that the MQTT topic itself contains the device id, so we do not include it in the message.
 
 Check out the [MachineFi get started guide](https://developers.iotex.io/posts/deploy-a-machinefi-dapp) to learn how to deploy a Layer-2 network component that can receive ad verify IoT data, and use it to build proof of real-world facts that can then fuel blockchain MachineFi Dapps. 
 
 # Utility functions
 Let's also take a quick look at some relevant  utility functions included in the code:
 
-`getDeviceId()`can be customized and it's only intended to generate a device unique id that is shorter than the public key itself (however, the public key would work as well).
-So this functions simply takes the public key, hashes it using the keccak hashing algorithm and takes the last 20 bytes of the hash prefixed by "0x".
+`getDeviceId()`can be customized and it's only intended to generate an id that would never change for the device: the public key from the ATECC608B is a good candidate, we just hash it to hide the public key.
+
+Therefore, this functions simply takes the public key, hashes it using the SHA256 hashing algorithm:
 ```c++
 // Gets the device id from the public key.
 String getDeviceId(const byte publicKey[64])
 {
-  uint8_t hash[IOTEX_HASH_SIZE] = {0};
-  signer.getHash((const uint8_t*)publicKey, 64, hash);
-  char hashLast20[41] = {0};
-  signer.hex2str(hash + sizeof(hash) - 20, 20, hashLast20, 41);
-  deviceId = "0x";
-  deviceId += hashLast20;
-  return deviceId;
+  byte hash[64] = {0};
+  ECCX08.beginSHA256();
+  ECCX08.endSHA256(publicKey, 64, hash);
+  Serial.print("Hash of public key is:   ");
+  printBufferHex(hash, sizeof(hash));
+  return (char*)hash;
 }
 ```
 
-`buildSignedMessage()` 
+`buildMessage()` takes accelerometer readings and timestamp to build the JSON message object containing the actual data:
+```
+// Builds a data message given x,y,z accelerations and timestamp.
+String buildMessage(float x, float y, float z, String timestamp)
+{
+  Serial.println("Buildong message:");
+  String message = "{\"ax\":";
+  message += String(x);
+  message += ",\"ay\":";
+  message += String(y);
+  message += ",\"az\":";
+  message += String(z);
+  message += ",\"timestamp\":";
+  message += timestamp;
+  message += "}";
+  return message;
+}
+```
+
+`buildSignedMessage()`: this function takes the JSON of the data message and the signature, and builds tha actual JSON message that will be sent out over MQTT, also adding some metadata about the cryptography used to generate the signature:
 
 ```c++
 // Constructs a signed message from a message and a signature.
@@ -243,7 +270,7 @@ String buildSignedMessage(String message, byte* signature, int signatureSize)
 }
 ```
 
-`buildMessage()` just generated a formatted JSON object including the message and the signature, in the form that we have seen in the firs section of this tutorial:
+the final message will look like the exampe have seen in the firs section of this tutorial.
 
 ```c++
 // Builds a message given a heart rate value and timestamp.
@@ -258,7 +285,7 @@ String buildMessage(String heartRate, String timestamp)
 }
 ```
 
-
+Check out the full source code on the [IoTeX official GitHub](https://github.com/iotexproject/machinefi-getstarted-preview/tree/main/devices/nano-33-iot).
 
 
 
