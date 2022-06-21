@@ -235,7 +235,7 @@ String getDeviceId(const byte publicKey[64])
 ```
 
 `buildMessage()` takes accelerometer readings and timestamp to build the JSON message object containing the actual data:
-```
+```c++
 // Builds a data message given x,y,z accelerations and timestamp.
 String buildMessage(float x, float y, float z, String timestamp)
 {
