@@ -3,12 +3,12 @@ First off, the release of the new iotex-core **v1.8.1**. We also have an update 
 Let's look at all these one by one.*
 
 
-## Upcoming iotex-core release v1.8.1
+## Upcoming Iotex-Core Release v1.8.1
 
 Since the initial preview of the IoTeX consensus back in 2018, Ethreum compatibility has always been an important theme for IoTex. 
 The conseus was already integrating the native Ethereum EVM (so it has always been compatible with Ethereum Smart Contracts) yet it hasn't been Ethereum API compatible until now.  
 
-<img width="900" alt="" src="https://user-images.githubusercontent.com/77351244/176372038-38447aa2-40ef-4bc7-9b12-c520232c3826.png">
+<img src="https://user-images.githubusercontent.com/77351244/176372038-38447aa2-40ef-4bc7-9b12-c520232c3826.png">
 
 We initially created a Babel Service, which had an IoTeX full node on one side and an ethereum client on the other - talking to this Babel Service was like talking to the Ethereum Node. 
 
@@ -16,12 +16,15 @@ This Babel Service would implement both Ethreum HTTPS API for any Ethereum call,
 
 One of the main points of focus of **v1.8.1** has been to bring this Babel Service **inside the full node**. Operators can now run an IoTeX full node (which is natively exposing both the IoTeX native API and the Ethereum HTTPS API as well as the Web Socket API) by starting it, configuring it as a gateway and just talking to it directly through any ethereum client.
 
+<img src="https://user-images.githubusercontent.com/77351244/176623286-ce3d4d8c-a643-467c-a615-efd4f6d3b27d.png">
+
+
 
 ## W3bStream Status Update
 
 *IoTeX is not only a Layer1 blockchain, but it also acts as a trusted logic and authorization layer into a bigger context enabled by MachineFi.*
 
-<img width="900" alt="" src="https://user-images.githubusercontent.com/77351244/176372360-9ed4fa0d-d704-4343-b36f-d73119ee36be.png">
+<img src="https://user-images.githubusercontent.com/77351244/176372360-9ed4fa0d-d704-4343-b36f-d73119ee36be.png">
 
 **MachineFi** is a pattern, a methodology to jump-start machine economies. The IoTeX blockchain lies at its center, while developers, device owners and machines revolve around it. 
 
@@ -36,9 +39,9 @@ It's worth mentioning, at this point, what is meant by **machine**:
 
 "A machine can be something programmable that generates telemetry autonomously, and it could be as small as a programmable sensor and as big as a car or a smart city". 
 
-We can see that in this flow the machine's entry point is through W3bStream, and should therefore be designed for it, meaning that its hardware and firmware must have certain features. 
+We can see that in this flow the machine's entry point is through W3bStream, and should therefore be designed for it, meaning that its hardware and firmware must have certain features. This cannot always be the case though, as most smart devices are currectly built with a web2 architecture in mind. 
 
-*What about legacy devices, can they not be part of the MachineFi economy?*
+**Can legacy devices be part of the MachineFi economy then, or not?**
 
 Yes, they can, and this is part of where the complexity of W3Bstream lies in. W3bStream has to, in fact, allow legacy devices to be onboarded on the new web3 architecture, but also account for the new machines specifically designed for web3, such as the **Pebble tracker** (an IoTeX native web3 device with firmware and hardware features that allow it to talk directly to W3bStream). 
 
@@ -85,15 +88,17 @@ IoTeX already has decentralized identity specifications that can be used for peo
 
 ***Why would someone build a DeFi protocol on IoTeX instead of on another chain?***
 
-The quick answer is: *"you should not build DeFi, you should build **MachineFi** on IoTeX".* 
+The quick answer is: *"You should not build DeFi, you should build **MachineFi** on IoTeX".* 
 The reason for this is that MachineFi is an evolution of DeFi. When DeFi will have access to the value that real world assets bring, when you can prove that a machine you own is doing some work, with verifiable data and a verifiable identity, then that data can then be tokenized through blockchain - that's the evolution of DeFi into MachineFi. The reason to deploy a DeFi application on IoTeX is that in the future such application will get access to a much bigger set of use cases than just web3 finance. 
 
 
 ***
 ***About The IoTeXPerts Livestreams***
 
-*The IoTeXPerts Livestreams are a way for our community to stay in touch and get updated on the latest news from the world of IoTeX. Developers can join and share their projects built on our platform, maybe ask for advice or debugging tips, or even help other developers along the way and engage with other members of the community. 
-The livestreams happen every Wednesday at 7:00PM UTC and can be accessed through our [Discord](https://discord.gg/bSGzaSvg) channel.*
+*The IoTeXPerts Livestreams are a way for our community to stay in touch and get updated on the latest news from the world of IoTeX. Developers can join and share their projects built on our platform, maybe ask for advice or debugging tips, or even help other developers along the way and engage with other members of the community.*
+
+
+*The livestreams happen every Wednesday at 7:00PM UTC and can be accessed on our [Discord](https://discord.gg/bSGzaSvg) server.*
 ***
 
 
