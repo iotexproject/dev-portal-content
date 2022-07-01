@@ -104,7 +104,6 @@ Realtize is also building the next generation digital investment platform that w
 
 The team behind Realtize is comprised of CEO **Jerry Li**, CTO & COO **David Chung**, and **Dmitri Prokopenko**. We'll keep you updated on their innovative project. 
 
-* * *
 
 ## ***About the Halo Grants Program***
 
