@@ -105,7 +105,7 @@ Realtize is also building the next generation digital investment platform that w
 The team behind Realtize is comprised of CEO **Jerry Li**, CTO & COO **David Chung**, and **Dmitri Prokopenko**. We'll keep you updated on their innovative project. 
 
 
-## ***About the Halo Grants Program***
+## About the Halo Grants Program
 
 **Halo** is the official IoTeX Grants Program run by the IoTeX Foundation. **Join us in building a connected world!** The IoTeX Halo Program accelerates the growth of the IoTeX ecosystem, helps developers to launch the **next-gen Dapps** around DeFi, NFT, GameFi, and most importantly, **MachineFi** topics!
 This program is open for projects at any stage to apply, as long as the project promotes the growth and adoption of the IoTeX technology, ecosystem, and community.
