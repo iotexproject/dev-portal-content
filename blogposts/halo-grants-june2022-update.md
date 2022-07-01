@@ -1,4 +1,4 @@
-*The **IoTeX Halo Program** offers grants for software and hardware development, research, and community efforts to fuel the development of the **Internet of Trusted Things**. 
+*The **IoTeX Halo Program** offers grants for software and hardware development, research, and community efforts to fuel the development of **MachineFi** Dapps. 
 Halo Grants are open for any project at any stage to apply to promote the growth and use of IoTeX technology.*
 
 The month of June has seen 9 new startups seeking funds through Halo, ranging from DeFi to GameFi and NFTs. 
