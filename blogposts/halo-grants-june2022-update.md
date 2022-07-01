@@ -9,7 +9,7 @@ These are some updates on the new things to look out for:
 # New Seekers
 
 Did you know that IoTeX community members can vote on their favorite new proposals? 
-Simply go to [Halo](https://community.iotex.io/t/about-the-halo-grants-program/3821)'s official page and help your favorite projects come to life. 
+Simply go to [Halo's section](https://community.iotex.io/c/halo-grants/61) on the IoTeX Community Forum and help your favorite projects come to life. 
 
 
 Let's look at some of the most interesting new seekers:
