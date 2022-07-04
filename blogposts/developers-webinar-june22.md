@@ -8,7 +8,7 @@ Let's look at all these one by one.*
 Since the initial preview of the IoTeX consensus back in 2018, Ethreum compatibility has always been an important theme for IoTex. 
 The conseus was already integrating the native Ethereum EVM (so it has always been compatible with Ethereum Smart Contracts) yet it hasn't been Ethereum API compatible until now.  
 
-<img src="https://user-images.githubusercontent.com/77351244/176372038-38447aa2-40ef-4bc7-9b12-c520232c3826.png">
+![BabelNode](https://user-images.githubusercontent.com/77351244/176372038-38447aa2-40ef-4bc7-9b12-c520232c3826.png)
 
 We initially created a Babel Service, which had an IoTeX full node on one side and an ethereum client on the other - talking to this Babel Service was like talking to the Ethereum Node. 
 
@@ -16,7 +16,7 @@ This Babel Service would implement both Ethreum HTTPS API for any Ethereum call,
 
 One of the main points of focus of **v1.8.1** has been to bring this Babel Service **inside the full node**. Operators can now run an IoTeX full node (which is natively exposing both the IoTeX native API and the Ethereum HTTPS API as well as the Web Socket API) by starting it, configuring it as a gateway and just talking to it directly through any ethereum client.
 
-<img src="https://user-images.githubusercontent.com/77351244/176623286-ce3d4d8c-a643-467c-a615-efd4f6d3b27d.png">
+![newNode](https://user-images.githubusercontent.com/77351244/176623286-ce3d4d8c-a643-467c-a615-efd4f6d3b27d.png)
 
 
 
@@ -24,7 +24,7 @@ One of the main points of focus of **v1.8.1** has been to bring this Babel Servi
 
 *IoTeX is not only a Layer1 blockchain, but it also acts as a trusted logic and authorization layer into a bigger context enabled by MachineFi.*
 
-<img src="https://user-images.githubusercontent.com/77351244/176372360-9ed4fa0d-d704-4343-b36f-d73119ee36be.png">
+![W3bStreamFlow](https://user-images.githubusercontent.com/77351244/176372360-9ed4fa0d-d704-4343-b36f-d73119ee36be.png)
 
 **MachineFi** is a pattern, a methodology to jump-start machine economies. The IoTeX blockchain lies at its center, while developers, device owners and machines revolve around it. 
 
