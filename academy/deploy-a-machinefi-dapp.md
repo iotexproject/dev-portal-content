@@ -331,9 +331,8 @@ You should see the Hasura interface
 
 Click on Connect your first database  
 
-Enter the database name and url. If you haven't modified them, your default database name is `datalayerdb`, while the url is `postgres://postgres:postgrespassword@postgres:5432/datalayerdb`. If you've modified your database name, then the url would be `postgres://postgres:postgrespassword@postgres:5432/<YOUR DATABASE NAME>`. 
+Enter the database name and url. If you haven't modified the database name, the default url is `postgres://postgres:postgrespassword@postgres:5432/datalayerdb`. If you've modified it, then the url would be `postgres://postgres:postgrespassword@postgres:5432/<YOUR DATABASE NAME>`. 
 
-Have a look at the `docker-compose.yaml` file for more details. 
 
 ![](https://user-images.githubusercontent.com/82106612/172646367-3923bbbc-ef16-4e67-b7ee-0a500e7c2d20.png)
 
