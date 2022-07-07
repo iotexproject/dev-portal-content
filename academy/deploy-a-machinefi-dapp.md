@@ -21,7 +21,7 @@ A MachineFi Dapp can be broken into 3 main components:
 ![img](https://user-images.githubusercontent.com/11096047/174353904-52b5869b-ed67-4ae9-b32d-30b17130d9df.png)
 
 
-At the end of this quick start you will have a working infrastructure including a device data simulator, an off-chain data layer that receives, verifies and stores data, and asimpla Layer one device authorization contract. 
+At the end of this quick start you will have a working infrastructure including a device data simulator, an off-chain data layer that receives, verifies and stores data, and a simple Layer-1 device authorization contract. 
 
 
 ## Requirements
@@ -330,7 +330,10 @@ You should see the Hasura interface
 ![](https://user-images.githubusercontent.com/82106612/172644818-5004bc18-994a-4100-8256-8317203f17b7.png)
 
 Click on Connect your first database  
-Enter the database name and url (you can find them in `docker-compose.yaml`)  
+
+Enter the database name and url. If you haven't modified the database name, the default url is `postgres://postgres:postgrespassword@postgres:5432/datalayerdb`. If you've modified it, then the url would be `postgres://postgres:postgrespassword@postgres:5432/<YOUR DATABASE NAME>`. 
+
+
 ![](https://user-images.githubusercontent.com/82106612/172646367-3923bbbc-ef16-4e67-b7ee-0a500e7c2d20.png)
 
 Click Connect database. Once connected click the `app` database on the left panel  
