@@ -2,9 +2,6 @@
 title: Build a decentralized data marketplace
 description: Learn how to create a decentralized marketplace where the data stream from smart devices may be traded between device owners and subscribers. 
 ---
-https://user-images.githubusercontent.com/11096047/174313958-be49eeb6-5300-49d9-978d-9de33a54f94f.mp4
-
-
 In this guide, we share the implementation
 details for a smart contract that realizes an authorization mechanism to a fully decentralized IoT data marketplace.
 
