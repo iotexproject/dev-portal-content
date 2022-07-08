@@ -239,11 +239,13 @@ The simulator is located in the `simulator` directory. Create an environment fil
 touch simulator/.env
 ```
 
-set the simulator private key in `PRIVATE_KEY` and the data interval in `SEND_INTERVAL_SECONDS`:
-
 ```bash
 PRIVATE_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
+# How often should the device send data messages?
 SEND_INTERVAL_SECONDS=60
+# Your MQTT Broker connection settings
+MQTT_BROKER_HOST=localhost
+MQTT_BROKER_PORT=1883
 ```
 
 In order to send test data using the simulator run the following:  
