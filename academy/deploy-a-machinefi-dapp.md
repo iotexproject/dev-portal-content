@@ -143,6 +143,7 @@ The configuration file for the data layer application is located in `src/project
 
 Run the provided npm script to build the data layer  
 ```shell
+cd ..
 npm run build
 ```
 
