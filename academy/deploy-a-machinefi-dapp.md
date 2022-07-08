@@ -233,19 +233,25 @@ catchUp end at 14737993
 
 A device simulator script is provided that sends randomly generated data that are signed by a private key, supposed to the the device's securely generated key.
 
-The simulator is located in the `simulator` directory. Create an environment file at `simulator/.env` to configure the simulator:
+The simulator is located in the `simulator` directory. Create an environment file at `simulator/.env` from the template to configure the simulator:
 
 ```bash
-touch simulator/.env
+cp simulator/.env.template simulator/.env
 ```
 
 ```bash
+# The private key of the device
 PRIVATE_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
-# How often should the device send data messages?
-SEND_INTERVAL_SECONDS=60
-# Your MQTT Broker connection settings
-MQTT_BROKER_HOST=localhost
+
+# MQTT settings
+MQTT_BROKER_HOST="localhost"
 MQTT_BROKER_PORT=1883
+MQTT_USE_AUTHENTICATION=False
+MQTT_USER=user
+MQTT_PASSWORD=password
+
+# Interval in seconds between data messages
+SEND_INTERVAL_SECONDS=60
 ```
 
 In order to send test data using the simulator run the following:  
