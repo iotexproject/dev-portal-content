@@ -235,12 +235,13 @@ A device simulator script is provided that sends randomly generated data that ar
 
 The simulator is located in the `simulator` directory. Create an environment file at `simulator/.env` to configure the simulator:
 
-```
+```bash
 touch simulator/.env
+```
 
 set the simulator private key in `PRIVATE_KEY` and the data interval in `SEND_INTERVAL_SECONDS`:
 
-```
+```bash
 PRIVATE_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
 SEND_INTERVAL_SECONDS=60
 
