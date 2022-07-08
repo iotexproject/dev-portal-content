@@ -113,6 +113,8 @@ echo IOTEX_PRIVATE_KEY=<YOUR_PRIVATE_KEY> > .env
 
 Deploy the contract using the following command. Replace `NETWORK` with either `testnet` or `mainnet`  
 ```shell
+# Make sure you are on node 14: 
+# nvm use 14
 npx hardhat run scripts/deploy.js --network <NETWORK>
 Eg: npx hardhat run scripts/deploy.js --network testnet
 ``` 
