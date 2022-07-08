@@ -231,8 +231,18 @@ catchUp end at 14737993
 # Send simulated data
 ## Run the device simulator
 
-A simulator script is provided that sends some randomly generated data.  
-The simulator is located in the `simulator` directory. The environment file at `simulator/.env` is used to configure the simulator.  Use the `SEND_INTERVAL_SECONDS` variable to change the interval in which messages are being sent.  
+A device simulator script is provided that sends randomly generated data that are signed by a private key, supposed to the the device's securely generated key.
+
+The simulator is located in the `simulator` directory. Create an environment file at `simulator/.env` to configure the simulator:
+
+```
+touch simulator/.env
+
+set the simulator private key in `PRIVATE_KEY` and the data interval in `SEND_INTERVAL_SECONDS`:
+
+```
+PRIVATE_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
+SEND_INTERVAL_SECONDS=60
 
 In order to send test data using the simulator run the following  
 ```shell
@@ -259,17 +269,17 @@ Follow the next steps in order to register your device.
 
 ## Authorize the device simulator in the smart contract
 
-You can use the provided `registerDevice` hardhat script to register your own device.  
-In order to do it follow the steps below.  
-Replace `DEVICE_ADDRESS` with your 0x prefixed device address.  
-Replace `CONTRACT_ADDRESS` with the 0x prefixed address of your contract.  
-Replace `NETWORK` with either testnet or mainnet.  
+You can use the provided `registerDevice` hardhat script to register your own device. In order to do it follow the commands below with changes that apply to your system:  
 
 ```shell
 cd blockchain
 npx hardhat registerDevice --deviceaddress <DEVICE_ADDRESS> --contractaddress <CONTRACT_ADDRESS> --network <NETWORK>
 # Eg: npx hardhat registerDevice --deviceaddress 0x19E7E376E7C213B7E7e7e46cc70A5dD086DAff2A --contractaddress 0x4fb87c52Bb6D194f78cd4896E3e574028fedBAB9  --network testnet
 ```
+
+Replace `DEVICE_ADDRESS` with your 0x prefixed simulated device address.  
+Replace `CONTRACT_ADDRESS` with the 0x prefixed address of your registru contract.  
+Replace `NETWORK` with either testnet or mainnet.  
 
 You should get some output similar to below  
 ```shell
