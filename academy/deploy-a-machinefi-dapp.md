@@ -244,8 +244,9 @@ set the simulator private key in `PRIVATE_KEY` and the data interval in `SEND_IN
 ```bash
 PRIVATE_KEY=0x1111111111111111111111111111111111111111111111111111111111111111
 SEND_INTERVAL_SECONDS=60
+```
 
-In order to send test data using the simulator run the following  
+In order to send test data using the simulator run the following:  
 ```shell
 pip3 install -r simulator/requirements.txt
 python3 simulator/simulator.py
