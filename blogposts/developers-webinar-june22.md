@@ -97,7 +97,7 @@ ___
 *The IoTeXPerts Livestreams are a way for our community to stay in touch and get updated on the latest news from the world of IoTeX. Developers can join and share their projects built on our platform, maybe ask for advice or debugging tips, or even help other developers along the way and engage with other members of the community.*
 
 
-*The livestreams happen every Wednesday at 7:00PM UTC and can be accessed on our [Discord](https://discord.gg/bSGzaSvg) server.*
+*The livestreams happen every other Wednesday at 8:15PM UTC and can be accessed through our [Youtube](https://www.youtube.com/c/IoTeXOfficialChannel) channel.*
 
 
 
