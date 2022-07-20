@@ -42,7 +42,7 @@ In the Library Manager dialog, search for IoTeX-blockchain-client and click `ins
 Copy-paste the following sketch in the IDE (edit your WiFi network configuration), hit the `upload` button in the IDE and wait for the software to be flashed into the board (notice that some boards require you to press the one of the available buttons sometimes called `boot` to allow it to be flashed the software).
 Once the flash is complete, select `Tools->Serial monitor`from the menu and configure the monitor speed on 115000 baud to see to output. The onboard led should get activated if the address you checked has some balance, or it will stay off if the balance is 0.
 
-```c++
+```cpp
 #include <Arduino.h>
 #include <WiFi.h>
 #include "IoTeX-blockchain-client.h"
