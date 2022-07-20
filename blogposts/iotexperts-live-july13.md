@@ -10,15 +10,15 @@ The Portal's homepage is intedended to be the most immediate tool for devs to st
 
 Besides being a quick and useful tool to be kept updated, the homepage section also allows devs to immediately start experimenting with **IoTeX**. There are three prominent quickstarts on the page: The main one is about deploying a simple architecture to get started with a [**MachineFi**](https://machinefi.com/) dApp on IoTeX, while the other two are meant to give web3 devs and IoT devs an idea of what it's like to build on IoTeX. Web3 devs will be able to use the quickstart to deploy their EVM contracts and interact with the IoTeX blokchain, while hardware enthusiasts will get an idea of how to connect a device as a client of the IoTeX blockchain.
 
-Next up is the Academy section, which devs can use to find and contribute educational content. Throughout the Academy, content can be filtered by category (*Quick Starts, Tutorials, Guides*) and by difficulty level (*Beginner, Intermediate, Advanced*). For the more visual learners out there, the Academy content can also be filtered to display only video tutorials. 
+Next up is the Academy section, which devs can use to find and contribute educational content. Throughout the Academy, content can be filtered by category (*Quick Starts, Tutorials, Guides*) and by difficulty level (*Beginner, Intermediate, Advanced*). 
 
 As mentioned above, developers contributions are extremely valued and are a very important aspect of the Academy. In this regard, the Academy can be seen as an archive of projects, demos, tutorials, quick starts, examples or even ideas that contributors might find worth sharing with the other members of the IoTeX developers community. Contributing to the Academy will allow any developer to build up their profile on the platform over time. 
 
-Contributions to the portal are incentivized by a tipping mechanism. Developer have the possibility to connect their wallet to their profile and immediately receive tips for their content, while also supporting content created by other members of the community by tipping them in return. Wallet connection will also allow developers to request test iotx tokens for development purposes. If you'd like to know more about how to connect your MetaMask wallet to the IoTeX network, check the developers docs [here](https://app.gitbook.com/o/-MQ9LhchTp7_QJr-AYG0/s/-MUPHwAAaa4_zIrX70rA/get-started/iotex-wallets/metamask).
+Contributions to the portal are incentivized by a tipping mechanism. Developers have the possibility to connect their wallet to their profile and immediately receive tips for their content, while also supporting content created by other members of the community by tipping them in return. Through their profile page, devs will also be able to request test iotx tokens for development purposes. If you'd like to know more about how to connect your MetaMask wallet to the IoTeX network, check the developers docs [here](https://app.gitbook.com/o/-MQ9LhchTp7_QJr-AYG0/s/-MUPHwAAaa4_zIrX70rA/get-started/iotex-wallets/metamask).
 
-The tipping mechanism is not only a feature of the Academy, but pertains to the Blog section as well. Our goal with the blog is to allow experts in related fields to contribute educational articles to nurture the community and grow within it. 
+The tipping mechanism is not only a feature of the Academy, but pertains to the Blog section as well. Our goal with the blog is to allow experts in relevant fields to contribute educational articles to nurture the community and grow within it. 
 
-Contributing to the platform is very easy, and it's clearly explained on our dev-portal-content [repository](https://github.com/iotexproject/dev-portal-content). All the contributions to the platform are assessed internally at the moment, but the goal is to start implementing DAO concepts in the future to make the developers portal fully driven and managed by our community. 
+Contributing to the platform is very easy, and it's clearly explained on our dev-portal-content [repository](https://github.com/iotexproject/dev-portal-content). While all the contributions to the platform are assessed internally at the moment, our goal is to start implementing DAO concepts in the future to make the developers portal fully driven and managed by our community. 
 
 
 
@@ -26,13 +26,25 @@ Contributing to the platform is very easy, and it's clearly explained on our dev
 
 **Any news about the Pebble Tracker?**
 
-Our main point of focus at the moment is to start teaching developers how to build using the [Pebble Tracker](https://metapebble.app/). As the portal grows, it will inevitably provide developers with more tools and knowledge to build applications that everybody can use. The increase in Pebble-related content for interested builders is strictly connected to the release of [**W3bStream**](https://app.gitbook.com/o/-MQ9LhchTp7_QJr-AYG0/s/-MUPHwAAaa4_zIrX70rA/machinefi/w3bstream-network), the Layer2 component of the IoTeX tech stack. After the release of **W3bStream**, expected by the end of the year, Pebble owners will be able to mine tokens, and use their devices to build applications.
+Our main point of focus at the moment is to start teaching developers how to build using the [Pebble Tracker](https://metapebble.app/). As the portal grows, it will inevitably provide developers with more tools and knowledge to build applications that everybody can use. The increase in Pebble-related content for interested builders is strictly connected to the release of [**W3bStream**](https://app.gitbook.com/o/-MQ9LhchTp7_QJr-AYG0/s/-MUPHwAAaa4_zIrX70rA/machinefi/w3bstream-network), the Layer2 component of the IoTeX tech stack. After the release of **W3bStream**, expected by the end of the year, Pebble owners will be able to mine tokens, and use their devices to build applications. The standard cycle of a possible do-something-to-earn MachineFi application is illustrated below. 
+
+![do-something-to-earn app cycle](https://user-images.githubusercontent.com/77351244/180025197-eeaefe06-9634-4906-9afa-b1abe28cffe3.png)
+
 
 
 **Why does IoTeX use Microsoft Bing for the Pebble Tracker Map feature?**
 
 That is just the component that's used on the MachineFi portal to display the map. It has nothing to do with the accuracy and the actual location of the device. The location is sent directly from the device itself, it's read from the GPS antenna, and it's not handled by any third party service. 
-Currently the default firmware in the Pebble tracker will send verifiable data (including location) to a Layer2 node, which handles the device authorization and data integrity verification based on the device's identity stored on the blockchain. Upon success, the node will then save this data in a database. This databse is not only queried by the MachineFi portal, which then displays this information, but can also be openly accessed by any developer for testing purposes. The reason why the default firmware is sending a rounded GPS location is to avoid accurately tracking a person's location based on their device. Should a developer need an accurate location, for example, we have released a new feature for the Pebble tracker that allows an owner to redirect the data to their own node, choose which sensor/sensors to use and determine the accuracy of the GPS data that is sent by the device. The owner can then implement their own IoT logic on their server, which will then interact with custom tokenomics on the IoTeX blockchain. 
+Currently the default firmware in the Pebble tracker will send verifiable data (including location) to a Layer2 node, which handles the device authorization and data integrity verification based on the device's identity stored on the blockchain. Upon success, the node will then save this data in a database. This databse is not only queried by the MachineFi portal, which then displays this information, but can also be openly accessed by any developer for testing purposes. The reason why the default firmware is sending a rounded GPS location is to avoid accurately tracking a person's location based on their device. The default firmware cycle is illustrated right below: 
+
+
+![Default Pebble firmware cycle](https://user-images.githubusercontent.com/77351244/180023722-98523d72-b388-4d3b-82e2-ee6b8d589b4a.png)
+
+
+Should a developer need an accurate location, for example, we have released a new feature for the Pebble tracker that allows an owner to redirect the data to their own node, choose which sensor/sensors to use and determine the accuracy of the GPS data that is sent by the device. The owner can then implement their own IoT logic on their server, which will then interact with custom tokenomics on the IoTeX blockchain. 
+
+![Custom configuration](https://user-images.githubusercontent.com/77351244/180024507-483488b8-6afb-47d1-8a48-0456e6b273ec.png)
+
 
 It's worth mentioning that the Pebble tracker is already wrapping all the complexity of designing verifiable hardware and secure firmware. Each device has already been registered on the IoTeX blockchain, it already has tamper-proof hardware and provides tamper-proof data.  When a node receives data, the owner can easily verify the signature associated with it, check against the public key that has been registered on the IoTeX blockchain, and thus ensure that this data is indeed coming from the Pebble tracker, and is not fake. 
 
