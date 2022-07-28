@@ -1,4 +1,4 @@
-*After a little preview on [June 22nd's Webinar](https://developers.iotex.io/blogposts/IoTeXPerts-June-22-Livestream-Recap), July 13th's event focused mostly on our brand new [Developers Portal](https://developers.iotex.io/). Robert and our IoTeXperts, Simone and Jeremy, walked through all the new features on the Portal, and answered some pretty interesting questions from the audience.*
+*During this episode of **IoteXperts Live**, we walked through the new **IoTeX Developer Portal**, looked at upcoming events for developers, and had amazing discussions about the tech behind the **MachineFi** methodology.*
 
 
 ## The IoTeX Developers Portal 
