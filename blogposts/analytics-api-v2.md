@@ -6,9 +6,9 @@ The new version of *IoTeX Analytics* comes with **increased scalability** and in
 
 ![xrc20req](https://user-images.githubusercontent.com/77351244/182201087-3df00db3-5db6-4321-90c6-20da8b05703d.png)
 
-The graph above shows how, for example, many of the requests related to XRC20 or XRC721 tokens, which would *timeout* on V1, are actually handled in V2 in much less than a second. (The horizontal axis on the graph shows requests per second).  
+The chart above shows how, for example, many of the requests related to XRC20 or XRC721 tokens, which would *timeout* on V1, are actually handled in V2 in much less than a second. (The horizontal axis on the graph shows requests per second).  
 
-The graph below shows how a lot of the APIs related to the Hermes service have similarly been improved.
+The chart below shows how a lot of the APIs related to the Hermes service have similarly been improved.
 
 ![hermesReq](https://user-images.githubusercontent.com/77351244/182201359-8b3b381a-062c-4db8-ab19-6d63cec30216.png)
 
