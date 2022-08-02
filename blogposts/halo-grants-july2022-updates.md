@@ -1,7 +1,7 @@
 *The **IoTeX Halo Program** offers grants for software and hardware development, research, and community efforts to fuel the development of **MachineFi** Dapps. 
 Halo Grants are open for any project at any stage to apply to promote the growth and use of IoTeX technology.*
 
-Since its start in late 2021, the **IoTeX Halo** program has granted funds to dozens of new projects, and has now passed the 1 million dollar mark in funds requested by a variety of projects, ranging from **MachineFi**, to **DAO**s, **DeFi**, **GameFi** and **NFT**s. The month of July has been keeping up with this amazing trend, adding 3 new funds-seeking projects to our tally. We also need to congratulate 4 new projects for being accepted to the program! We're really anxious to see them grow,  but in the meantime, we'll look at all these projects one by one in a little closer detail.
+Since its start in late 2021, the **IoTeX Halo** program has granted funds to dozens of new projects, and has now passed the 1 million dollar mark in funds requested by a variety of projects, ranging from **MachineFi**, to **DAO**s, **DeFi**, **GameFi** and **NFT**s. The month of July has been keeping up with this amazing trend, adding 3 new funds-seeking projects to our tally. We also need to congratulate 5 new projects for being accepted to the program! We're really anxious to see them grow,  but in the meantime, we'll look at all these projects one by one in a little closer detail.
 
 # New Seekers
 
@@ -45,6 +45,24 @@ Are you looking forward to a new, secure NFT trading platform on **IoTeX**? Lear
 # July's New Gratees
 
 After a look at the new proposals, it's time to welcome and congratulate these new projects on their achievement. You might remember some of them as new seekers in our [June 2022 Halo Grants](https://developers.iotex.io/blogposts/Halo-Grants-Update-June-2022) update. Nevertheless, let's look at these new, exciting projects one by one. 
+
+## EnviroBLOQ
+
+One of the most interesting projects out of this month's grantess, [EnviroBLOQ](https://envirobloq.io/) is a **MachineFi dApp** that aims at connecting smart homes to the IoTeX blockchain, compiling their data into a comprehensible dashboard for homeowner analysis & Third Party utilization.
+
+EnviroBLOQ will extract data from as many points as possible from a smart home, such as utilities monitoring, smart controls, solar power generation, etc... The data will then be collected analyzed & verified by the **IoTeX blockchain** to ensure accuracy and trust before being packaged for Third Party utilization.
+
+Their concept is definitely creating a win-win situation for all parties involved: **Homeowners** will be able to see the full picture of their home’s energy efficiencies and be able to make more educated decisions regarding utility usage and future upgrades to the property, while also being directly rewarded for their data; **Manufacturers** will now have a more concise and trusted picture of how their products perform in various real-world environments, enabling them to improve product performance and manufacturing processes; **Utility Providers & City Management** are able to better analyze utility consumption & peak demand loads, address natural disaster situations quicker and more efficiently. 
+
+Let's look at how the team behind EnviroBLOQ, comprised of **Founder & CEO** [Will McCann](https://www.linkedin.com/in/will-mccann-68975023/), **Co-Founder & CTO** [Charles Cobern](https://www.linkedin.com/in/chuckcobern), is planning to achieve their ambitious plan. 
+
+EnviroBLOQ will install a [Pebble Tracker](https://metapebble.app/) in attics and central interior spaces of 30 homes around the Leander, TX area for further Proof of Concept. This will establish a baseline data pool from which to build the dApp and begin discussions with potential investors and Data Consumers. 
+
+The Pebble Tracker will be utilized as an early ‘Plug-and-Play’ option, but will not be a pre-requisite to join the ecosystem as a Data Provider. 
+
+The organic growth of enviroBLOQ will be driven by the tokenized Rewards paid to Data Providers. Every Data Provider will earn base daily EBLOQ token rewards for up to one device in each Data Set category connected to enviroBLOQ.
+
+EnviroBLOQ is definitely a project to watch out for. We'll keep a close look at their progress and keep our community updated on their next steps. 
 
 
 ## MistTrack Analytics Platform
