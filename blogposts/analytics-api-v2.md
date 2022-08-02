@@ -4,13 +4,14 @@
 
 The new version of *IoTeX Analytics* comes with **increased scalability** and increased support for **larger amounts of transactions and data**. There has been a major architectural upgrade aimed at separating the indexer and API services, which allows for a better handling of erroneous data. *Analytics V2* also supports **multiple API methods** (e.g. REST and GraphQL), a **much higher query speed**, and many new APIs that have been added on top of the ones from V1.
 
-![xrc20req](https://user-images.githubusercontent.com/77351244/182201087-3df00db3-5db6-4321-90c6-20da8b05703d.png)
+<img width="1131" alt="image" src="https://user-images.githubusercontent.com/11096047/182444522-f434d2db-e54e-4156-ba9a-33de7b1b6003.png">
+
 
 The chart above shows how, for example, many of the requests related to XRC20 or XRC721 tokens, which would *timeout* on V1, are actually handled in V2 in much less than a second. (The horizontal axis on the graph shows requests per second).  
 
 The chart below shows how a lot of the APIs related to the Hermes service have similarly been improved.
 
-![hermesReq](https://user-images.githubusercontent.com/77351244/182201359-8b3b381a-062c-4db8-ab19-6d63cec30216.png)
+<img width="1228" alt="image" src="https://user-images.githubusercontent.com/11096047/182444674-07a57a6c-63ac-4ff9-a049-5f0621737fd4.png">
 
 These are just a few examples of how the new version stands out. These improvements have been achieved thanks to new data and index optimization models, as well as SQL query optimization, while some APIs use parallel computing. 
 
@@ -28,7 +29,7 @@ Let's look at some examples:
 
 If you are building an IoTeX Explorer, this is something you really need:
 
-```
+```javascript
 query {
   ActionByAddress(address: "io1zqnd7sdppw6s2l20pqnpmyrcj0edtautu9wxss") {
     actions {
@@ -42,7 +43,7 @@ query {
 
 If you want to know the efficiency in block production for a specific delegate in a specific range of epochs:
 
-```
+```js
 query {
   Productivity(delegateName: "binancevote", startEpoch:20000, epochCount: 120) {
     productivity {
@@ -56,7 +57,7 @@ query {
 
 You can also get the balance of a wallet at a specific height of the blockchain:
 
-```
+```js
 query {
   IotexBalanceByHeight(
     address: "0x6b132450C6988246cf60501f37CdF7eEd5d19176", height:  18777330) {
@@ -67,14 +68,10 @@ query {
 
 For those developers who are curious to see the new Analytics in action and try it, the full documentation can be found on our [IoTeX Docs](https://docs.iotex.io/reference/analytics). 
 
+The chart below shows the full list of stress tests of Analytics V2 vs V1: 
+
+![origin_img_v2_042d36e2-aaf2-4c86-94bd-86964964691h](https://user-images.githubusercontent.com/11096047/182444851-cbcaa5c9-d8fa-4d23-967e-2a8cd1d1f9c6.png)
+
 You can always reach out to our dedicated developers support team on our [Discord](https://discord.gg/3WVZ4Vbs) and keep up-to-date with all the latest news on our [iotex_dev](https://twitter.com/iotex_dev) Twitter account. Take full advantage of the IoTeX ecosystem and submit your dream project for our [Halo Grants](https://community.iotex.io/c/halo-grants/61). We can't wait to see where you go from here! 
-
-
-
-
-
-
-
-
 
 
