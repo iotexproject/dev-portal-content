@@ -4,14 +4,14 @@
 
 The new version of *IoTeX Analytics* comes with **increased scalability** and increased support for **larger amounts of transactions and data**. There has been a major architectural upgrade aimed at separating the indexer and API services, which allows for a better handling of erroneous data. *Analytics V2* also supports **multiple API methods** (e.g. REST and GraphQL), a **much higher query speed**, and many new APIs that have been added on top of the ones from V1.
 
-<img width="1131" alt="image" src="https://user-images.githubusercontent.com/11096047/182444522-f434d2db-e54e-4156-ba9a-33de7b1b6003.png">
+<img width="1131" alt="image" src="https://user-images.githubusercontent.com/11096047/182444522-f434d2db-e54e-4156-ba9a-33de7b1b6003.png"/>
 
 
 The chart above shows how, for example, many of the requests related to XRC20 or XRC721 tokens, which would *timeout* on V1, are actually handled in V2 in much less than a second. (The horizontal axis on the graph shows requests per second).  
 
 The chart below shows how a lot of the APIs related to the Hermes service have similarly been improved.
 
-<img width="1228" alt="image" src="https://user-images.githubusercontent.com/11096047/182444674-07a57a6c-63ac-4ff9-a049-5f0621737fd4.png">
+<img width="1228" alt="image" src="https://user-images.githubusercontent.com/11096047/182444674-07a57a6c-63ac-4ff9-a049-5f0621737fd4.png"/>
 
 These are just a few examples of how the new version stands out. These improvements have been achieved thanks to new data and index optimization models, as well as SQL query optimization, while some APIs use parallel computing. 
 
