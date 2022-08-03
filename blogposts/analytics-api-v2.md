@@ -70,7 +70,7 @@ For those developers who are curious to see the new Analytics in action and try 
 
 The chart below shows the full list of stress tests of Analytics V2 vs V1: 
 
-<img src="https://user-images.githubusercontent.com/11096047/182610944-4196c374-9a7b-4d36-815c-cfc515550a52.png">
+<img src="https://user-images.githubusercontent.com/11096047/182610944-4196c374-9a7b-4d36-815c-cfc515550a52.png"/>
 
 
 
