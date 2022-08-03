@@ -74,6 +74,8 @@ The chart below shows the full list of stress tests of Analytics V2 vs V1:
 
 
 
-You can always reach out to our dedicated developers support team on our [Discord](https://discord.gg/3WVZ4Vbs) and keep up-to-date with all the latest news on our [iotex_dev](https://twitter.com/iotex_dev) Twitter account. Take full advantage of the IoTeX ecosystem and submit your dream project for our [Halo Grants](https://community.iotex.io/c/halo-grants/61). We can't wait to see where you go from here! 
+You can always reach out to our dedicated developers support team on our [Discord](https://discord.gg/3WVZ4Vbs) and keep up-to-date with all the latest news on our [iotex_dev](https://twitter.com/iotex_dev) Twitter account. 
+
+Take full advantage of the IoTeX ecosystem and submit your dream project for our [Halo Grants](https://community.iotex.io/c/halo-grants/61). We can't wait to see where you go from here! 
 
 
