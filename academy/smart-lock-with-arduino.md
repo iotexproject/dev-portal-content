@@ -2,7 +2,19 @@
 
 ## Getting Started
 
-The boilerplate code for this project can be found on this [GitHub repository](https://github.com/as-iotex/iotex-tutorial-blockchain-smart-lock). Let's go ahead and clone it. At this point you should see two directories in your project: **`SmartLockBlockchain`** and **`SmartLockDevice`**.
+Let's go ahead and clone the boilerplate code for this project: 
+
+```bash
+ git clone -b smart-lock-with-arduino --single-branch https://github.com/iotexproject/scaffold-iotex.git
+```
+
+Then change directory to `scaffold-iotex`:
+
+```bash
+cd scaffold-iotex
+```
+
+At this point you should see two directories in your project: **`SmartLockBlockchain`** and **`SmartLockDevice`**.
 
 Let's change directory to `SmartLockBlockchain` and install the required dependencies: 
 
@@ -51,7 +63,7 @@ contract Lock is Ownable {
 
 This contract is quite simple, it only contains two functions:  One to change the state of our smart-lock, and another to retrieve its state. Note the use of the `onlyOwner()` modifiers, which will prevent any user, but the deployer of this contract, to either read or set the state of the lock. 
 
-It is also worth noting that these are both **public** functions, meaning that anyone could potentially see the status of your lock, despite not being able to modify it. That's something to think about when working on this type of application in production terms. More thoughts on this will be shared in the **Conclusions** section at the end of this tutorial.
+It is also worth noting that these are both **public** functions, meaning that anyone could potentially read the status of the lock. That's something to think about when working on this type of application in production terms. More thoughts on this will be shared in the **Conclusions** section at the end of this tutorial.
 
 ## Deploying the Contract
 
@@ -69,7 +81,7 @@ IOTEX_PRIVATE_KEY=<your-private-key>
 
 Go ahead and replace `<your-private-key>` with the private key corresponding to the account you'd like to use to deploy the contract. 
 
-At this point you'd have to make sure this account has enough **iotx** tokens to deploy this contract. We'll be deploying to the **iotex testnet**. If you'd like to learn how to connect your metamask wallet to the **iotex network**, feel free to check out our [docs](https://docs.iotex.io/get-started/iotex-wallets/metamask). You can then claim some iotx test tokens from our faucet, by simply logging into our [developers portal](https://developers.iotex.io/user/profile).
+At this point you'd have to make sure this account has enough **iotx** tokens to deploy this contract. We'll be deploying to the **iotex testnet**. If you'd like to learn how to connect your metamask wallet to the **iotex network**, feel free to check out our [docs](https://docs.iotex.io/get-started/iotex-wallets/metamask). You can then claim some iotx test tokens from your profile page by simply creating an account on our [developers portal](https://developers.iotex.io/).
 
 The deployment script can be found in the `SmartLockBlockchain` directory, in the `scripts` folder. It will look something like this: 
 
@@ -124,7 +136,7 @@ Now that the contract has been deployed, it's time to work on our smart-lock.
 
 ## The Arduino SmartLock
 
-It's now time to create a DIY smart lock by wiring a magnetic lock to the Arduino board. As said in our introduction, we are going to be moving forward using the **Arduino Nano 33 IoT** but the sketch could also be built for the **ESP32** board.  We will only be using pins D12, D11 and D8 to drive the Relay module that in turn will enable/disable the smart-lock. 
+It's now time to create a DIY smart lock by wiring a magnetic lock to the Arduino board. As said in our introduction, we are going to be moving forward using the **Arduino Nano 33 IoT** but the sketch could also be built for the **ESP32** board.  We will only be using pins GDN, +5V and D21 to drive the Relay module that in turn will enable/disable the smart-lock. 
 
 ![arduino](https://user-images.githubusercontent.com/77351244/184211454-71515e42-50e0-488a-9f6f-c233e41ce856.jpeg)
 
@@ -132,7 +144,8 @@ It's now time to create a DIY smart lock by wiring a magnetic lock to the Arduin
 
 An example of the wiring is illustarted right below: 
 
-![wiring](https://user-images.githubusercontent.com/77351244/184211767-c13c944d-8463-4094-a272-2aa3608e7571.png)
+![wiring](https://user-images.githubusercontent.com/77351244/184388316-acfb1add-6135-4f0d-b6da-7d11a4382067.png)
+
 
 If you don't have a relay and an actual lock at hand, you can also use the Built-in LED Pin and observe its status instead. 
 
@@ -278,7 +291,7 @@ void SetLockStatus(LockStatus status)
 
 At this point, you need to configure the sketch to suit your environment. 
 
-Open the `SmartLockDevice` fodler in Arduino IDE, then open the `secrets.h` file, which will look like this: 
+Open the `SmartLockDevice` folder in Arduino IDE, then open the `secrets.h` file, which will look like this: 
 
 ```c++
 #ifndef SECRETS_H
@@ -313,7 +326,7 @@ Select your board and port in the Arduino IDE and click the upload button. Wait 
 
 It's now time to remotely control the smart-lock through the smart contract we created. All you need to do is to call the `setState()` function in the contract.
 
-There are two possible approaches here: One would be to use the iotex [ioctl](https://docs.iotex.io/reference/ioctl-cli-reference) command line tool;  The second approach would be directly through **Hardhat**, by modifying the `hardhat.config.js` file located in the `SmartLockBlockchain` directory. 
+Aside from the creation of graphical user interface, that we leave to the interested reader, there are two possible approaches here: One would be to use the iotex [ioctl](https://docs.iotex.io/reference/ioctl-cli-reference) command line tool;  The second approach would be directly through **Hardhat**, by modifying the `hardhat.config.js` file located in the `SmartLockBlockchain` directory. 
 
 We'll look at both of these options: 
 
@@ -342,12 +355,6 @@ ioctl config set endpoint api.testnet.iotex.one:443
 ```
 
 Should you want to point it to the **iotex mainnet**, simply change from `testnet` to `mainnet` in the command right above. 
-
-- Now change to the `SmartLockBlockchain` directory:
-
-```bash
-cd ../SmartLockBlockchain
-```
 
 You can now use the following two commands to open and close the lock: 
 
