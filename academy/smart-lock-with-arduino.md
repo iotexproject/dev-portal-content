@@ -63,7 +63,7 @@ contract Lock is Ownable {
 
 This contract is quite simple, it only contains two functions:  One to change the state of our smart-lock, and another to retrieve its state. Note the use of the `onlyOwner()` modifiers, which will prevent any user, but the deployer of this contract, to either read or set the state of the lock. 
 
-It is also worth noting that these are both **public** functions, meaning that anyone could potentially read the status of the lock. That's something to think about when working on this type of application in production terms. More thoughts on this will be shared in the **Conclusions** section at the end of this tutorial.
+It is also worth noting that anyone could potentially read the status of the smart lock. That's something to think about when working on this type of application in production terms. More thoughts on this will be shared in the **Conclusions** section at the end of this tutorial.
 
 ## Deploying the Contract
 
