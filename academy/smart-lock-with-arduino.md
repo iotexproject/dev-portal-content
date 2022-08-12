@@ -478,28 +478,3 @@ We also mentioned, at the beginning of the **Smart Contract** section, that both
 In order to solve this issue, the user could simply toggle between the two possible states of the contract, instead of specifying whether the lock is open or closed, while the Arduino board could memorize the new state of the lock, encrypted with the owner's public key. In this case, the owner would be the only one to know the state of the contract, and would also be the only one able to invert it. 
 
 All these possible solutions share a common denominator: Ultimately, a second layer, such as **W3bStream**, would have to be introduced. This layer would be used to handle data storage, data privacy and possibly data contribution to certain consumers. The smart contract would only deal with proofs, thus making the application more secure, easier to use and more directly controlled by its owner. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
