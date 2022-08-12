@@ -138,13 +138,15 @@ Now that the contract has been deployed, it's time to work on our smart-lock.
 
 It's now time to create a DIY smart lock by wiring a magnetic lock to the Arduino board. As said in our introduction, we are going to be moving forward using the **Arduino Nano 33 IoT** but the sketch could also be built for the **ESP32** board.  We will only be using pins GDN, +5V and D21 to drive the Relay module that in turn will enable/disable the smart-lock. 
 
-![arduino](https://user-images.githubusercontent.com/77351244/184211454-71515e42-50e0-488a-9f6f-c233e41ce856.jpeg)
+![arduino](https://user-images.githubusercontent.com/77351244/184433314-cd15b3fd-9162-41df-a415-14b6d7a68aed.png)
 
-![relay](https://user-images.githubusercontent.com/77351244/184211585-528f2c14-1879-450c-83ec-2acdc0ffab59.png)
+
+![relay](https://user-images.githubusercontent.com/77351244/184433469-91a264b8-2405-474b-be3e-6983a4e737b8.png)
+
 
 An example of the wiring is illustarted right below: 
 
-![wiring](https://user-images.githubusercontent.com/77351244/184388316-acfb1add-6135-4f0d-b6da-7d11a4382067.png)
+![wiring](https://user-images.githubusercontent.com/77351244/184441312-915e1aa5-61e4-45c7-945b-75e23074652d.png)
 
 
 If you don't have a relay and an actual lock at hand, you can also use the Built-in LED Pin and observe its status instead. 
