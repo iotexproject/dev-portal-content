@@ -140,14 +140,12 @@ It's now time to create a DIY smart lock by wiring a magnetic lock to the Arduin
 
 ![arduino](https://user-images.githubusercontent.com/77351244/184433314-cd15b3fd-9162-41df-a415-14b6d7a68aed.png)
 
-
 ![relay](https://user-images.githubusercontent.com/77351244/184433469-91a264b8-2405-474b-be3e-6983a4e737b8.png)
 
 
 An example of the wiring is illustarted right below: 
 
-![wiring](https://user-images.githubusercontent.com/77351244/184441312-915e1aa5-61e4-45c7-945b-75e23074652d.png)
-
+![wiring](https://user-images.githubusercontent.com/77351244/184510986-b5a1b2e6-c978-4528-b84c-c8f12223605d.png)
 
 If you don't have a relay and an actual lock at hand, you can also use the Built-in LED Pin and observe its status instead. 
 
