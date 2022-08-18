@@ -12,11 +12,11 @@ EnviroBLOQ is the solution to bridge smart homes to the blockchain. We'll be ins
 
 **Q: How do you know if your home is energy efficient and how do you trust this data?**
 
-You can't really trust any data that you're getting from your smart devices, since there are so many different variables in the real world, whether the hardware of a certain device is hackable or the data has been manipulated. MachineFi opens up this data collection sphere where entities in the industry can finally trust the data they are receiving in the IoT space for the first time. We also want to collect and use data to prove the validity of commonly accepted practices in the industry, which will make a huge impact on the future of smart homes. 
+You can't really trust any data that you're getting from your smart devices. There are so many different variables in the real world - the hardware of a certain device could have been hacked or the data could have been manipulated. MachineFi opens up this data collection sphere where entities in the industry can finally trust the data they are receiving in the IoT space for the first time. We also want to collect and use data to prove the validity of commonly accepted practices in the industry, which will make a huge impact on the future of smart homes. 
 
 **Q: How does your reward mechanism work for the users providing this data?**
 
-We're still working out all the details, but we're going to start out with **iotx** tokens as physical rewards. Once we hit 1000 data providers, i.e. 1000 properties, we'll then release the **$EBLOQ** token, backed by **iotx**, which will allow us to expand our reward mechanism. We want to be able to incentivize people that are either making improvements to their homes, or have really efficient spaces, because they are theoretically saving money and energy through efficiency. For property owners, our goal is to be that tokenized driver to push improvements across the line. As a potential buyer, you'd want to know how much utilities cost for a certain space, and how efficient that space is. 
+We're still working out all the details, but we're going to start out with **IOTX** tokens as physical rewards. Once we hit 1000 data providers, i.e. 1000 properties, we'll then release the **$EBLOQ** token, backed by **IOTX**, which will allow us to expand our reward mechanism. We want to be able to incentivize people that are either making improvements to their homes, or have really efficient spaces, because they are theoretically saving money and energy. For property owners, our goal is to be that tokenized driver to push improvements across the line. As a potential buyer, you'd want to know how much utilities cost for a certain space, and how efficient that space is. 
 
 **Q: Do you already have an idea of how much this data could be worth for homeowners, for example?**
 
@@ -50,7 +50,7 @@ Follow us on [Twitter](https://twitter.com/envirobloq) to get the latest updates
 
 Our new bi-weekly segment sees Jeremi gather the more robust and relevant questions coming from our developers community on Discord and present them to our *IoTeXperts Live* audience. 
 
-This week's first tip revolves around a common mistake that users make when they first join *IoTeX* and start staking. Sometimes new users decide to have all their tokens staked, which might cause an error, since there is no **iotx** left to cover gas fees for the transaction. So, when you do your first stake, leave up to **10 iotx** in your wallet for gas. Maybe think about supporting multiple projects, as well, as you explore different delegates. 
+This week's first tip revolves around a common mistake that users make when they first join *IoTeX* and start staking. Sometimes new users decide to have all their tokens staked, which might cause an error, since there is no **IOTX** left to cover gas fees for the transaction. So, when you do your first stake, leave up to **10 IOTX** in your wallet for gas. Maybe think about supporting multiple projects, as well, as you explore different delegates. 
 
 The next tip is about archival states of the blockchain. Some blockchains offer what we refer to as *Archival Node*. This type of node stores all the data and transactions that ever occured, including all the smart contracts state changes. This does not currently exist on IoTeX, but the developers team is working on releasing one in the near future. 
 
