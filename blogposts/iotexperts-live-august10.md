@@ -16,7 +16,7 @@ You can't really trust any data that you're getting from your smart devices, sin
 
 **Q: How does your reward mechanism work for the users providing this data?**
 
-We're still working out all the details, but we're going to start out with **iotx** tokens as physical rewards. Once we hit 1000 data providers, i.e. 1000 properties, we'll then release the **ebloq** token, backed by iotx, which will allow us to expand our reward mechanism. We want to be able to incentivize people that are either making improvements to their homes, or have really efficient spaces, because they are theoretically saving money and energy through efficiency. For property owners, our goal is to be that tokenized driver to push improvements across the line. As a potential buyer, you'd want to know how much utilities cost for a certain space, and how efficient that space is. 
+We're still working out all the details, but we're going to start out with **iotx** tokens as physical rewards. Once we hit 1000 data providers, i.e. 1000 properties, we'll then release the **$EBLOQ** token, backed by **iotx**, which will allow us to expand our reward mechanism. We want to be able to incentivize people that are either making improvements to their homes, or have really efficient spaces, because they are theoretically saving money and energy through efficiency. For property owners, our goal is to be that tokenized driver to push improvements across the line. As a potential buyer, you'd want to know how much utilities cost for a certain space, and how efficient that space is. 
 
 **Q: Do you already have an idea of how much this data could be worth for homeowners, for example?**
 
