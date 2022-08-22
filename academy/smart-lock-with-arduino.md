@@ -63,7 +63,7 @@ contract Lock is Ownable {
 
 This contract is quite simple, it only contains two functions:  One to change the state of our smart-lock, and another to retrieve its state. Note the use of the `onlyOwner()` modifiers, which will prevent any user, but the deployer of this contract, to either read or set the state of the lock. 
 
-It is also worth noting that anyone could potentially read the status of the smart lock. That's something to think about when working on this type of application in production terms. More thoughts on this will be shared in the **Conclusions** section at the end of this tutorial.
+It is also worth noting that anyone could potentially read the status of the smart-lock, which is something to definitely keep in mind when working on this type of application in production terms. While this discussion is outside the scope of this tutorial, the interested developer is invited to browse through more topical articles that can be found throughout the portal. 
 
 ## Deploying the Contract
 
@@ -463,25 +463,8 @@ Note that you'd have to add the contract address you got when deploying, and you
 
 ## Conclusions
 
-The majority of people who use home automation devices rely on some sort of subscription-based cloud services, or on local installations of IoT software that allow them to connect and control devices remotely. Using blockchain as a cloud, represents a totally different approach that has some drawbacks but some advantages as well.
+We have demonstarted how it is possible to use blockchain to remotely control a home automation device, such as our smart-lock. Currently, the majority of people who use home automation devices rely on some sort of subscription-based cloud services, or on local installations of IoT software that allow them to remotely connect and control devices. Using blockchain as a cloud represents a totally different approach and it comes with some drawbacks, but also with some big advantages. Using a smart contract would make the IoT logic of your application far more secure, censorship-resistant, immutable and traceable. These advantages though come at the cost of data storage limitations as well as privacy concerns, given by the open nature of blockchain. Layer-2 solutions such as [W3bStream](https://docs.iotex.io/machinefi/w3bstream-network) would need to be introduced to handle device data verification, complex IoT logic, data storage, data privacy and, possibly, data contribution to certain consumers. 
 
-### Blockchain benefits
-Blockchain has some intrinsic properties that your IoT application would inherit from it, that could make the difference in some applications. The only fact that your IoT logic is deployed as a smart contract (which can only be interacted with by blockchain accounts) would make it military-grade secure, censorship-resistant, immutable and treacable.
+You can always browse through the portal and learn more about this topic through our dedicated blog articles and tutorials. 
 
-Despite being very secure, most popular centralized cloud services are a constant target for hackers; you would need to blindly trust their security systems and rely entirely on these third party services, which could even sell our data or even hide a data breach. 
 
-Open source home automation software on the other hand are mostly require maintanance time, backup servers and backup network connectivity. Also, in this case, you would have to open your network to external incoming connections to talk directly to the IoT software that, in turn, would control the devices. This poses security concerns that are not easy to tackle without professional knowledge and a solid security policy. Using a smart contract would, instead, be much easier, and much safer from a security standpoint: The device would directly read the public blockchain, avoiding the need to interact with any remote server. Nobody would, furthermore, be able to take control of devices remotely, because they would somehow either crack the owner private key or hack a blockchain (both things deemed not feasible, or almost impossible as of today). 
-
-One final benefit of using a public blockchain as a secure IoT cloud, not to be overlooked, is the fact that you would have no limit on the number of "_Things_" that you can control.
-
-### Limitations
-
-Blockchain properties do not come for free: while reading the state of public blockchains is always free, modifying the state requires you to pay a _network fee_: even when this fee is very low, this model may become expensive, also depending on the use case and number of devices. However, when the number of devices is very high and the number of interactions is relatively low, the blockchain _pay-per-use_ model may even become cheaper then some centralized services. 
-
-We also mentioned, at the beginning of the **Smart Contract** section, that functions in the contract had *public* visibility, and would therefore expose the state of our lock. To be more accurate, regardless of the vifibility of the functions and the state itself, it's always possible to read the state of public blockchains by just running a full-node, as they do not come with any storage encryption feature.
-
-In terms of privacy, this is usually a big issue for most use cases, that can also pose a security treat considering that we are exposing the state of our own devices like a door lock.
-The only way to solve this issue, is to implement encryption features that would only allow the device owner to know the status of the device. However these techniques are hard to implement, especially when you have different state/data representation for different devices: you will have to make sure it's never possible to tell the state of devices from looking at the contract history, or prevent replay attacks, etc... 
-
-### Layer 2 scaling 
-Ultimately, all these limitations like data storage cost and data privacy, make the use of blockchain as an IoT cloud a viable solution only in a small set of use cases. For all the other IoT applications where data volumes are notable, privacy is required, and blockchain fees would be a problem, a layer-2 network, such as **[W3bStream](https://docs.iotex.io/machinefi/w3bstream-network)**, would have to be introduced. This layer 2 network would interact with blockchain and can be used to handle device data verification, complex IoT logic, data storage, data privacy and possibly data contribution to certain consumers. The blockchain layer would act as the source for trusted authorization, trusted logic and token economy based onthe "proofs of real-world facts" provided by the Layer 2 computational network. 
