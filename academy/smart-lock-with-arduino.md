@@ -63,7 +63,7 @@ contract Lock is Ownable {
 
 This contract is quite simple, it only contains two functions:  One to change the state of our smart-lock, and another to retrieve its state. Note the use of the `onlyOwner()` modifiers, which will prevent any user, but the deployer of this contract, to either read or set the state of the lock. 
 
-It is also worth noting that anyone could potentially read the status of the smart lock, which is something to definitely keep in mind when working on this type of application in production terms. 
+It is also worth noting that anyone could potentially read the status of the smart-lock, which is something to definitely keep in mind when working on this type of application in production terms. While this discussion is outside the scope of this tutorial, the interested developer is invited to browse through more topical articles that can be found throughout the portal. 
 
 ## Deploying the Contract
 
@@ -463,6 +463,8 @@ Note that you'd have to add the contract address you got when deploying, and you
 
 ## Conclusions
 
-We have demonstarted how it is possible to use blockchain to remotely control a home automation device, such as our smart-lock. Currently, the majority of people who use home automation devices rely on some sort of subscription-based cloud services, or on local installations of IoT software that allow them to remotely connect and control devices. Using blockchain as a cloud, represents a totally different approach and it comes with some drawbacks, but also with some interesting advantages. You can always browse through the portal and learn more on this matter through other dedicated blog articles and tutorials. 
+We have demonstarted how it is possible to use blockchain to remotely control a home automation device, such as our smart-lock. Currently, the majority of people who use home automation devices rely on some sort of subscription-based cloud services, or on local installations of IoT software that allow them to remotely connect and control devices. Using blockchain as a cloud represents a totally different approach and it comes with some drawbacks, but also with some big advantages. Using a smart contract would make the IoT logic of your application far more secure, censorship-resistant, immutable and traceable. These advantages though come at the cost of data storage limitations as well as privacy concerns, given by the open nature of blockchain. Layer-2 solutions such as [W3bStream](https://docs.iotex.io/machinefi/w3bstream-network) would need to be introduced to handle device data verification, complex IoT logic, data storage, data privacy and, possibly, data contribution to certain consumers. 
+
+You can always browse through the portal and learn more about this topic through our dedicated blog articles and tutorials. 
 
 
