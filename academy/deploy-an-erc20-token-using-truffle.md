@@ -10,7 +10,7 @@ We’ll also use OpenZeppelin’s smart contract library to import a [Mintable-P
 This is a quick checklist of the minimum tech prerequisites to follow along: 
 1. npm package manager
 2. Truffle installed on your machine
-3. VsCode (Or any code editor of your choice)
+3. nano (Or any code editor of your choice)
 4. Metamask wallet connected with the IoTeX blockchain (check out the docs)
 
 ## Packages Installation
