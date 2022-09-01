@@ -8,7 +8,7 @@ path: academy/deploy-smart-contracts-on-iotex-using-hardhat.md
 
 The IoTeX Blockchain implements a full-featured Ethereum Virtual Machine (EVM), allowing you to use Solidity as a programming language to create smart contracts on IoTeX or port any existing Ethereum smart contract to IoTeX without changes to the source code.
 
-In addition to that, any IoTeX gateway nod provides a full Ethereum API, so that any Ethereum client can also interact with the IoTeX blockchain without any change to the code.
+In addition to that, any IoTeX gateway node provides a full Ethereum API, so that any Ethereum client can also interact with the IoTeX blockchain without any change to the code.
 
 # Core information
 
@@ -119,8 +119,8 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const HelloWorld = await ethers.getContractFactory("HElloWorld");
-  const helloWorld = await HElloWorld.deploy();
+  const HelloWorld = await ethers.getContractFactory("HelloWorld");
+  const helloWorld = await HelloWorld.deploy();
 
   console.log("Contract address:", helloWorld.address);
 }
