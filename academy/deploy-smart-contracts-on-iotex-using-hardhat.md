@@ -64,7 +64,7 @@ The source code of the contract is extremely simple: we only have a public strin
 // SPDX-License-Identifier: MIT
 // carbon.sol
 
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.9;
 contract HelloWorld {
 
     string public message;
@@ -85,7 +85,7 @@ require("@nomiclabs/hardhat-waffle");
 const IOTEX_PRIVATE_KEY = "<YOUR PRIVATE KEY HERE>";
 
 module.exports = {
-  solidity: "0.8.24",
+  solidity: "0.8.9",
   networks: {
     testnet: {
       // These are the official IoTeX endpoints to be used by Ethereum clients
