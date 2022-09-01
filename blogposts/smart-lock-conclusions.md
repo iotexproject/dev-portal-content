@@ -21,7 +21,7 @@ One final benefit of using a public blockchain as a secure IoT cloud, is the fac
 
 ## The Limitations
 
-Blockchain benefits do not come for free: While reading the state of public blockchains is always free, modifying their state requires users to pay a *network fee*. Even when the fee is very low, this model may become expensive, depending on the use case and number of devices. However, when the number of devices is very high and the number of interactions is relatively low, the blockchain *pay-per-use* model may become even cheaper then some centralized services.
+Blockchain benefits do not come for free: While reading the state of public blockchains is always free, modifying their state requires users to pay a *network fee*. Even when the fee is very low, this model may become expensive, depending on the use case and number of devices. However, when the number of devices is very high and the number of interactions is relatively low, the blockchain *pay-per-use* model may become even cheaper then some centralized services. On the contrary, a high number of interactions might cause potential latency issues. Unlike centralized, cloud-based IoT applications, blockchain is a shared underlying infrastructure for many dApps. As a result, users might experience significant delays when some dApps become very popular and the network gets clogged with a high volume of requests. In the case of our smart-lock application, this would mean that the lock might take several minutes to open!
 
 It's also worth noting that, regardless of the state of a smart contract or the visibility level of its functions, reading the state of public blockchains is always possible just by running a full-node (given their nature, public blockchains don't inherently come with any storage encryption features as there is no centralized entity that would maintain a secret encryption key).
 
@@ -44,7 +44,7 @@ This Layer-2 network orchestrates the interaction between IoT devices and blockc
 
 Once a Layer-2 network is introduced in the IoT+Blockchain architecture to handle IoT storage, processing scalability as well as data privacy, the blockchain layer acts as a source of trusted authorization, trusted logic and handles the token economy based on the "proofs-of-real-world-facts" provided by the Layer-2 network.
 
-![w3bstream roles](https://user-images.githubusercontent.com/77351244/187288928-de49c417-7589-4127-8019-620e9db430b5.png)
+![w3bstream roles](https://user-images.githubusercontent.com/77351244/187995484-b00b7bc6-7cd7-4714-9271-a17d18617879.png)
 
 The diagram above illustrates how these different components come into play thanks to W3bStream:
 
@@ -54,12 +54,14 @@ The diagram above illustrates how these different components come into play than
 -  The **Node Operators** are the administrators of the W3bStream nodes.  
 -  **MachineFi** dApps represent a category of dApps which leverage IoT data and apply financial instruments to power the machine economy.
 
+The diagram illustrates how a [MachineFi](https://machinefi.com/) application would generally work by leveraging all these different components, orchestrated by W3bStream. It shows the possibilities that a Layer-2 solution like W3bStream could open up for any type of Iot+Blockchain implementation. For the reasons explained throughout this article (privacy, scalability, complex IoT logic processing, etc...) it's clear how, despite being a good starting point, our smart-lock example of an M2M application, just like other simple pay-per-use applications, represents only a limited use case and cannot exactly be considered a MachineFi dApp without the implementation of a Layer-2 network like W3bStream. 
+
 The interested developer is encouraged to find out more in our [documentation](https://docs.iotex.io/machinefi/w3bstream-network). 
 
 ## Conclusions
 
 Home automation is just one example of the myriad of verticals that could benefit from inheriting some of the underlying features of blockchain technology. 
 
-After the explosion and worldwide adoption of cryptocurrency, NFT's  and the subsequent birth of decentralized finance, a new wave of web3 applications that connect to real world data is emerging ever more rapidly. However, connecting IoT data to the blockchain requires much more than just sending data from a device to a smart contract. 
+After the explosion and worldwide adoption of cryptocurrency, NFT's  and the subsequent birth of decentralized finance, a new wave of web3 applications that connect to real world data is emerging even more rapidly. However, connecting IoT data to the blockchain requires much more than just sending data from a device to a smart contract. 
 
 The *MachineFi* methodology developed by **IoTeX** aims to empower developers and organizations alike to be part of the **machine economy** and leverage the immense value of machine-generated IoT data. IoTeX provides all the developer tools and required elements for a successful design: From a fast, cheap and reliable Layer-1 blockchain to the most advanced Layer-2 IoT-data oracle in the world. 
