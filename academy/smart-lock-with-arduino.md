@@ -152,7 +152,7 @@ The sketch for the Arduino board is located in the `SmartLockDevice` directory.
 
 As you can see in the `SmartLockDevice.ino` file, the sketch "polls" the contract `isOpen()` function to read the lock state from the blockchain. Then it sets the relay pin to either open or close the lock based on the contract state. 
 
-```c++
+```cpp
 #include <Arduino.h>
 
 #ifdef ESP32
@@ -292,7 +292,7 @@ At this point, you need to configure the sketch to suit your environment.
 
 Open the `SmartLockDevice` folder in Arduino IDE, then open the `secrets.h` file, which will look like this: 
 
-```c++
+```cpp
 #ifndef SECRETS_H
 #define SECRETS_H
 
