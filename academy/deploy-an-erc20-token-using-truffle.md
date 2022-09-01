@@ -47,6 +47,10 @@ If you'd like to get into a little more detail on how to deploy your smart contr
 
 We're also going to install another useful package called `dotenv`, that loads environment variables from a `.env` file into `process.env` 
 
+```bash
+npm install dotenv --save
+```
+
 The last thing to do is to import OpenZeppelin’s smart contracts Library to create our Token and inherit its preset functionalities:
 
 ```bash
