@@ -98,6 +98,13 @@ void isr() {
     attachInterrupt(BUTTON_PIN, isr, FALLING);
 }
 ```
+In the code above, we used an interrupt to detect button press. The following line was used to enable the interrupt on the button pin and configure the `isr()` function as the interrupt service routine:
+
+```cpp
+attachInterrupt(BUTTON_PIN, isr, FALLING);
+```
+
+When the button is pressed, the interrupt service routine is executed. It is considered good practice to do as little work as possible from within the `isr()` in order not to hang the main execution process. In our case, we simply set the `buttonPressed` flag and return to the main execution process, which will take care of checking this flag and act accordingly.
 
 We now need a function to set the pin status of the lock: 
 
