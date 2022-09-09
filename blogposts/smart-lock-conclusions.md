@@ -54,14 +54,14 @@ The diagram above illustrates how these different components come into play than
 -  The **Node Operators** are the administrators of the W3bStream nodes.  
 -  **MachineFi** dApps represent a category of dApps which leverage IoT data and apply financial instruments to power the machine economy.
 
-The diagram illustrates how a [MachineFi](https://machinefi.com/) application would generally work by leveraging all these different components, orchestrated by W3bStream. It shows the possibilities that a Layer-2 solution like W3bStream could open up for any type of Iot+Blockchain implementation. For the reasons explained throughout this article (privacy, scalability, complex IoT logic processing, etc...) it's clear how, despite being a good starting point, our smart-lock example of an M2M application, just like other simple pay-per-use applications, represents only a limited use case and cannot exactly be considered a MachineFi dApp without the implementation of a Layer-2 network like W3bStream. 
+The diagram illustrates how a [MachineFi](https://machinefi.com/) application would generally work by leveraging all these different components, orchestrated by W3bStream. It shows the possibilities that a Layer-2 solution like W3bStream could open up for any type of IoT+Blockchain implementation. For the reasons explained throughout this article it's clear how, despite being a good starting point, the smart-lock example of an M2M application, just like other simple pay-per-use applications, represents only a limited use case and cannot exactly be considered a MachineFi dApp without the implementation of a Layer-2 network like W3bStream. 
 
 The interested developer is encouraged to find out more in our [documentation](https://docs.iotex.io/machinefi/w3bstream-network). 
 
 ## Conclusions
 
-Home automation is just one example of the myriad of verticals that could benefit from inheriting some of the underlying features of blockchain technology. 
+Home automation is just one example of the myriad of verticals that could benefit from the intersection of blockchain and IoT. 
 
-After the explosion and worldwide adoption of cryptocurrency, NFT's  and the subsequent birth of decentralized finance, a new wave of web3 applications that connect to real world data is emerging even more rapidly. However, connecting IoT data to the blockchain requires much more than just sending data from a device to a smart contract. 
+After the explosion and worldwide adoption of cryptocurrency, NFT's and the subsequent birth of decentralized finance, a new wave of web3 applications that connect to real world data is emerging even more rapidly. However, connecting IoT data to the blockchain **requires much more than just sending data from a device to a smart contract**. 
 
 The *MachineFi* methodology developed by **IoTeX** aims to empower developers and organizations alike to be part of the **machine economy** and leverage the immense value of machine-generated IoT data. IoTeX provides all the developer tools and required elements for a successful design: From a fast, cheap and reliable Layer-1 blockchain to the most advanced Layer-2 IoT-data oracle in the world. 
