@@ -1,6 +1,6 @@
 This is Part II of a series of 3 tutorials:
 
-[Part I](https://developers.iotex.io/posts-7walk-to-earn-workshop-part-1) | [Part II](https://developers.iotex.io/posts-7walk-to-earn-workshop-part-2) | [Part III](https://developers.iotex.io/posts-7walk-to-earn-workshop-part-3)
+[Part I](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-1) | [Part II](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-2) | [Part III](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-3)
 
 # Part II
 In the first tutorial of this series we left off at the step counter device that was sending steps data to the data oracle node, that we will configure in part III of this workshop.
