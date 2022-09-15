@@ -22,7 +22,7 @@ The workshop is split into 3 parts:
 **In Part III**, we'll learn about  W3bstream: the IoTeX real-world data computational oracle, how it receives data from devices, data verification, storage and proof generation.
 
 # Project overview
-Let's call our MachineFi app "*WeWalk*". WeWalk is based on a **steps counter device**, a blockchain Dapp that uses an ERC20 token to reward users and a simple "Walk-to-Earn" token economy contract (that rewards users the more they walk), and of course, a blockchain oracle that takes care of IoT data off-chain, and also uses a few smart contracts on the Blockchain to authorize devices when data arrives, and generate the "Proofs of walking" that are needed by the token economy contract.
+Let's call our MachineFi app "*WalkToEarn*". WalkToEarn is based on a **steps counter device**, a blockchain Dapp that uses an ERC20 token to reward users and a simple "Walk-to-Earn" token economy contract (that rewards users the more they walk), and of course, a blockchain oracle that takes care of IoT data off-chain, and also uses a few smart contracts on the Blockchain to authorize devices when data arrives, and generate the "Proofs of walking" that are needed by the token economy contract.
 
 # How does it work?
 The step counter is a device that counts the number of steps when you carry it with you while walking. It just keeps accumulating the total number of steps, forever. Much like the odometer in a car, that keeps counting miles starting from zero, and forever. When first started it will count "0" steps, and the more you walk the more steps it adds up to the total. If you shut down the device, of course, it will not count but when you power it on again it will start from the last stored total value.
@@ -171,20 +171,38 @@ So the firmware works like this:
 7. Create the final message with data, signature and some more useful info
 8. Send the message over to the W3bstream oracle using the MQTT protocol
 
-# The data message
+# Flashing the firmware
 At this point, we can go ahead and add our wifi passwords in secrets.h, configure the W3bstream endpoint with the W3bstream node ip address and use Arduino to flash the firmware: the full  firmware can be found here: https://github.com/simonerom/walk-to-earn-arduino/tree/main/devices/nano-33-iot/steps-counter
 
-We can see how the message sent to the oracle looks like from the device log:
+The output log on the serial port should look like this:
 
+```
+::::: APP STARTED :::::......
+Verifiable pedometer with Arduino nano 33 IoT
+Initialize the pedometerr...
+IMU OK
+Read total steps from flash...0
+Initialize the secure chip...
+Connecting to wifi: TIM-87716465
+Connecting to WiFi ..
+Connected. IP: 
+192.168.1.114
+Syncing time...12:01:29- 1663243289
+Connecting to the MQTT broker on 167.235.27.38:1883MQTT connection failed! Error code = -2
+Failed to connect to the MQTT broker.
+```
+
+Basically, the board succeded initializing everything, but it's failing to connect to the data oracle node, since we have not configured it yet.
+
+*In part II we will describe the token economy of the *WalkToEarn* app and deploy the contracts on the IoTeX Testnet chain.* 
 
 
 # Limitations
-This design has, of course, lots of limitations that prevent it from being used in production:
+Let's spend a few words on what are the limitations of this design that prevent it from being used in production:
+
 1. Poor power management (deep sleep and wake-up on IMU data should be used)
 2. Firmware is not tamper proof (we should implement secure boot)
 3. Total number of steps is not tamper proof (the steps should be stored along with its signature made with the secure element (so that only the firmware can actually store that value, because no-one knows the private key of the secure chip, and the firmware should also be tamper proof) 
 4. Unbound devices should not be allowed to send data: this could be checked by the device itself by reading the deviceBinding smart contract and making sure it's bound to an owner before beginning the loop, to save power and bandwidth if it's a cellular based device. But anyway, the W3bstream node should reject data incoming from unbound devices.
 5. Data can be replayed: the device should have a nonce associated and it should be included in the data message, while W3bstream should keep track of the current nonce for each device and reject messages with invalid nonces.
 6. Steps can be easily faked with the IMU steps function. A GPS should be associated with the device,and possibly AI should be used on all three axes of the accelerometer (but this is not possible on the Nano 33 IoT)
-
-*In part II we will describe the token economy of the *WeWalk* app and deploy the contracts on the IoTeX Testnet chain.* 
