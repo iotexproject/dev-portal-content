@@ -5,14 +5,22 @@ This is Part II of a series of 3 tutorials:
 # Part II
 In the first tutorial of this series we left off at the step counter device that was sending steps data to the data oracle node, that we will configure in part III of this workshop.
 
-In this second part we will focus on the blockchain component of our MachineFi application. To save some time, let's enter the blockchain project folder and install npm packages:
+In this second part we will focus on the blockchain component of our MachineFi application. So it's time to clone the MachineFi get started repository like described on the developers portal:
 
 ```bash
-cd blockchain
+git clone https://github.com/iotexproject/machinefi-getstarted.preview.git
+```
+
+To save some time, let's enter the blockchain project folder and install npm packages:
+
+```bash
+cd machinefi-getstarted-preview/blockchain
 npm install
 ```
 
-For the sake of simplicity, we will use the ownable interface for all contracts and we will use a single private key to deploy all the contracts and this private key will be associated to the data oracle too. So that we (and the data oracle) are the only allowed to make changes to contracts state (in a production application you may want to implement access levels, at least to distinguish from the data oracle account and the actual contracts owner).
+Wile npm is installing the packages required for the Hardhat project, we can take a look at the smart contracts we are going to deploy soon.
+
+For the sake of simplicity, we will use the `ownable` interface for all contracts and we will use a single private key to deploy all the contracts and this private key will be associated to the data oracle too. So that we (and the data oracle) are the only allowed to make changes to contracts state (in a production application you may want to implement access levels, at least to distinguish from the data oracle account and the actual contracts owner).
 
 ## The Data Oracle "service" contracts
 We have already mentioned in the introduction that the data oracle needs two "service contracts" deployeo on the blockchain:
@@ -597,5 +605,7 @@ Balance:  BigNumber { value: "10000000000000000000000000000" }  STP
 ```
 
 Notice how we **transfer all the pre-minted STEP tokens** to the WalkToEarn contract to fund rewards distribution!
+
+**Make sure you don't loose this log as we will need it later when we configure the oracle!**
 
 We have deployed the Layer-1 smart contracts for the oracle to function and for the users to get rewardsd. With all that, Part II is over and in Part III we will configure the data oracle to put everything together and see if we can get some STP tokens for our walking activity using the Arduino board!

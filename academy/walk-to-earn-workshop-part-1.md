@@ -53,8 +53,9 @@ Firmware explanation
 
 I used the **pedometer functionality** integrated into the IMU. It counts the number of steps based only on the acceleration measured on the Z axis. But Every time the board is reset, the pedometer starts counting from 0 again. So, I store the current total number of steps in the flash. On every boot, the total steps counter variable is initialized with the last value stored in flash, and new steps get added from the IMU on top of it. So the device is just counting all steps, forever.
 
-The integrated steps counter is not great: you can setup some acceleration thresholds, but there is no AI into the recognition of a step, so it's a bit limited. Also, it has only wifi, so in theory we should use the mobile phone to give it access to the internet. Better hardware should be used that includes cellular connection or at least low power bluetooth, and a GPS.  
-Here is the full code for the Arduino board (I'll only focus on the more relevant functions, the rest are just utility functions):
+The integrated steps counter on the Nano 33 IoT board is not great: you can setup some acceleration thresholds to detect the steps, but there is no AI into the recognition of a step, so it's a bit limited. Also, it has only wifi, so in theory we should use the mobile phone to give it access to the internet. Better hardware should be used that includes cellular connection or at least low power bluetooth, and a GPS.  
+
+Here is the full code of the Arduino board firmware (I'll only focus on the more relevant functions, the rest are just utility functions):
 
 ```cpp
 [ ... ]
@@ -172,9 +173,10 @@ So the firmware works like this:
 8. Send the message over to the W3bstream oracle using the MQTT protocol
 
 # Flashing the firmware
-At this point, we can go ahead and add our wifi passwords in secrets.h, configure the W3bstream endpoint with the W3bstream node ip address and use Arduino to flash the firmware: the full  firmware can be found here: https://github.com/simonerom/walk-to-earn-arduino/tree/main/devices/nano-33-iot/steps-counter
+The full firmware can be found here: https://github.com/simonerom/walk-to-earn-arduino/tree/main/devices/nano-33-iot/steps-counter
+At this point, we can go ahead and add our wifi passwords in secrets.h, configure the W3bstream endpoint with the W3bstream node ip address and use Arduino IDE to flash the firmware.
 
-The output log on the serial port should look like this:
+After flashing is done, we can open the Arduino Serial monitor and the output log should look like this:
 
 ```
 ::::: APP STARTED :::::......
