@@ -22,10 +22,11 @@ So in order to make it work we need to:
 2. Configure the incoming data events handler
 3. Configure the blockchain events handler 
 
-The configuration of out oracle "app" is located in the folder:
+The configuration of our oracle "app" is located in the folder:
 ```
 src/projects/app
 ```
+
 ## Create the device auth model
 Let's start from the database part: we said before that our oracle will keep a database table synced with the DeviceRegistry contract, so basically we want to add a new device id to our oracle database every time the manufacturer whitelists a new device into the DeviceRegistry contract. So let's create the device.model.ts in the `models` folder of our app to define this table:
 
@@ -165,29 +166,39 @@ All handlers are defined in the `handlers.ts` file in `src/projects/app`:
 
 src/projects/app/[handlers.ts](https://github.com/simonerom/walk-to-earn-arduino/blob/main/src/projects/app/handlers.ts)
 
-## Build the oracle
-Now that the oracle configuration and code is in place, we can go ahead and build the oracle service that will run the behavior we need:
-
+## Start the services
+First let's install required node packages:
 ```
 npm install
-npm run build
+```
+Create your .env config file from the template
+```
+cp .env.template .env
 ```
 
-## Start the services
 We now start the accessory services: the database, the GarphQl API and the MQTT server. It's all configured in a Docker-compose
 
 ```
+# On MacOs
 docker-compose up
+# On Ubuntu
+docker compose up
 ```
 
-## Create the database
 Since it's the first time we run the database, we should create our database, and we have a script for that:
 ```
 ./create-db.sh
 ```
 
 ## Initialize the database
-The command below will just "wipe" the database tables and re-create the sables based on our model definitions: you want to do this the first time and every time you re-deploy the smart contracts:
+We are ready to build the oracle service with
+```
+# make sure you have typescript installed in your system
+# sudo npm install
+npm run build
+```
+
+then we need to initialize the DB: the command below will just "wipe" all database tables and re-create them based on our model definitions: you want to do this the first time and every time you re-deploy the smart contracts:
 
 ```
 node dist/projects/app/initdb.js

@@ -8,7 +8,7 @@ In the first tutorial of this series we left off at the step counter device that
 In this second part we will focus on the blockchain component of our MachineFi application. So it's time to clone the MachineFi get started repository like described on the developers portal:
 
 ```bash
-git clone https://github.com/iotexproject/machinefi-getstarted.preview.git
+git clone https://github.com/iotexproject/machinefi-getstarted-preview.git
 ```
 
 To save some time, let's enter the blockchain project folder and install npm packages:
@@ -23,7 +23,7 @@ Wile npm is installing the packages required for the Hardhat project, we can tak
 For the sake of simplicity, we will use the `ownable` interface for all contracts and we will use a single private key to deploy all the contracts and this private key will be associated to the data oracle too. So that we (and the data oracle) are the only allowed to make changes to contracts state (in a production application you may want to implement access levels, at least to distinguish from the data oracle account and the actual contracts owner).
 
 ## The Data Oracle "service" contracts
-We have already mentioned in the introduction that the data oracle needs two "service contracts" deployeo on the blockchain:
+We have already mentioned in the introduction that the data oracle needs two "service contracts" deployed on the blockchain:
 
 The DeviceRegistry and the DeviceBinding contracts. For the blockchain part we have a blockchain folder ready in the quick start that includes a simple HardHat project. So let's go ahead and quickly describe these two contracts that we will add to the contracts folder of the HArdhat project:
 
@@ -139,6 +139,7 @@ contract DevicesRegistry is Ownable, IDevicesRegistry {
 This contract is straightforward: it just stores a mapping that associates a unique ID (we use the "address" type for the ID) with a device data structure that keeps the status of the device: if it's registered (i.e. "Whitelisted" and if it's active or suspended - we are not using these anyway). The contract allows to register, unregister, suspend a device by its ID, and emit the respective events. We will only use the "DeviceRegistered" event, that is emitted when the device manufacturer (us!) manufacture a new device and registers (or "whitelists") it in the contract: this event is caught by the data oracle to sync a local database with the list of authorized device for best performance when Authorizing data.
 
 Moving on to the next contract of the data oracle:
+
 **DeviceBinding.sol**
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -249,7 +250,7 @@ This is the token we'll use to reward users. It's a basic pre-minted ERC20 token
 
 Finally, here comes the central contract of our Dapp: the WalkToEarn contract:
 
-**WalkToEarn**
+**WalkToEarn.sol**
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
@@ -572,7 +573,7 @@ Ready to deploy?
 
 ```bash
 cd blockchain
-npx hardhat deploy --network=testnet
+npx hardhat run scripts/deploy.js --network testnet
 ```
 Here is the output:
 ```bash
