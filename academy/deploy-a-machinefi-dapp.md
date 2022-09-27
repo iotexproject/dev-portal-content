@@ -4,22 +4,26 @@ description: Create and deploy the minimal architecture for a MachineFi Dapp on 
 path: academy/deploy-a-machinefi-dapp.md
 ---
 
-# Overview
-This guide provides a starting point for the development of a [MachineFi](https://machinefi.com/) Dapp on IoTeX.  
+<div class="alert alert-primary" role="alert">
+**Please note**: W3bstream is the IoTeX off-chain compute infrastructure that collects data, authorize devices, implements IoT logics and data storage, and provides verifiable "proofs of everything" to be consumed by smart contracts.
 
-MachineFi is a new
-paradigm fueled by Web3 that underpins the new machine economy, whereby machine resources and intelligence can be financialized to deliver value and ownership to the people, not centralized corporations.
+W3bstream 1.0 release is around the corner, meanwhile for this example we will use some experimemtal code that behaves similar to W3bstream and we will replace it with the actual W3bstream node once it's released.
+</div>
+
+# Overview
+This guide provides a starting point for the development of a [MachineFi]([https://machinefi.com/](https://cdn.iotex.io/machinefi/IoTeX%202.0.pdf)) Dapp on IoTeX.  
+
+MachineFi is [a new paradigm](https://cdn.iotex.io/machinefi/IoTeX%202.0.pdf) fueled by Web3 that underpins the new **machine economy**, whereby machine resources and intelligence can be financialized to deliver value and ownership to the people, not centralized corporations.
 
 A MachineFi Dapp can be broken into 3 main components:
 
-1. Smart devices / Machines that generate data 
+1. **Data generation**: Smart devices / Machines that generate data 
 
-2. An off-chain, Layer-2 compute network that verifies, stores and generates "Proofs" of real-world facts on top of the data
+2. **Proof generation** An off-chain, data compute infra that verifies, processes and stores the data, to generate "Proofs" of real-world facts to be consumed by blockchain dApps
 
-3. An on-chain, Layer-1 set of contracts that manages authorizations and the token-economy based on the real world facts.
+3. **Token economy**: An on-chain, Layer-1 set of contracts that manages device authorization, ownership and the token-economy of the specific MachineFi use case
 
 ![img](https://user-images.githubusercontent.com/11096047/174353904-52b5869b-ed67-4ae9-b32d-30b17130d9df.png)
-
 
 At the end of this quick start you will have a working infrastructure including a device data simulator, an off-chain data layer that receives, verifies and stores data, and a simple Layer-1 device authorization contract. 
 
