@@ -173,7 +173,11 @@ So the firmware works like this:
 8. Send the message over to the W3bstream oracle using the MQTT protocol
 
 # Flashing the firmware
-The full firmware can be found here: https://github.com/simonerom/walk-to-earn-arduino/tree/main/devices/nano-33-iot/steps-counter
+The full firmware can be found here: 
+
+https://github.com/simonerom/walk-to-earn-arduino/tree/main/devices/Arduino
+
+just copy the folder under your Arduino source code folder and edit `secrets.h` to suit your network configuration. 
 At this point, we can go ahead and add our wifi passwords in secrets.h, configure the W3bstream endpoint with the W3bstream node ip address and use Arduino IDE to flash the firmware.
 
 After flashing is done, we can open the Arduino Serial monitor and the output log should look like this:
