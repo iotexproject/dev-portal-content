@@ -1,8 +1,8 @@
-*A recent talk between IoTeX and ZettaBlock's Co-Founder and CEO Chi Zhang has shed light on the great opportunities that this tool provides for developers. The IoTeXperts team has therefore decided to co-write this article to show what ZettaBlock means for anybody interested or currently building on the IoTeX chain.*
+*A recent talk between IoTeX and ZettaBlock's Co-Founder and CEO Chi Zhang has shed light on the great opportunities that this tool provides for developers. The IoTeXperts team has therefore decided to co-write this article with the ZettaBlock's team for all developers interested or currently building on the IoTeX chain.*
 
 ## What is ZettaBlock?
 
-ZettaBlock is a one-stop blockchain data platform to make data indexing, querying, analyzing, and sharing easy and flexible. ZettaBlock abstracts out low-level data layer APIs and queries by providing a single interface for unified on-chain and off-chain data layer access. Applications built on top of ZettaBlock can transform and serve data through their real-time, public facing API or pipe data to anywhere it goes like Postgres and Snowflake, for example. ZettaBlocks offers tremendous opportunities for developers to build real-time, reliable, data-intensive dApps in a wide range of use cases. 
+ZettaBlock is a one-stop blockchain data platform to make data indexing, querying, analyzing, and sharing easy and flexible. ZettaBlock abstracts out low-level data layer APIs and queries by providing a single interface for unified on-chain and off-chain data layer access. Applications built on top of ZettaBlock can transform and serve data through their real-time, public facing API or pipe data to anywhere it goes like Postgres and Snowflake, for example. ZettaBlock offers tremendous opportunities for developers to build real-time, reliable, data-intensive dApps in a wide range of use cases. 
 
 By using this product, you will be able to:
 
@@ -21,23 +21,18 @@ This is only the tip of the iceberg, so feel free to check out the video to lear
 
 https://user-images.githubusercontent.com/77351244/193864045-c4cd3a4b-0679-494f-84ac-b19abce1936d.mp4
 
+ZettaBlock offers quick and intuitive query building and visualization tools: Following the video example, we can see how Chi automatically created a SQL query to find out the total amount of IOTX staking per month.
 
-ZettaBlock offers quick and intuitive query builder and visualization tools: By using the following SQL query, for example, you will be able to find out the total amount of IOTX staking per month: 
+Queries are very easily customizable, and their insights can be immediately visualized (such as in the bar chart right below), and embedded anywhere. 
+Though the best has yet to come. 
 
+These following features are where ZettaBlock really shines: Based on your query, you’ll, in fact, be able to create your own public facing API in a matter of seconds, while also customizing refresh frequency, grouping & indexing logic. 
+All charts created can also be added to your own dashboard to provide aggregated insights, while combining on-chain and off-chain data as well as bringing your own data to the platform via databases, data warehouses or other data sources. 
 
-![query](https://user-images.githubusercontent.com/77351244/193864659-1dc9de2d-6d7b-444e-9ba4-ec9112a6bbf3.png)
+The image below shows some of the key screens illustrating the workflow we just referred to. 
 
-Queries are very easily customizable, and their insights can be immediately visualized (such as in the bar chart right below), and embedded anywhere; though the best has yet to come. 
+![Group 1866](https://user-images.githubusercontent.com/77351244/193939336-bbd4e77c-87fb-4818-9596-0fc7f1cba57b.png)
 
-![bar-chart](https://user-images.githubusercontent.com/77351244/193864934-3b7f17c9-89a6-4432-aa3b-75aaf7b08a2f.png)
-
-This is the part where ZettaBlock really shines: You’ll, in fact, be able to create your own public facing API based on your query in a matter of seconds, while also customizing *refresh frequency*, *grouping* and *indexing* logic.
-
-![api-builder](https://user-images.githubusercontent.com/77351244/193865363-5ff90170-060d-45d3-b76f-54ffc783c7ae.png)
-
-All charts created can also be added to your own dashboard to provide aggregated insights, while combining on and off chain data or bringing your own data to ZettaBlock. 
-
-![dashboard](https://user-images.githubusercontent.com/77351244/193866569-4c805532-c064-48fc-b8b7-721fbc21e7a7.png)
 
 ## Conclusion
 
@@ -56,7 +51,8 @@ The ZettaBlock team has also shared with us some of their upcoming features, suc
 - More chains to support
     - BNB, Aptos, Near, Avalanche, etc
 
-Visit [ZettaBlock's site](https://www.zettablock.com/) to learn more about ZettaBlock and get early access to this incredible product. 
+Visit [ZettaBlock's site](https://www.zettablock.com/) to learn more and get early access to all the great services that come with it. 
+
 
 
 
