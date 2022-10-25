@@ -12,8 +12,7 @@ W3bstream will be able to monitor the specified contracts, and handle the corres
 
 The architecture of this simple flow is illustrated in the image below: 
 
-
-![walk-to-earn-flow](https://user-images.githubusercontent.com/77351244/195899616-d67da599-c3cd-45c1-a93d-489a8f4c8a70.png)
+![walk-to-earn-flow](https://user-images.githubusercontent.com/77351244/197878601-af10ee4e-f3b7-478f-b91e-90f80d1bea25.png)
 
 ## What's Next?
 
