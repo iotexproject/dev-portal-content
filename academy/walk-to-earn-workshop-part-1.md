@@ -1,4 +1,4 @@
-This is Part II of a series of 3 tutorials:
+This is Part I of a series of 3 tutorials:
 
 [Part I](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-1) | [Part II](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-2) | [Part III](https://developers.iotex.io/posts/Walk-to-Earn-Workshop-Part-3)
 
