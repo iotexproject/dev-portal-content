@@ -182,35 +182,60 @@ For the purpose of this quickstart, we will simulate messages sent by a smart de
 
 > ✅ If you are familiar with embedded development, you can check out the next section where we describe an [Arduino](https://www.arduino.cc) sketch that can be used to actually push a button and notify messages to your W3bstream node.
 
+In W3bstream Studio, select the Click2Earn project and click the Send Event button. In the Send Event dialog, select the Publisher, then edit the event `payload` field with:
+
+```bash
+"payload": "{\"Account\" : \"<REWARDS_RECIPIENT_ACCOUNT>"
+```
+
+Just replace the REWARDS_RECIPIENT_ACCOUNT placeholder with the Metamask account address where you imported the CLIK token before.
+
+Finally click the "Submit" Button to send the message at least 5 times, then check your CLIK balance in Metamask to verify that you actually received 1 CLIK token every 5 "click" messages.
 
 
-## Use an Arduino board
+## Using an Arduino board
 
-For the device part, we will use Arduino to flash firmware that will work on a few ESP32 and Arduino dev boards. We suggest using an ESP32 with integrated user buttons like the  ESP-WROOM-32. Alternatively, you will have to connect a button to one of the pins on the board.
+If you are familiar with embedded development, we present a simple [Arduino](https://arduino.cc) sketch that will work on a few ESP32 and Arduino boards. We suggest using an ESP32 with integrated user buttons like the  ESP-WROOM-32. Alternatively, you will have to connect a button to one of the pins on the board.
 
-The firmware in this project sends an event to w3bstream every time the user clicks on a button connected to the board. The firmware is set to work with an Arduino ESP32 board, but could also work on an Arduino Nano 33 IoT, and is set to send data over HTTP by default. 
+The firmware in this project sends a message to w3bstream every time the user clicks a button connected to the board, where the payload just includes the recipient address that will receive the token rewards. 
 
-The first thing to do is to [install the Arduino IDE](https://www.arduino.cc/en/software), create a new project and paste the sketch found in  the `click2earn.ino` file within the `firmware/click2earn` directory. 
+The firmware is set to send data over HTTP by default, but the MQTT option is also provided. 
 
-By default, the firmware uses the PIN 35 on the ESP32 board. Simply connect this PIN to the 3.3V PIN on your board. 
+Make sure you have installed the [Arduino IDE](https://www.arduino.cc/en/software), and move the sketch folder included in the get-started repository to your Arduino projects directory. In MacOS it is located in your Documents folder by default:
+
+```bash
+mv firmware/click2earn ~/Documents/Arduino
+```
+Inside the IDE open `click2earn.ino` file within the `Documents/Arduino/click2earn` directory. 
 
 Let's now configure the `secrets.h` file:
 
-Update the correct fields with their corresponding values. Note that the `SECRET_PUBLISHER_ID` and `SECRET_PUBLISHER_TOKEN` can be found in your **W3bstream Studio** project in the **`Publishers`** section. 
+```bash
+nano firmware/click2earn/secrets.h 
+```
+
+Update the correct fields with their corresponding values:
+
+1. Set your WIFI Network name and password
+![ssid](https://user-images.githubusercontent.com/77351244/200196356-06ae0c53-8151-486c-9d1b-de1e14cf6588.png)
+
+2. Set your W3bstream node ip address to SECRET_WEBSTREAM_HOST 
+
+![host](https://user-images.githubusercontent.com/77351244/200196388-929b7eeb-cc51-468b-afb4-8d02e9cfec3c.png)
+
+3. Set the publisher token as it appears inside W3bstream Studio:
+
+![token](https://user-images.githubusercontent.com/77351244/200196420-15ca3fd7-cd4a-4931-94f7-1e25a0c5a570.png)
+
 
 ![publisher-info](https://user-images.githubusercontent.com/77351244/200187412-9cab92b1-9310-40b9-897e-c7a6dd84feac.png)
 
-Now add the `Secrets.h` file in your **Arduino IDE** project, and flash the firmware:
+Flash the firmware to your Arduino board: 
 
-![f;ash-firmware](https://user-images.githubusercontent.com/77351244/200187488-242f681e-ec25-4b09-bbb5-de15a9aa248d.png)
+![flash-firmware](https://user-images.githubusercontent.com/77351244/200187488-242f681e-ec25-4b09-bbb5-de15a9aa248d.png)
 
-##Putting everything together 
-
-If you have configured the board, connect it to your computer and click the button. Remember that w3bstream will call the `mint()` function in the smart contract after every 5 clicks. Click the button 5 times, wait a few seconds and you should see **1 CLIK** token in your wallet. 
-
+This firmware will work out of the box on an ESP32-WROOM-32 dev board: just click the "boot" button to send a click event to W3bstream. Click it at least 5 times and check your Metamask wallet to verify you got 1 CLIK token as a reward:
 
 ![metamask](https://user-images.githubusercontent.com/77351244/200187609-38ea6dc2-1a9c-41d6-9f7c-93a1d3cede8d.png)
 
-As mentioned earlier, if you haven't configured the board, you can still send messages to your w3bstream node through the **W3bstream** Studio interface under the "[Running a Project](https://docs.w3bstream.com/get-started/running-a-project)" section. Refer to the official [w3bstream documentation](https://docs.w3bstream.com/) for any further information. 
-
-
+This firmware will work out of the box on an ESP32-WROOM-32 dev board: just click the "boot" button to send a click event to W3bstream. Click it at least 5 times and check your Metamask wallet to verify you got 1 CLIK token as a reward:
