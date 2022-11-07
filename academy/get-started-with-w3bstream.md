@@ -219,6 +219,7 @@ nano firmware/click2earn/secrets.h
 Update the correct fields with their corresponding values:
 
 1. Set your WIFI Network name and password
+
 ![ssid](https://user-images.githubusercontent.com/77351244/200196356-06ae0c53-8151-486c-9d1b-de1e14cf6588.png)
 
 2. Set your W3bstream node ip address to SECRET_WEBSTREAM_HOST 
