@@ -72,7 +72,9 @@ Contract deployed to 0x8....
 
 ## Import the token in Metamask
 
-After deploying this contract, remember to import the token contract address in your Metamask wallet. If you'd like the rewards to be sent to a different account then the contract owner's, simply create a new one in Metamask and import the `ClickToEarn` token there.
+After deploying this contract, remember to import the token contract address in your Metamask wallet. If you'd like the rewards to be sent to a different account then the contract owner's, simply create a new one in Metamask and import the `ClickToEarn` token there:
+<img width="1461" alt="image" src="https://user-images.githubusercontent.com/11096047/200410540-7cc5011d-821d-4720-bf8a-d4bb8ea47c11.png">
+
 
 ## Create an operator account for the W3bstream node
 
