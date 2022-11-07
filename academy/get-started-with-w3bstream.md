@@ -241,4 +241,3 @@ This firmware will work out of the box on an ESP32-WROOM-32 dev board: just clic
 
 ![metamask](https://user-images.githubusercontent.com/77351244/200187609-38ea6dc2-1a9c-41d6-9f7c-93a1d3cede8d.png)
 
-This firmware will work out of the box on an ESP32-WROOM-32 dev board: just click the "boot" button to send a click event to W3bstream. Click it at least 5 times and check your Metamask wallet to verify you got 1 CLIK token as a reward:
