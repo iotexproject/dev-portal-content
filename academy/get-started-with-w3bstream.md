@@ -57,7 +57,7 @@ make deploy
 Or, if you don't have *make* installed: 
 
 ```bash
-npx hardhat run scripts/deploy.js
+npx hardhat run scripts/deploy.js --network testnet
 ```
 
 You should get a log like this: 
@@ -187,7 +187,7 @@ For the purpose of this quickstart, we will simulate messages sent by a smart de
 In W3bstream Studio, select the Click2Earn project and click the Send Event button. In the Send Event dialog, select the Publisher, then edit the event `payload` field with:
 
 ```bash
-"payload": "{\"Account\" : \"<REWARDS_RECIPIENT_ACCOUNT>"
+"payload": "{\"Account\" : \"<REWARDS_RECIPIENT_ACCOUNT>}"
 ```
 
 Just replace the REWARDS_RECIPIENT_ACCOUNT placeholder with the Metamask account address where you imported the CLIK token before.
