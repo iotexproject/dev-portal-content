@@ -1,4 +1,4 @@
-During this two-session workshop, we're going to be building a **MachineFi** application that leverages the **IoTeX** chain and **[W3bstream](https://w3bstream.com/)**: the IoTeX layer-2 infrastructure to connect **smart devices to smart contracts**.
+During this two-session workshop with the Africa Blockchain Center, we're going to be building a **MachineFi** application that leverages the **IoTeX** chain and **[W3bstream](https://w3bstream.com/)**: the IoTeX layer-2 infrastructure to connect **smart devices to smart contracts**.
 
 
 The application we're going to build is called **Click-To-Earn**, and it demonstrates how to use W3bstream to connect a smart device with an **NFT** smart contract. Participants will be able to mint an NFT by clicking a button on an Arduino ESP32 board. Upon succesful completion, developers will receive the NFT on the IoTeX Mainnet to prove their participation. The NFT will also be displayed on the participant's profile in IoTeX Developer portal!
