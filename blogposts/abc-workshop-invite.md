@@ -36,7 +36,7 @@ Upon successful completion of the workshop, students will be able to send messag
 
 More learning material can be found on the [IoTeX Developer Portal](https://developers.iotex.io/), while a more in-depth description of the concepts dealt with throughout the workshop can be found in the [IoTeX official documentation](https://docs.iotex.io/), and in the [W3bstream docs](https://docs.w3bstream.com/introduction/readme). 
 
-👉 🏽**Please [submit this form](https://forms.gle/ajmWjFHdQa1NppiA7) to get notified and subscribe to this workshop** 👈🏽
+👉 **Please [submit this form](https://forms.gle/ajmWjFHdQa1NppiA7) to get notified and subscribe to this workshop** 👈🏽
 
 
 
