@@ -1,5 +1,10 @@
 # Introduction 
 
+import {
+  Alert,
+  AlertIcon,
+} from '@chakra-ui/react'
+
 *In this Quickstart, we're going to leverage **W3bstream** develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
 
 [MachineFi](https://cdn.iotex.io/machinefi/IoTeX%202.0.pdf) is the methodology developed by IoTeX as a way of incentivizing the deployment of machines, financializing the utility and data stream coming from machines, as well as enabling composable and transparent ways of building innovative applications.
@@ -107,9 +112,12 @@ You can now access the **W3bstream Studio** admin dashboard by pointing a browse
 ```bash
 https://localhost:3000
 ```
-And use the default password to access the dashboard. 
+And use the default password to access the dashboard.  
 
-> ✅ If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation [here](https://docs.w3bstream.com/). 
+<Alert status='success'>
+    <AlertIcon />
+    If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <a href="https://docs.w3bstream.com/">here</a>
+</Alert>
 
 ## Create a W3bstream project
 
