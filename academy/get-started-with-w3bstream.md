@@ -119,7 +119,7 @@ And use the default password to access the dashboard.
 <Alert status='success' variant='left-accent'>
     <AlertIcon />
     <Text>
-        If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <Link _hover={{ color: "brand.500" }} isExternal href="https://docs.w3bstream.com/">here</Link>
+        If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <Link _hover={{ color: "brand.500" }} textDecoration={"underline"} isExternal href="https://docs.w3bstream.com/">here</Link>
     </Text>
 </Alert>
 
