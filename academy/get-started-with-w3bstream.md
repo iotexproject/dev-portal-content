@@ -3,6 +3,7 @@
 import {
   Alert,
   AlertIcon,
+  Link,
 } from '@chakra-ui/react'
 
 *In this Quickstart, we're going to leverage **W3bstream** develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
@@ -116,7 +117,7 @@ And use the default password to access the dashboard.
 
 <Alert status='success'>
     <AlertIcon />
-    If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <a href="https://docs.w3bstream.com/">here</a>
+    If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <Link isExternal href="https://docs.w3bstream.com/">here</Link>
 </Alert>
 
 ## Create a W3bstream project
