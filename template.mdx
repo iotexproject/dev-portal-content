@@ -1,0 +1,66 @@
+---
+title: Post title
+description: Post description
+path: Post path
+---
+
+# What is possible
+
+- Use markdown tags
+- Use React elements
+- Import [chakra-ui](https://chakra-ui.com/docs/components/alert/usage) components
+
+# Chakra UI examples
+
+*Available components are listed below.*
+*If more chakra components are needed, create a [new issue](https://github.com/iotexproject/dev-portal-content/issues/new)*
+
+==Switch to [raw mode](https://raw.githubusercontent.com/iotexproject/dev-portal-content/main/template.mdx)==
+
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Stack,
+  Link,
+} from "@chakra-ui/react";
+
+<Alert status="error">
+  <AlertIcon />
+  <AlertTitle>Some interesting title!</AlertTitle>
+  <AlertDescription>And a description for this alert.</AlertDescription>
+</Alert>
+
+<Stack spacing={3}>
+  <Alert status='error'>
+    <AlertIcon />
+    There was an error processing your request
+  </Alert>
+
+{" "}
+<Alert status="success">
+  <AlertIcon />
+  Data uploaded to the server. Fire on!
+</Alert>
+
+{" "}
+<Alert status="warning">
+  <AlertIcon />
+  Seems your account is about expire, upgrade now
+</Alert>
+
+  <Alert status='info'>
+    <AlertIcon />
+    Chakra is going live on August 30th. Get ready!
+  </Alert>
+</Stack>
+
+<Link
+  _hover={{ color: "brand.500" }}
+  textDecoration={"underline"}
+  isExternal
+  href="https://developers.iotex.io"
+>
+  Link to Dev Portal
+</Link>
