@@ -48,7 +48,7 @@ git clone https://github.com/machinefi/get-started.git && cd get-started
 
 This repository will have three directories, `blockchain`, `w3bstream` and `firmware` representing the three components of our **MachineFi dApp**. 
 
-# The Blockchain Component
+# The Blockchain Layer
 
 For this application we're going to create an ERC20 mintable token with simple access levels through an `operators` mapping that allows the contract owner to enable certain *operators* to mint tokens. 
 
@@ -103,7 +103,7 @@ npx hardhat addOperator --operatoraddress  <W3BSTREAM_NODE_ADDRESS> --clicktoken
 
 With the blockchain logic in place, it's now time to get the w3bstream node up and running. 
 
-# The W3bstream  Component: 
+# The W3bstream IoT Layer: 
 
 ## Run the W3bstream node
 
@@ -197,21 +197,36 @@ Select the project, give a name to the publisher and assign it a unique key, lik
 
 Now that the w3bstream node is up and running, it's time to configure the firmware component of our *ClickToEarn* application. 
 
-# The Firmware Component:
+# The Hardware Layer
 
 ## Using W3bstream Studio to simulate device messages
 
 For the purpose of this quickstart, we will simulate messages sent by a smart device from inside W3bstream Studio itself.
 
-> ✅ If you are familiar with embedded development, you can check out the next section where we describe an [Arduino](https://www.arduino.cc) sketch that can be used to actually push a button and notify messages to your W3bstream node.
+<Alert status='info' variant='solid'>
+    <AlertIcon />
+If you are familiar with embedded development, you can check out the next section where we describe an [Arduino](https://www.arduino.cc) sketch that can be used to actually push a button and notify messages to your W3bstream node.
+</Alert>
 
-In W3bstream Studio, select the Click2Earn project and click the Send Event button. In the Send Event dialog, select the Publisher, then edit the event `payload` field with:
+Before proceeding, you may want to follow the logs of the W3bstream node. In a new terminal, type the following:
+
+```bash
+docker container logs w3bstream -f
+```
+or, if you want a more readable output and you have `jq` installed:
+
+```bash
+# sudo apt install jq
+docker container logs w3bstream -f | jq
+```
+
+In W3bstream Studio, select the Click2Earn project and click the `Send Event` button. In the Send Event dialog, select the Publisher, then edit the event `payload` field with:
 
 ```bash
 "payload": "{\"Account\" : \"<REWARDS_RECIPIENT_ACCOUNT>}"
 ```
 
-Just replace the REWARDS_RECIPIENT_ACCOUNT placeholder with the Metamask account address where you imported the CLIK token before.
+Just replace the `REWARDS_RECIPIENT_ACCOUNT` placeholder with the Metamask account address where you imported the CLIK token before (that's where rewards will be sent).
 
 Finally click the "Submit" Button to send the message at least 5 times, then check your CLIK balance in Metamask to verify that you actually received 1 CLIK token every 5 "click" messages.
 
