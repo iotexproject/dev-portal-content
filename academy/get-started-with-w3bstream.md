@@ -6,19 +6,30 @@ import {
   Link,
 } from '@chakra-ui/react'
 
-*In this Quickstart, we're going to leverage **W3bstream** develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
+*In this Quickstart, we're going to leverage **W3bstream** to develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
+
+## MachineFi
 
 [MachineFi](https://cdn.iotex.io/machinefi/IoTeX%202.0.pdf) is the methodology developed by IoTeX as a way of incentivizing the deployment of machines, financializing the utility and data stream coming from machines, as well as enabling composable and transparent ways of building innovative applications.
 
+## W3bstream
 [W3bstream](https://docs.w3bstream.com/) is the core component of every MachineFi application: An off-chain computing infrastructure serving as an open, **chain-agnostic** and decentralized protocol sitting in between blockchain and devices to convert real-world data streams from devices into verifiable, dApp-ready proofs. 
 
-Just like any **MachineFi** application, this *ClickToEarn* app is made out of three components: 
+## Click & Earn
 
-- The blockchain trusted logic, which commonly includes at least an incentivizing tokenomics 
-- A w3bstream node, with its own logic, that verifies, processes, saves the IoT data, and sends the proofs of real world activities to smart contracts
-- The IoT device's firmware that sends messages to the w3bstream node
+Just like any **MachineFi** application, this *Click & Earn* app is made out of three layers: 
 
-![w3bstream-animation](https://user-images.githubusercontent.com/77351244/200186494-85ed9aec-5f96-43a0-9c6e-e230002dd49a.png)
+### The Blockchain Layer
+Implements a decentralized trusted logic based on blockchain, for example IoTeX, which commonly includes at least an incentivizing tokenomics 
+
+### The IoT logic Layer
+An off-chain node or decentralized network, that authorizes, verifies, processes, saves the IoT data, and sends the proofs of real world activities to smart contracts on the blockchain. In this tutorial we will create a single-node architecture using the W3bstream framework.
+
+### Hhe hardware Layer
+This is typically a set of smart devices: combination of hardware and dedicated software (*firmware*) that collect sensors data and send messages to the w3bstream node.
+
+![machinefi-animation](https://user-images.githubusercontent.com/11096047/203844543-b358d29c-b3e1-476f-9125-ed5ac9d09fa2.gif)
+
 
 
 ## Cloning the CLick2Earn code
