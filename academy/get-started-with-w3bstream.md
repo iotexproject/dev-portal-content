@@ -205,7 +205,7 @@ For the purpose of this quickstart, we will simulate messages sent by a smart de
 
 <Alert status='info' variant='solid'>
     <AlertIcon />
-If you are familiar with embedded development, you can check out the next section where we describe an [Arduino](https://www.arduino.cc) sketch that can be used to actually push a button and notify messages to your W3bstream node.
+If you are familiar with embedded development, you can check out the [next section](https://developers.iotex.io/posts/Deploy-a-MachineFi-Dapp#using-an-arduino-board) where we describe an [Arduino](https://www.arduino.cc) sketch that can be used to actually push a button and notify messages to your W3bstream node.
 </Alert>
 
 Before proceeding, you may want to follow the logs of the W3bstream node. In a new terminal, type the following:
