@@ -116,7 +116,6 @@ export PRIVATE_KEY=<YOUR_W3BSTREAM_PRIVATE_KEY>
 docker-compose up -d
 ```
 <Alert status='info' variant='solid'>
-  <AlertTitle>Attention!</AlertTitle>
   <AlertIcon />
   Note that, in the command above, you'll have to specify the private key associated with your W3bstream node. If you use an account different from the   one that you used to deploy the token contract, then the address should be added as an authorized "operator" in the token contract as specified above.    Otherwise your W3bstrem node won't be able to mint reward tokens. 
 </Alert>
@@ -129,8 +128,6 @@ https://localhost:3000
 And use the default password to access the dashboard.  
 
 <Alert status='success' variant='solid'>
-    <AlertTitle>Info!</AlertTitle>
-
     <AlertIcon />
     If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <Link _hover={{ color: "brand.500" }} textDecoration={"underline"} isExternal href="https://docs.w3bstream.com/">here.</Link>
 </Alert>
