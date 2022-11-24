@@ -34,7 +34,7 @@ This is typically a set of smart devices: combination of hardware and dedicated 
 
 ## Cloning the CLick2Earn code
 
-Let's create a new project called *"click2earn"*: 
+Let's create a new directory called *"click2earn"*: 
 
 ```bash
 mkdir click2earn && cd click2earn
