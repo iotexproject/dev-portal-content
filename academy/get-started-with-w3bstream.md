@@ -48,7 +48,7 @@ git clone https://github.com/machinefi/get-started.git && cd get-started
 
 This repository will have three directories, `blockchain`, `w3bstream` and `firmware` representing the three components of our **MachineFi dApp**. 
 
-# The Blockchain Component: 
+# The Blockchain Component
 
 For this application we're going to create an ERC20 mintable token with simple access levels through an `operators` mapping that allows the contract owner to enable certain *operators* to mint tokens. 
 
@@ -110,14 +110,16 @@ With the blockchain logic in place, it's now time to get the w3bstream node up a
 Let's start by running the w3bstream node. Make sure Docker is installed and running on your machine, and run: 
 
 ```bash
-cd ../
-curl https://raw.githubusercontent.com/machinefi/w3bstream/main/docker-compose.yaml > docker-compose.yaml
-export WS_WORKING_DIR=$PWD/w3bstream_image
-export PRIVATE_KEY=<YOUR_PRIVATE_KEY>
-docker-compose -p w3bstream -f ./docker-compose.yaml up -d
+cd ../../
+curl https://w3bstream.com/dc
+export PRIVATE_KEY=<YOUR_W3BSTREAM_PRIVATE_KEY>
+docker-compose up -d
 ```
+<Alert status='info' variant='solid'>
+      <AlertTitle>Attention!</AlertTitle>
 
-Note that, in the command above, you'll have to specify the private key associated with the address you just added as "operator". 
+    <AlertIcon />
+Note that, in the command above, you'll have to specify the private key associated with your W3bstream node. If you use an account different from the one that you used to deploy the token contract, then the address should be added as an authorized "operator" in the token contract as specified above. Otherwise your W3bstrem node won't be able to mint reward tokens. 
 
 You can now access the **W3bstream Studio** admin dashboard by pointing a browser to port `3000` for the w3bstream node server:
 
@@ -127,6 +129,8 @@ https://localhost:3000
 And use the default password to access the dashboard.  
 
 <Alert status='success' variant='solid'>
+    <AlertTitle>Info!</AlertTitle>
+
     <AlertIcon />
     If you'd like to learn more about w3bstream and **W3bstream Studio**, feel free to check out the official documentation <Link _hover={{ color: "brand.500" }} textDecoration={"underline"} isExternal href="https://docs.w3bstream.com/">here.</Link>
 </Alert>
