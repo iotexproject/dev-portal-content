@@ -8,10 +8,9 @@ import {
 
 *In this Quickstart, we're going to leverage **W3bstream** to develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
 
-<Alert status='info' variant='solid'>
+<Alert status='success' variant='solid'>
   <AlertIcon />
-Check out this workshop on YouTube that walks you through this tutorial:
-https://youtu.be/TSXUHIMtrO8
+Check out this workshop on YouTube that walks you through the tutorial: https://youtu.be/TSXUHIMtrO8
 </Alert>
 
 ## MachineFi
