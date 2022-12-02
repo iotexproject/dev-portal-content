@@ -8,6 +8,12 @@ import {
 
 *In this Quickstart, we're going to leverage **W3bstream** to develop a simple **MachineFi** application where a user is rewarded with a token by clicking a button on an IoT device:*
 
+<Alert status='info' variant='solid'>
+  <AlertIcon />
+Check out this workshop on YouTube that walks you through this tutorial:
+https://youtu.be/TSXUHIMtrO8
+</Alert>
+
 ## MachineFi
 
 [MachineFi](https://cdn.iotex.io/machinefi/IoTeX%202.0.pdf) is the methodology developed by IoTeX as a way of incentivizing the deployment of machines, financializing the utility and data stream coming from machines, as well as enabling composable and transparent ways of building innovative applications.
