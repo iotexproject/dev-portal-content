@@ -111,7 +111,7 @@ Let's start by running the w3bstream node. Make sure Docker is installed and run
 
 ```bash
 cd ../../
-curl https://w3bstream.com/dc
+curl https://w3bstream.com/dc > docker-compose.yaml
 export PRIVATE_KEY=<YOUR_W3BSTREAM_PRIVATE_KEY>
 docker-compose up -d
 ```
