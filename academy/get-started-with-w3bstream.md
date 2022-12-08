@@ -24,13 +24,13 @@ Check out this workshop on YouTube that walks you through the tutorial: https://
 
 Just like any **MachineFi** application, this *Click & Earn* app is made out of three layers: 
 
-### The Blockchain Layer
+### The Blockchain layer
 Implements a decentralized trusted logic based on blockchain, for example IoTeX, which commonly includes at least an incentivizing tokenomics 
 
-### The IoT logic Layer
+### The IoT logic layer
 An off-chain node or decentralized network, that authorizes, verifies, processes, saves the IoT data, and sends the proofs of real world activities to smart contracts on the blockchain. In this tutorial we will create a single-node architecture using the W3bstream framework.
 
-### Hhe hardware Layer
+### The hardware layer
 This is typically a set of smart devices: combination of hardware and dedicated software (*firmware*) that collect sensors data and send messages to the w3bstream node.
 
 ![machinefi-animation](https://user-images.githubusercontent.com/11096047/203844543-b358d29c-b3e1-476f-9125-ed5ac9d09fa2.gif)
