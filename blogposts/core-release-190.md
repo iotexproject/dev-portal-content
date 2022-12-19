@@ -19,7 +19,7 @@ v1.9.0 enables 2 important features:
 
 ## Other Minor Improvements
 
-v1.9.0 has also come with a couple of other minor improvements and fixes, including a complete fix to the issue patched by v1.8.4.
+v1.9.0 has also come with a couple of other minor improvements and fixes, including a complete fix to [the issue patched by v1.8.4](https://developers.iotex.io/posts/IoTeX-Core-Release-1.8.4).
 
 ## Full release Notes
 
