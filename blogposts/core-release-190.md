@@ -8,7 +8,7 @@ The IoTeX core team is about to release the last major core upgrade of the year,
 
 ## 1.9.0 Hard Fork
 
-v1.9.0 has a **hardfork**, which will be activated at **block height 21,199,321** (ETA is 12/22/2022 around 12am UTC) on IoTeX mainnet. 
+v1.9.0 has a **hardfork**, which will be activated at **block height 21,543,481** (ETA is 1/11/2022 at 12am UTC) on IoTeX mainnet. 
 
 ## Main Features
 
