@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button, Alert } from '@chakra-ui/react'
 
 GeoStream is the first W3bstream-based, Layer-2 network to provide trusted GPS location of blockchain users to Web3 dApps. 
 In this document, we explain how to join the GeoStream network from your iOS or Android device, and monetize your GPS location data in dApps that use GeoStream data.
