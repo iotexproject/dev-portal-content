@@ -14,18 +14,34 @@ v1.9.0 has a **hardfork**, which will be activated at **block height 21,542,761*
 
 v1.9.0 enables 2 important features:
 
-- The zero-nonce feature: Namely, a newly created account will have 0 nitial nonce. For historic reasons, our mainnet is launched with that initial nonce value set to 1, which is different from Ethereum's nonce start, which is conventionally set to 0. Starting from v1.9.0, this behavior alligns with Ethereum's convention, **further enhancing** our chain's compatibility with the Ethereum eco-system. In particular, the Gnosis Safe protocol hinges on this zero-nonce property and, with the v1.9.0 launch, the IoTeX blockchain will then be able to be successfully integrated with it.
-- Secondly, the **EVM** has been upgraded to **London** (and including Berlin), which enables many important EIPs. For example, EIP-2565 lowers **ModExp** gas cost and EIP-2930 provides an optional access list (a list of addresses and storage keys) to reduce gas costs when accessing these addresses and keys during contract execution. For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/
+### Zero-nonce
+
+The zero-nonce feature: Namely, a newly created account will have 0 initial nonce. The IoTeX mainnet was launched with the initial nonce value set to 1, which is different from Ethereum's nonce start, conventionally set to 0. Starting from v1.9.0, this behavior alligns with Ethereum's convention, **further enhancing** the IoTeX chain's compatibility with the Ethereum eco-system. In particular, the Gnosis Safe protocol hinges on this zero-nonce property and, with the v1.9.0 launch, the IoTeX chain will then be able to be successfully integrated with it.
+
+### EVM upgrade to London
+Secondly, the **EVM** has been upgraded to **London**, enabling many important EIPs. For example, EIP-2565 lowers **ModExp** opcode gas cost and EIP-2930 that mitigates contract breakage risks introduced by EIP-2929 as well as "unstucking" any contracts that become stuck due to EIP-1884. For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/
+
+Here's a complete list of EIPs enabled in London:
+
+1. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559): Fee market change for ETH 1.0 chain
+2. [EIP-3198](https://eips.ethereum.org/EIPS/eip-3198): BASEFEE opcode
+3. [EIP-3529](https://eips.ethereum.org/EIPS/eip-3529): Reduction in refunds
+4. [EIP-3541](https://eips.ethereum.org/EIPS/eip-3541): Reject new contract code starting with the 0xEF byte
+5. [EIP-3554](https://eips.ethereum.org/EIPS/eip-3554): Difficulty Bomb Delay to December 2021
+
+## Upgrade Priority 
+
+v1.9.0 comes with a hardfork, so all nodes must upgrade in order to keep syncing with the IoTeX blockchain
 
 ## Other Minor Improvements
 
-v1.9.0 has also come with a couple of other minor improvements and fixes, including a complete fix to [the issue patched by v1.8.4](https://developers.iotex.io/posts/IoTeX-Core-Release-1.8.4).
+v1.9.0 has also come with a couple of other minor improvements and fixes, including the final fix to [the issue patched by v1.8.4](https://developers.iotex.io/posts/IoTeX-Core-Release-1.8.4).
 
 ## Full release Notes
 
 <Alert status='success' variant='solid'>
   <AlertIcon />
-The interested developer is encouraged to checkout the full release notes in the iotex core github repository, here: 
+If you're interested in exploring the full release notes, feel free to checkout the iotex core github repository: https://github.com/iotexproject/iotex-core/releases/tag/v1.9.0
 </Alert>
 
 
