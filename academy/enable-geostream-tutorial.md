@@ -14,7 +14,7 @@ Once you installed ioPay, you'll have to go through the quick settings of your f
 Access to W3bstream applications in ioPay is still limited to beta testers. You will have to enable it in ioPay to get access: make sure you access this tutorial from your smartphone with ioPay installed, then click the button below:
 
 
-<Button>
+<Button colorScheme='pink'>
   <Link href='https://enable_w3bstream' isExternal>
     Enable W3bstream
   </Link>
