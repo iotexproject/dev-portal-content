@@ -24,7 +24,7 @@ Access to W3bstream applications in ioPay is still limited to beta testers. You 
 
 In ioPay, select `Settings`-->`WebStream`-->`Geo Location`
 
-<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209715536-d6283558-787f-4fb2-a4d6-7b2183813c3a.png">
+<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209715536-d6283558-787f-4fb2-a4d6-7b2183813c3a.png"></img>
 
 3. Bind geo location to wallet
 
@@ -35,6 +35,6 @@ Once the geo location module is opened for the first time, you will be asked to 
 
 Click `Connect`, wait for the service to complete the setup process, then sign the action when the request pos up:
 
-<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209716376-936ea9a9-d506-4982-b913-c216f12d73a3.png">
+<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209716376-936ea9a9-d506-4982-b913-c216f12d73a3.png"></img>
 
 
