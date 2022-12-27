@@ -19,9 +19,13 @@ v1.9.0 enables 2 important features:
 The zero-nonce feature: Namely, a newly created account will have 0 initial nonce. The IoTeX mainnet was launched with the initial nonce value set to 1, which is different from Ethereum's nonce start, conventionally set to 0. Starting from v1.9.0, this behavior alligns with Ethereum's convention, **further enhancing** the IoTeX chain's compatibility with the Ethereum eco-system. In particular, the Gnosis Safe protocol hinges on this zero-nonce property and, with the v1.9.0 launch, the IoTeX chain will then be able to be successfully integrated with it.
 
 ### EVM upgrade to London
-Secondly, the **EVM** has been upgraded to both **Berlin** and **London**, enabling many important EIPs. For example, EIP-2565 lowers **ModExp** opcode gas cost and EIP-2930 that mitigates contract breakage risks introduced by EIP-2929 as well as "unstucking" any contracts that become stuck due to EIP-1884. For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/
+Secondly, the **EVM** has been upgraded to both **Berlin** and **London**, enabling many important EIPs. For example, EIP-2565 lowers **ModExp** opcode gas cost and EIP-2930 that mitigates contract breakage risks introduced by EIP-2929 as well as "unstucking" any contracts that become stuck due to EIP-1884. 
 
-Here's a complete list of EIPs enabled in London:
+
+For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/.
+
+
+Here's a list of EIPs enabled in London:
 
 1. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559): Fee market change for ETH 1.0 chain
 2. [EIP-3198](https://eips.ethereum.org/EIPS/eip-3198): BASEFEE opcode
