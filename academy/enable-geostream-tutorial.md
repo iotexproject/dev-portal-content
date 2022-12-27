@@ -42,5 +42,5 @@ Click `Connect`, wait for the service to complete the setup process, then sign t
 
 Make sure you activate the geo location data, allow ioPay to access GPS data, finally open the ioPay browser to join your favorite dapp:
 
-<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209721749-a7532db2-3981-4292-a46c-9332f48eab30.png">
+<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209721749-a7532db2-3981-4292-a46c-9332f48eab30.png"></img>
 
