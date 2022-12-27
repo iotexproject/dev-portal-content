@@ -42,7 +42,9 @@ and EIPs enabled in Berlin:
 
 ## Upgrade Priority 
 
-v1.9.0 comes with a hardfork, so all nodes must upgrade in order to keep syncing with the IoTeX blockchain
+v1.9.0 comes with a hardfork, so all nodes must upgrade in order to keep syncing with the IoTeX blockchain. 
+
+If you are running an IoTeX Delegate or a full node, please refer to the [Bootstrap repository](https://github.com/iotexproject/iotex-bootstrap#iotex-delegate-manual) for detailed instructions on how to update.
 
 ## Other Minor Improvements
 
