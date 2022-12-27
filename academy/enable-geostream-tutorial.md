@@ -20,7 +20,7 @@ Access to W3bstream applications in ioPay is still limited to beta testers. You 
   </Link>
 </Button>
 
-#3. Open the Geo Location module
+# 3. Open the Geo Location module
 
 In ioPay, select `Settings`-->`WebStream`-->`Geo Location`
 
