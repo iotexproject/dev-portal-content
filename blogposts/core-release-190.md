@@ -4,8 +4,6 @@ import {
   Link,
 } from '@chakra-ui/react'
 
-The IoTeX core team is about to release the last major core upgrade of the year, before shifting to the IoTeX Core v2.0 expected in Q1 2023. Let's look at some of the key features that come with this core release. 
-
 ## 1.9.0 Hard Fork
 
 v1.9.0 has a **hardfork**, which will be activated at **block height 21,542,761** (ETA is 1/11/2022 at 12am UTC) on IoTeX mainnet. 
