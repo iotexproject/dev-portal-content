@@ -33,8 +33,15 @@ Once the geo location module is opened for the first time, you will be asked to 
   Make sure you selected the right wallet in ioPay before continuing. That wallet must be used to interact with supported dapp. e.g. to claim location-based NFTs or token rewards.
 </Alert>
 
-Click `Connect`, wait for the service to complete the setup process, then sign the action when the request pos up:
+Click `Connect`, wait for the service to complete the setup process, then sign the action when the request pops up:
+
+4. Activate trusted geo location data
+
+Make sure you activate the geo location data, allow ioPay to access GPS data, finally open the ioPay browser to join your favorite dapp:
 
 <img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209716376-936ea9a9-d506-4982-b913-c216f12d73a3.png"></img>
 
+
+
+<img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209721749-a7532db2-3981-4292-a46c-9332f48eab30.png">
 
