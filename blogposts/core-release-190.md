@@ -19,7 +19,7 @@ v1.9.0 enables 2 important features:
 The zero-nonce feature: Namely, a newly created account will have 0 initial nonce. The IoTeX mainnet was launched with the initial nonce value set to 1, which is different from Ethereum's nonce start, conventionally set to 0. Starting from v1.9.0, this behavior alligns with Ethereum's convention, **further enhancing** the IoTeX chain's compatibility with the Ethereum eco-system. In particular, the Gnosis Safe protocol hinges on this zero-nonce property and, with the v1.9.0 launch, the IoTeX chain will then be able to be successfully integrated with it.
 
 ### EVM upgrade to London
-Secondly, the **EVM** has been upgraded to **London**, enabling many important EIPs. For example, EIP-2565 lowers **ModExp** opcode gas cost and EIP-2930 that mitigates contract breakage risks introduced by EIP-2929 as well as "unstucking" any contracts that become stuck due to EIP-1884. For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/
+Secondly, the **EVM** has been upgraded to both **Berlin** and **London**, enabling many important EIPs. For example, EIP-2565 lowers **ModExp** opcode gas cost and EIP-2930 that mitigates contract breakage risks introduced by EIP-2929 as well as "unstucking" any contracts that become stuck due to EIP-1884. For a complete list of EIPs enabled, please check the sections "London" and "Berlin" at https://ethereum.org/en/history/
 
 Here's a complete list of EIPs enabled in London:
 
@@ -28,6 +28,13 @@ Here's a complete list of EIPs enabled in London:
 3. [EIP-3529](https://eips.ethereum.org/EIPS/eip-3529): Reduction in refunds
 4. [EIP-3541](https://eips.ethereum.org/EIPS/eip-3541): Reject new contract code starting with the 0xEF byte
 5. [EIP-3554](https://eips.ethereum.org/EIPS/eip-3554): Difficulty Bomb Delay to December 2021
+
+and EIPs enabled in Berlin:
+
+1. [EIP-2565](https://eips.ethereum.org/EIPS/eip-2565): ModExp Gas Cost
+2. [EIP-2718](https://eips.ethereum.org/EIPS/eip-2718): Typed Transaction Envelope
+3. [EIP-2929](https://eips.ethereum.org/EIPS/eip-2929): Gas cost increases for state access opcodes
+4. [EIP-2930](https://eips.ethereum.org/EIPS/eip-2930): Optional access lists
 
 ## Upgrade Priority 
 
