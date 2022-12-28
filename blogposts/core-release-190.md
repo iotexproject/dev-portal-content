@@ -6,7 +6,7 @@ import {
 
 ## 1.9.0 Hard Fork
 
-v1.9.0 has a **hardfork**, which will be activated at **block height 21,542,761** (ETA is 1/11/2022 at 12am UTC) on IoTeX mainnet. 
+v1.9.0 has a **hardfork**, which will be activated at **block height 21,542,761** (ETA is 1/11/2023 at 12am UTC) on IoTeX mainnet. 
 
 ## Main Features
 
