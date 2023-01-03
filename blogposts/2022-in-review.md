@@ -1,5 +1,3 @@
-As we approach the end of this incredible year for our dev community, we thought it'd be cool to share some of the major milestones and the most significant achievements. Let's look at some stats together: 
-
 ## Blockchain
 
 The [iotex core repository](https://github.com/iotexproject/iotex-core) has had **3 major** releases (**1.7.0** in March, **1.8.0** in May, and **1.9.0** in December), 7 minor releases and 10 release candidates. The last release of the year is the v1.9.0, which will be rolled out shortly and it aims to further enhance the IoTeX chain's compatibility with the Ethereum eco-system. Amongst the more interesting updates of this year, the ability for Metamask users to stake on the IoTeX chain, enhanced p2p network, API and database performance. 
@@ -36,7 +34,7 @@ Shoutout to some of the more remarkable projects that have shown major growth du
 
 ## Developer Events
 
-Our team has been all over this year, spreading the IoTeX gospel. Money202, ETH2020, ETH Devnver, BCN Hack, ETH-cc, Smartcon, TIPIN and the SF Blockchain Week.
+Our team has been all over this year, spreading the IoTeX gospel: Money202, ETH2020, ETH Devnver, BCN Hack, ETH-cc, Smartcon, TIPIN and the SF Blockchain Week.
 
 ## Thank you!
 
