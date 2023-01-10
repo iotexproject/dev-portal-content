@@ -15,7 +15,7 @@ Access to W3bstream applications in ioPay is still limited to beta testers. You 
 
 
 <Button colorScheme='pink'>
-  <Link href='iopay://enable_w3bstream' isExternal>
+  <Link href='iopay://w3bstream_enable' isExternal>
     Enable W3bstream
   </Link>
 </Button>
