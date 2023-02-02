@@ -1,7 +1,8 @@
 import { Button, Alert, Link } from '@chakra-ui/react'
 
-GeoStream is the first W3bstream-based, Layer-2 network to provide trusted GPS location of blockchain users to Web3 dApps. 
-In this document, we explain how to join the GeoStream network from your iOS or Android device, and monetize your GPS location data in dApps that use GeoStream data.
+One possible use case for W3bstream is a layer-2 network that provides trusted GPS location of blockchain users to Web3 dApps. IoTeX implementedthe first of his kind trusted location service the form of a W3bstream-based API for Dapps. A corresponding feature in te ioPay wallet allows users to contribute their trusted locations to the API, while keeping the data transmission fully customizable and confidential.
+
+In this document, we explain how to join the trusted location network from your iOS or Android device using ioPay, and monetize your data in dApps that use the API.
 
 # 1. Download ioPay Wallet
 Make sure you have ioPay Wallet installed in your mobile phone. ioPay is the official wallet for the IoTeX Blockchain.
