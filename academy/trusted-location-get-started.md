@@ -215,4 +215,6 @@ Go ahead and test your app by running `npm run dev` from your project's root and
 
 Trusted location has many benefits, and a multitude of use cases, some of which are described in the docs, [here](https://docs.iotex.io/). 
 
-The trusted location package is very useful and will quickly get you up to speed. More info on it can be found [here](https://github.com/nicky-ru/g3o). However, if you'd like to dig deeper, the documentation is a great place to learn about what's happening under the hood. 
+The trusted location package is very useful and will quickly get you up to speed. More info on it can be found [here](https://www.npmjs.com/package/@w3bstream/geolocation-light). However, if you'd like to dig deeper, the documentation is a great place to learn about what's happening under the hood. 
+
+If you have any trouble to make this work, compare your code with the full working example, [here](https://github.com/machinefi/trusted-location-get-started). Don't forget to first send a trusted location through your [ioPay wallet](https://iopay.me/) and use that info in your `locationObject`. ;-D
