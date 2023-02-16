@@ -113,8 +113,8 @@ const locationObject = {
     latitude: 40.572349, 
     longitude: -60.536486, 
     distance: 100, 
-    from: new Date("2023-01-03").getTime() / 1000, 
-    to: new Date("2023-01-28").getTime() / 1000
+    from: new Date("2023-01-03").getTime(), 
+    to: new Date("2023-01-28").getTime()
 }
 ```
 
