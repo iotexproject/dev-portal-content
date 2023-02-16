@@ -103,7 +103,7 @@ Next, in this same directory, create a new file called `GeoButton.tsx`. Let's st
 import { useSignMessage, useAccount } from "wagmi";
 import { useRef, useState } from "react";
 import { ConnectButton } from "./ConnectButton";
-import { GeolocationVerifier } from "@nick-iotex/g3o";
+import { GeolocationVerifier } from "@w3bstream/geolocation-light";
 ```
 
 Let's now create a `locationObject` represeting the location we'll be querying the API with. If you have already successfully sent your location via *ioPay* earlier, you should use those values: 
