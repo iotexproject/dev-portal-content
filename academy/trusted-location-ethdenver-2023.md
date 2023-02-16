@@ -405,7 +405,7 @@ Next, add the following code to the component:
 
 ```typescript
   async function sendQuery() {
-    await geolocation.current.verifyLocation();
+    const verifiedLocations = await geolocation.current.verifyLocation();
     if (!!verifiedLocations && verifiedLocations.length > 0) {
       setVerifiedLocations([...verifiedLocations]);
       setIsReadyToClaim(true);
