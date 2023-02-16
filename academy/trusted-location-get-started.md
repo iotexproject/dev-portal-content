@@ -15,7 +15,7 @@
  Let's enter the project and install the tools we'll need to proceed: the *wagmi-ethers* package and the *iotex-geolocation* package. 
  
  ```bash
- cd trusted-location && npm i wagmi ethers@^5 @nick-iotex/g3o
+ cd trusted-location && npm i wagmi ethers@^5 @w3bstream/geolocation-light
  ```
  
  Open the project in your favorite code editor. 
