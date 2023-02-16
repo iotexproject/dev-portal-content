@@ -375,7 +375,7 @@ import { Airdrop } from "../types/Airdrop";
 import { Button } from "@chakra-ui/react";
 import { ConnectButton } from "./User/ConnectButton";
 import { ClaimButton } from "./ClaimButton";
-import { GeolocationVerifier } from "@nick-iotex/g3o";
+import { GeolocationVerifier } from "@w3bstream/geolocation-light";
 ```
 
 Note that, instead of directly calling the API and manually handling the scaling of coordinates and dates as well as generating the correct SIWE message, we'll be using the GeolocationVerifier package from IoTeX, which will make the whole process faster and easier. For the full API example, feel free to checkout the trusted location documentation. More information about the package, in return, can be found here. 
@@ -475,4 +475,4 @@ We'll now render the "Unlock" button (like 14) which will call the trusted locat
 
 ## Conclusion
 
-Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/GiupiDeLuca/geo_next). Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  If you'd like to know more about IoTeX's geo location API, you can check out the official documentation [here](https://docs.iotex.io/). The full code for the geo location package can be found [here](https://github.com/iotexproject). 
+Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/GiupiDeLuca/geo_next). Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://www.npmjs.com/package/@w3bstream/geolocation-light). 
