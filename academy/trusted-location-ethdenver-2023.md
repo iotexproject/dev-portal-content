@@ -15,7 +15,7 @@ The only pre-requisite here is to be able to send a trusted location to a W3bstr
 Once you're able to successfully send a trusted location, open a new project folder, fork and clone the *trusted-location-starting-template*, like this: 
 
 ```bash
-git clone -b starting-template --single-branch https://github.com/GiupiDeLuca/geo_next.git
+git clone -b starting-template --single-branch https://github.com/machinefi/trusted-location-airdrop-dapp.git
 ```
 
 Enter the `geo_next` directory, where you'll find the `frontend` and the `web3` directories. Enter each directory and install the respective dependencies with the `npm install` command. Now, from the `frontend` directory run the `npm run dev` command and open your browser at http://localhost:3000/ - you will see the app's landing page. Nothing too exciting there, our app is currently reading from a blank smart contract. 
@@ -475,4 +475,4 @@ We'll now render the "Unlock" button (like 14) which will call the trusted locat
 
 ## Conclusion
 
-Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/GiupiDeLuca/geo_next). Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://www.npmjs.com/package/@w3bstream/geolocation-light). 
+Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/machinefi/trusted-location-airdrop-dapp/tree/main). Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://www.npmjs.com/package/@w3bstream/geolocation-light). 
