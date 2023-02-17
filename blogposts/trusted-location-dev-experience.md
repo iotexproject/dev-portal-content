@@ -15,13 +15,13 @@ ___
 </Button>
 
 <Button colorScheme= "teal">
-  <Link href='' isExternal>
+  <Link href='https://developers.iotex.io/posts/get-started-with-trusted-location' isExternal>
     Get Started with Trusted Location
   </Link>
 </Button>
 
 <Button colorScheme= "teal">
-  <Link href='' isExternal>
+  <Link href='https://developers.iotex.io/posts/build-a-full-stack-dapp-on-trusted-location' isExternal>
     Build a full-stack dApp on Trusted Location
   </Link>
 </Button>
