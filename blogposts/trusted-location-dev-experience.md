@@ -7,7 +7,7 @@ With this API, you can trust that the location data provided is tamper-proof and
 Take you dApps to the next level with the first ever tool to connect smartphones to smart contracts. 
 
 
-<Button colorScheme= "teal" mr={12} mt={12}>
+<Button colorScheme= "teal" mr={12}>
   <Link href='https://iotex.gitbook.io/trustedlocation/overview/iotex-trusted-location-api' isExternal>
     Trusted Location Docs
   </Link>
