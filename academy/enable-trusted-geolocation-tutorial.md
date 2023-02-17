@@ -4,20 +4,20 @@ One possible use case for W3bstream is a layer-2 network that provides trusted G
 
 In this document, we explain how to join the trusted location network from your iOS or Android device using ioPay, and monetize your data in dApps that use the API.
 
-# 1. Download ioPay Wallet
+# Download ioPay Wallet
 Make sure you have ioPay Wallet installed in your mobile phone. ioPay is the official wallet for the IoTeX Blockchain.
 
 [Go to the ioPay website](https://iopay.me)
 
 Once you installed ioPay, you'll have to go through the quick settings of your first wallet (or import the private key of a wallet you already own).
 
-# 2. Open W3bstream's Geo Location module
+# Open W3bstream's Geo Location module
 
 In ioPay, select `Settings`-->`WebStream`-->`Geo Location`
 
 <img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209715536-d6283558-787f-4fb2-a4d6-7b2183813c3a.png"></img>
 
-# 3. Bind the geo location to your wallet
+# Bind the geo location to your wallet
 
 Once the geo location module is opened for the first time, you will be asked to "Connect" the geo location of your smartphone to the currenly selected ioPay wallet.
 <Alert>
@@ -29,8 +29,15 @@ Click `Connect`, wait for the service to complete the setup process, then sign t
 
 <img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209716376-936ea9a9-d506-4982-b913-c216f12d73a3.png"></img>
 
-# 4. Activate geo location data
+# Activate geo location data
 
 Make sure you activate the geo location data, allow ioPay to access GPS data, finally open the ioPay browser to join your favorite dapp:
 
 <img width="1874" alt="image" src="https://user-images.githubusercontent.com/11096047/209721749-a7532db2-3981-4292-a46c-9332f48eab30.png"></img>
+
+# Final notes
+When the geolocation module is "ON", ioPay will read your mobile GPS data and securely send your location to a W3bstream node with the frequency you configured in the settings. These location data are bound to the specific device, guaranteed to be tamper-proof and therefore ideal to be used inside dapps by means of the IoTeX unique trusted location API service based on W3bstream.
+<Alert>
+Please notice that dapps will never be able to get your location. Dapps must indeed provide a region withing they want to query a proof of location for one of your devices, and anyway you will be requested to sign the query with your associated wallet for the request to produce as result.
+</Alert>
+The geo location service can be shut off at any moment from ioPay, and you can also switch it on/off instantly to send just a single location when you are in a specific location that you intend to proof in the future.
