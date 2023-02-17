@@ -213,8 +213,8 @@ Congratulations, you've created a simple dApp based on real world data.
 
 Go ahead and test your app by running `npm run dev` from your project's root and opening your browser at http://localhost:3000/ 
 
-Trusted location has many benefits, and a multitude of use cases, some of which are described in the docs, [here](https://docs.iotex.io/). 
+Trusted location has many benefits, and a multitude of use cases, some of which are described in the docs, [here](https://iotex.gitbook.io/trustedlocation/overview/iotex-trusted-location-api). 
 
-The trusted location package is very useful and will quickly get you up to speed. More info on it can be found [here](https://www.npmjs.com/package/@w3bstream/geolocation-light). However, if you'd like to dig deeper, the documentation is a great place to learn about what's happening under the hood. 
+The trusted location package is very useful and will quickly get you up to speed. More info on it can be found [here](https://github.com/machinefi/geolocation-sdk-demo). However, if you'd like to dig deeper, the documentation is a great place to learn about what's happening under the hood. 
 
 If you have any trouble to make this work, compare your code with the full working example, [here](https://github.com/machinefi/trusted-location-get-started). Don't forget to first send a trusted location through your [ioPay wallet](https://iopay.me/) and use that info in your `locationObject`. ;-D
