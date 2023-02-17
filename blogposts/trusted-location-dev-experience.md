@@ -1,4 +1,4 @@
-import { Button, Alert, Link, Box, Text } from '@chakra-ui/react'
+import { Button, Alert, Link, Box, flexWrap } from '@chakra-ui/react'
 
 IoTeX' Trusted Location API, built using [W3bstream](https://w3bstream.com/), provides highly accurate and trusted GPS locations that can be used in smart contracts to ensure transparency and accuracy in location-based transactions. 
 
@@ -6,7 +6,7 @@ With this API, you can trust that the location data provided is tamper-proof and
 
 Take you dApps to the next level with the first ever tool to connect smartphones to smart contracts. 
 
-<Box display="flex" gap={4} justify-content="space-between" mt={12} mb={18} fontWeight="bold">
+<flexWrap display="flex" gap={4} justify-content="space-between" mt={12} mb={18} fontWeight="bold">
   <Button colorScheme="brand">
     <Link href='https://developers.iotex.io/posts/get-started-with-trusted-location' isExternal>
       Get Started
@@ -24,5 +24,5 @@ Take you dApps to the next level with the first ever tool to connect smartphones
      Documentation
     </Link>
   </Button>
-</Box>
+</flexWrap>
 
