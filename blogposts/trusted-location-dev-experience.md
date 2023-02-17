@@ -20,7 +20,7 @@ ___
   </Link>
 </Button>
 
-<Button colorScheme= "teal"  m={12}>
+<Button colorScheme= "teal">
   <Link href='https://developers.iotex.io/posts/build-a-full-stack-dapp-on-trusted-location' isExternal>
     Build a full-stack dApp on Trusted Location
   </Link>
