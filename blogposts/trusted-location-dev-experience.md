@@ -8,19 +8,19 @@ Take you dApps to the next level with the first ever tool to connect smartphones
 
 ___
 
-<Button colorScheme= "teal" mr={12} m={4}>
+<Button colorScheme= "teal" mr={12}>
   <Link href='https://iotex.gitbook.io/trustedlocation/overview/iotex-trusted-location-api' isExternal>
     Trusted Location Docs
   </Link>
 </Button>
 
-<Button colorScheme= "teal" m={4}>
+<Button colorScheme= "teal">
   <Link href='https://developers.iotex.io/posts/get-started-with-trusted-location' isExternal>
     Get Started with Trusted Location
   </Link>
 </Button>
 
-<Button colorScheme= "teal" m={4}>
+<Button colorScheme= "teal" mt={4}>
   <Link href='https://developers.iotex.io/posts/build-a-full-stack-dapp-on-trusted-location' isExternal>
     Build a full-stack dApp on Trusted Location
   </Link>
