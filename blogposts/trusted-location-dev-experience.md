@@ -19,7 +19,7 @@ Take you dApps to the next level with the first ever tool to connect smartphones
     </Link>
   </Button>
   
-  <Button colorScheme="brand"  variant="outline" fontWeight="900">
+  <Button colorScheme="brand"  variant="outline" fontWeight="900" color='white'>
     <Link href='https://iotex.gitbook.io/trustedlocation/overview/iotex-trusted-location-api' isExternal>
      Documentation
     </Link>
