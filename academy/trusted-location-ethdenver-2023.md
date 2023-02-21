@@ -369,7 +369,7 @@ Now, `useContractWrite` will actually call the contract using the `config` from 
 
 The `ClaimButton` handles the actual contract call by leveraging the `useClaimDrop` we just created. 
 
-Let's paste this code in the `ClaimButton.tsx` file, under the Components directory:
+Let's paste this code in the `ClaimButton.tsx` file, in the `components` directory:
 
 ```typescript
 import { useClaimDrop } from "../hooks/useClaimDrop";
