@@ -21,22 +21,23 @@ cd trusted-location-airdrop-dapp
 
 Inside the project you'll find the `frontend` and the `web3` directories. Enter each directory and install the respective dependencies with the `npm install` command. 
 
-```
+```bash
 cd web3 && npm install
 cd ../frontend && npm install
 ```
 
-Now, from the `frontend` directory run the `npm run dev` command and open your browser at http://localhost:3000/ - you will see the app's landing page. Nothing too exciting there, our app is currently reading from a blank smart contract. 
+Now, from the `frontend` directory run: 
 
-```
+```bash
 npm run dev
 ```
+and open your browser at http://localhost:3000/ - you will see the app's landing page. Nothing too exciting there, our app is currently reading from a blank smart contract. 
 
 Let's go ahead and take care of this first. 
 
 ## The LocationAirdrop Contract
 
-Inside your code editor, get to the `contracts` folder in the `web3` directory and open the `LocationAirdrop.sol` file.
+Open your project with your favorite code editor, and get to the `contracts` folder in the `web3` directory and open the `LocationAirdrop.sol` file.
 
 Let's add these 2 lines, to import the `LocationNFT` and the `VerifierInterface`.
 
@@ -122,7 +123,7 @@ Let's add a few auxiliary functions:
 
 This function checks for the input values to be valid, then generates a hash for the Airdrop the user is about to create, makes sure it's not a duplicate and updates out on-chain storage: The `airDrops` mapping for the generated hash and the `airDropsHashes` array. 
 
-The next step is to create a function to add a new AirDrop to the Dapp:
+The next step is to create a function to allow a creator to add a new AirDrop:
 
 ```solidity
  function addAirDrop(
@@ -256,13 +257,13 @@ Add these last three functions to complete the contract:
     }
 ```
 
-Now that the contract is complete, create a `.env` file with your private key inside the `web3` disrectory, like this: 
+Now that the contract is complete, create a `.env` file with your private key inside the `web3` directory, like this: 
 
 ```bash
 IOTEX_PRIVATE_KEY = <YOUR-PRIVATE-KEY-HERE>
 ```
 
-Then, from the web3 directory, run this command to deploy the contracts to the **IoTeX Testnet**. 
+Then, still from the `web3` directory, run this command to deploy the contracts to the **IoTeX Testnet**. 
 
 ```bash
 cd web3
@@ -414,7 +415,7 @@ export const ClaimButton = ({isReadyToClaim, verifiedLocations, ...rest} : Claim
             onClick={handleClaim}
             {...rest}
         >
-            {isLoading ? <Spinner size="xs" /> : `Claim`}
+            {isLoading ? <Spinner size="xs" /> : `Claim Your NFT`}
         </Button>
     )
 }
@@ -525,16 +526,16 @@ Add this last bit of code:
     />
   ) : (
     <Button size={'xs'} mt={12} onClick={handleUnlock}>
-      {verificationUnsuccessful ? "Verification Unsuccessful" : "Unlock"}
+      {verificationUnsuccessful ? "Proof Not Found" : "Get Proof"}
     </Button>
   );
 ```
 
 If the user has not yet connected, we'll render the `ConnectButton` component. 
 
-We'll now render the "Unlock" button (like 14) which will call the trusted location API and determine if the user is ready to claim an airdrop. If so, we'll then render the `ClaimButton` with the corresponding appropriate props. 
+We'll now render the "Get Proof" button (like 14) which will call the trusted location API and determine if the user is ready to claim an airdrop. If so, we'll then render the `ClaimButton` with the corresponding appropriate props. 
 
-Check out `localhost:3000` in your browser and start using the Dapp!
+Check out `localhost:3000` in your browser and start using your dApp!
 
 ## Conclusion
 
@@ -542,4 +543,4 @@ Congratulations on building a dApp on trusted real-world data! The fully-working
 
 Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  
 
-If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://github.com/machinefi/geolocation-sdk-demo/tree/main/packages/geolocation). 
+If you'd like to know more about IoTeX's trusted location API, you can check out the official documentation [here](https://iotex.gitbook.io/trustedlocation/overview/iotex-trusted-location-api). The source code for the geo location npm package can be found [here](https://github.com/machinefi/geolocation-sdk-demo/tree/main/packages/geolocation). 
