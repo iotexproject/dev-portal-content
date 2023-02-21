@@ -16,15 +16,27 @@ Once you're able to successfully send a trusted location, open a new project fol
 
 ```bash
 git clone -b starting-template --single-branch https://github.com/machinefi/trusted-location-airdrop-dapp.git
+cd trusted-location-airdrop-dapp
 ```
 
-Enter the `geo_next` directory, where you'll find the `frontend` and the `web3` directories. Enter each directory and install the respective dependencies with the `npm install` command. Now, from the `frontend` directory run the `npm run dev` command and open your browser at http://localhost:3000/ - you will see the app's landing page. Nothing too exciting there, our app is currently reading from a blank smart contract. 
+Inside the project you'll find the `frontend` and the `web3` directories. Enter each directory and install the respective dependencies with the `npm install` command. 
+
+```
+cd web3 && npm install
+cd ../frontend && npm install
+```
+
+Now, from the `frontend` directory run the `npm run dev` command and open your browser at http://localhost:3000/ - you will see the app's landing page. Nothing too exciting there, our app is currently reading from a blank smart contract. 
+
+```
+npm run dev
+```
 
 Let's go ahead and take care of this first. 
 
 ## The LocationAirdrop Contract
 
-Get to the `contracts` folder in the `web3` directory and open the `LocationAirdrop.sol` file. 
+Inside your code editor, get to the `contracts` folder in the `web3` directory and open the `LocationAirdrop.sol` file.
 
 Let's add these 2 lines, to import the `LocationNFT` and the `VerifierInterface`.
 
@@ -33,9 +45,9 @@ import "./LocationNFT.sol";
 import "./VerifierInterface.sol";
 ```
 
-We'll use the NFT contract to mint our Airdrop once certain conditions are met, and we'll use `VerifierInterface.sol` to interact with the on-chain Verifier suite of contracts developed by the IoTeX core team, to verify the validity of the proofs received by the dApp. 
+We'll use the NFT contract to mint our Airdrop once certain conditions are met, and we'll use `VerifierInterface.sol` to interact with the on-chain Verifier suite of contracts developed by the IoTeX core team, to verify the validity of the proofs forwarded to the contarct. 
 
-Let's go ahead and add our global variables:
+Let's go ahead and start coding the `LocationAirdrop` contract by adding our global scope:
 
 ```solidity
     event Claimed(address indexed holder, bytes32 indexed deviceHash);
@@ -46,20 +58,6 @@ Let's go ahead and add our global variables:
     address public feeReceiver;
     uint256 public baseFee;
     uint256 public feeCliff; // value after which creating more tokens will be free
-
-    constructor(
-        address _verifier,
-        address _nft,
-        uint256 _baseFee,
-        address _feeReceiver,
-        uint256 _feeCliff
-    ) {
-        verifier = VerifierInterface(_verifier);
-        NFT = LocationNFT(_nft);
-        baseFee = _baseFee;
-        feeReceiver = _feeReceiver;
-        feeCliff = _feeCliff;
-    }
 
     struct AirDrop {
         int256 lat;
@@ -76,6 +74,20 @@ Let's go ahead and add our global variables:
     mapping(address => mapping(bytes32 => bool)) public claimedAirDrops;
 
     uint256 private _tokenId;
+    
+    constructor(
+        address _verifier,
+        address _nft,
+        uint256 _baseFee,
+        address _feeReceiver,
+        uint256 _feeCliff
+    ) {
+        verifier = VerifierInterface(_verifier);
+        NFT = LocationNFT(_nft);
+        baseFee = _baseFee;
+        feeReceiver = _feeReceiver;
+        feeCliff = _feeCliff;
+    }
 ```
 
 This is pretty straightforward: Upon deployment, we'l have to provide this contract with the Verifier and NFT contract addresses, as well as a series of fees, that just make the whole app a little more fun. 
@@ -110,7 +122,53 @@ Let's add a few auxiliary functions:
 
 This function checks for the input values to be valid, then generates a hash for the Airdrop the user is about to create, makes sure it's not a duplicate and updates out on-chain storage: The `airDrops` mapping for the generated hash and the `airDropsHashes` array. 
 
-The next step is to make the `claim()` function which does the bulk of the work in our contract: 
+The next step is to create a function to add a new AirDrop to the Dapp:
+
+```solidity
+ function addAirDrop(
+        int256 _lat,
+        int256 _long,
+        uint256 _maxDistance,
+        uint256 _time_from,
+        uint256 _time_to,
+        uint256 _tokens_count
+    ) external payable {
+        require(
+            _lat >= -90_000000 && _lat <= 90_000000,
+            "Invalid latitude value"
+        );
+        require(
+            _long >= -180_000000 && _long <= 180_000000,
+            "Invalid longitude value"
+        );
+        require(_maxDistance > 0, "Invalid max distance");
+        require(
+            msg.value >= calculateFee(_tokens_count),
+            "Value sent with tx is not sufficient based on the tokens count"
+        );
+        bytes32 airDropHash = generateHash(
+            _lat,
+            _long,
+            _maxDistance,
+            _time_from,
+            _time_to
+        );
+        require(airDrops[airDropHash].maxDistance == 0, "Duplicated airDrop");
+        airDrops[airDropHash] = AirDrop({
+            lat: _lat,
+            long: _long,
+            maxDistance: _maxDistance,
+            time_from: _time_from,
+            time_to: _time_to,
+            tokens_count: _tokens_count,
+            tokens_minted: 0
+        });
+        airDropsHashes.push(airDropHash);
+        _tokenId++;
+    }
+```
+
+The last important function is `claim()`, which does the bulk of the work in our contract: 
 
 ```solidity
 function claim(
@@ -198,15 +256,16 @@ Add these last three functions to complete the contract:
     }
 ```
 
-Now that the contract is complete, create a `.env` file with your private key, like this: 
+Now that the contract is complete, create a `.env` file with your private key inside the `web3` disrectory, like this: 
 
 ```bash
 IOTEX_PRIVATE_KEY = <YOUR-PRIVATE-KEY-HERE>
 ```
 
-Then run this command to deploy the contracts to the **IoTeX Testnet**. 
+Then, from the web3 directory, run this command to deploy the contracts to the **IoTeX Testnet**. 
 
 ```bash
+cd web3
 npm run deploy:testnet
 ```
 
@@ -220,7 +279,7 @@ Now that the `web3` folder has been taken care of, it's time to work on the `fro
 
 ## The useClaimDrop Hook
 
-Navigate to the `hooks` directory and open the `useClaimDrop.ts` file. Let's start by importing the tools we'll need: 
+From the code editor, navigate to the `hooks` directory and open the `useClaimDrop.ts` file. Let's start by importing the tools we'll need: 
 
 ```typescript
 import {
@@ -278,7 +337,7 @@ Now add the following code inside the hook:
   });
   ```
   
-No need to spend time on `useRouter()`, so let's focus on the `usePrepareContractWrite()` hook from *wagmi*: `usePrepareContractWrite` gives back a "prepared config" to be sent through to `useContractWrite`. More information can be found on wagmi's page [here](https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite). This hook needs a few params: First it will need the contract address and ABI it needs to call, the name of the function to be called and the arguments that need to be used. Note that we're only enabling this contract to be called only when `isReadyToClaim` (one of the arguments passed earlier in this component) is `true`. Finally, we'll need to send some test IOTX with this transaction to cover the value required by the Verifier contract (lines 15-17). 
+Let's focus on the `usePrepareContractWrite()` hook from *wagmi*: `usePrepareContractWrite` gives back a "prepared config" to be sent through to `useContractWrite`. More information can be found on wagmi's page [here](https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite). This hook needs a few params: First it will need the contract address and ABI it needs to call, the name of the function to be called and the arguments that need to be used. Note that we're only enabling this contract to be called only when `isReadyToClaim` (one of the arguments passed earlier in this component) is `true`. Finally, we'll need to send some test IOTX with this transaction to cover the value required by the Verifier contract (lines 15-17). 
 
 Let's finish building this hook by adding the following code: 
 
@@ -309,7 +368,7 @@ Now, `useContractWrite` will actually call the contract using the `config` from 
 
 The `ClaimButton` handles the actual contract call by leveraging the `useClaimDrop` we just created. 
 
-Let's have a look: 
+Let's paste this code in the `ClaimButton.tsx` file, under the Components directory:
 
 ```typescript
 import { useClaimDrop } from "../hooks/useClaimDrop";
@@ -365,7 +424,9 @@ If the value of `isReadyToClaim`, which we pass into this component, is set to `
 
 ## The ClaimVerifier Component
 
-This component is in charge of orchestrating the API call and, in turn, determining whether or not to call the smart contract. Let's start by importing everything we need to make this work: 
+This component is in charge of orchestrating the API call and, in turn, determining whether or not to call the smart contract. 
+
+Let's open `ClaimVerifier.tsx` in the `Components` directory and start by importing everything we need to make this work: 
 
 ```typescript
 import { useSignMessage, useAccount } from "wagmi";
@@ -473,6 +534,12 @@ If the user has not yet connected, we'll render the `ConnectButton` component.
 
 We'll now render the "Unlock" button (like 14) which will call the trusted location API and determine if the user is ready to claim an airdrop. If so, we'll then render the `ClaimButton` with the corresponding appropriate props. 
 
+Check out `localhost:3000` in your browser and start using the Dapp!
+
 ## Conclusion
 
-Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/machinefi/trusted-location-airdrop-dapp/tree/main). Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://github.com/machinefi/geolocation-sdk-demo/tree/main/packages/geolocation). 
+Congratulations on building a dApp on trusted real-world data! The fully-working repository for this application can be found [here](https://github.com/machinefi/trusted-location-airdrop-dapp/tree/main). 
+
+Trusted location is only one of the multitude of implementations for trusted data in smart contracts, and within this vertical there are certainly so many use cases: Proof of presence, scavanger hunts, and GameFi, just to name a few.  
+
+If you'd like to know more about IoTeX's geo location API, you can check out the official W3bstream documentation [here](https://docs.w3bstream.com/introduction/readme). More info on the geo location package can be found [here](https://github.com/machinefi/geolocation-sdk-demo/tree/main/packages/geolocation). 
