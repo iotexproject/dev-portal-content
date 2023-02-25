@@ -1,5 +1,3 @@
-*Injecting trusted location data into dApps opens the door for several new types of applications. The application we're going to be building allows users to create location based Airdrops that can be unlocked only by those devices that were in the Airdrop's specified location area within the time range determined by the Airdrop's creator.*
-
 ## Architecture
 
 Let's look at the architecture of a typical dApp that would make use of the trusted location API and the on-chain Verifier contract, developed by the IoTeX core team. 
