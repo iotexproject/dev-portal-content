@@ -4,7 +4,7 @@ Let's look at the architecture of a typical dApp that would make use of the trus
 
 ![geo-location-flow](https://user-images.githubusercontent.com/77351244/218823510-44d3e15e-3396-4456-881b-1ea7e2c26fe8.png)
 
-The image above describes the flow of an application where enabled devices can send their GPS locations to a W3bstream server, and device owners can then allow the dApp to query that W3bstream server to obtain a proof of their presence in a certain location at a certain time. This proof is then used by the dApp to, in this case, create a digital asset, such as an airdrop. The final step before the airdrop is actually minted is to verify the proof on the IoTeX chain using the "Verifier Contract"
+"The image above describes the flow of an application where enabled devices can send their GPS locations to a W3bstream server. Device owners can then allow the dApp to query that W3bstream server to obtain proof of their presence in a certain location at a certain time. This proof is then used by the dApp to create a digital asset, such as an airdrop. The final step before the airdrop is minted is to verify the proof on the IoTeX chain using the "Verifier Contract."
 
 ## App Setup
 
