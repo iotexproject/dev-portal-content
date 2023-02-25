@@ -49,13 +49,18 @@ We'll use the NFT contract to mint our Airdrop once certain conditions are met, 
 Let's go ahead and start coding the `LocationAirdrop` contract by adding our global scope:
 
 ```solidity
+    // Emitted each time a user successfully claims an Airdrop
     event Claimed(address indexed holder, bytes32 indexed deviceHash);
-
+    // We use the Verifier contract to validate the proof of location
     VerifierInterface public verifier;
+    // This is the ERC721 token contract
     LocationNFT public NFT;
 
+    // The contract's admin address that receives the fees (charged per NFT)
     address public feeReceiver;
+    // The fee we charge per NFT
     uint256 public baseFee;
+    // Maximum number of NFTs we charge the fee for - more are free
     uint256 public feeCliff; // value after which creating more tokens will be free
 
     struct AirDrop {
@@ -68,10 +73,13 @@ Let's go ahead and start coding the `LocationAirdrop` contract by adding our glo
         uint256 tokens_minted;
     }
 
+    // Array that lists all hashes of all published AirDrops
     bytes32[] public airDropsHashes;
+    // This is the mapping that contains the actual Airdrop data structs (indexed by hash)
     mapping(bytes32 => AirDrop) public airDrops;
+    // This maps keeps tracks of which user claimed which airdrop
     mapping(address => mapping(bytes32 => bool)) public claimedAirDrops;
-
+    // Unique id for the next NFT to claim
     uint256 private _tokenId;
     
     constructor(
@@ -98,6 +106,7 @@ The on-chain storage is going to be split between an array of bytes32 called `ai
 Let's add a few auxiliary functions: 
 
 ```solidity
+    
     function airDropsCount() external view returns (uint256) {
         return airDropsHashes.length;
     }
@@ -106,6 +115,7 @@ Let's add a few auxiliary functions:
         return airDropsHashes;
     }
 
+    // Generates the hash of an AirDrop
     function generateHash(
         int256 _lat,
         int256 _long,
@@ -125,11 +135,11 @@ The next step is to create a function to allow a creator to add a new AirDrop:
 
 ```solidity
  function addAirDrop(
-        int256 _lat,
-        int256 _long,
-        uint256 _maxDistance,
-        uint256 _time_from,
-        uint256 _time_to,
+        int256 _lat,    // Actual latitude * 10^6 
+        int256 _long,   // Actual longitude * 10^6
+        uint256 _maxDistance,// in meters
+        uint256 _time_from, // Unix timestamp
+        uint256 _time_to,   // Unix timestamp
         uint256 _tokens_count
     ) external payable {
         require(
@@ -171,13 +181,14 @@ The last important function is `claim()`, which does the bulk of the work in our
 
 ```solidity
 function claim(
+        // Proof of location as returned by the API
         int256 _lat,
         int256 _long,
         uint256 _distance,
         uint256 _time_from,
         uint256 _time_to,
         bytes32 _deviceHash,
-        bytes memory signature
+        bytes memory signature // This is the signature from the API - the actual proof!
     ) external payable nonReentrant {
         // verify proof of location
         bytes32 digest = verifier.generateLocationDistanceDigest(
@@ -202,11 +213,14 @@ function claim(
             _time_from,
             _time_to
         );
+        
+        // Make sure the user has not claimed this Airdrop already
         require(
             claimedAirDrops[msg.sender][airDropHash] == false,
             "AirDrop has been already claimed for this address"
         );
-        // verify that the Airdrop exists and it's available
+        
+        // verify that the Airdrop exists and there are NFTs available to claim
         AirDrop memory airDrop = airDrops[airDropHash];
         require(airDrop.maxDistance > 0, "AirDrop does not exist");
         if (airDrop.tokens_count > 0) {
@@ -216,10 +230,10 @@ function claim(
             );
         }
 
-        //update the mapping
+        // Update the mapping of claimed airdrops for the user
         claimedAirDrops[msg.sender][airDropHash] = true;
 
-        // mint the location NFT
+        // mint the location NFT to the user
         NFT.safeMint(msg.sender);
 
         // emit the event
