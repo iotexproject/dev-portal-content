@@ -2,6 +2,8 @@
 
 ## IoTeX Dev Workshop
 
+![IMAGE 2023-03-10 15:17:05](https://user-images.githubusercontent.com/77351244/224419885-86100056-fc54-4e29-813c-2702ec49a4d0.jpg)
+
 The IoTeX dev workshop during #BUIDLWeek was a session that provided developers with the opportunity to learn how to create a decentralized application using the trusted location API built on W3bstream. 
 
 During the 90-minute workshop, developers were taught how to use the trusted location API to create an app that would allow users to create NFT airdrops on particular locations. This means that users could create NFTs and drop them in specific locations, and only users who were physically present at those locations during the pre-determined timeframe would be able to claim them. 
@@ -9,6 +11,8 @@ During the 90-minute workshop, developers were taught how to use the trusted loc
 Allowing developers to incorporate trusted location-based functionality into their decentralized applications is just one example of how W3bstream can be used to create innovative solutions that connect the physical world with blockchain.
 
 ## DePin
+
+![depin](https://user-images.githubusercontent.com/77351244/224421713-6b078bd0-e488-4ea2-ba46-3e252611d23b.jpeg)
 
 The DePin sector is a fascinating area of blockchain development that aims to connect the blockchain to real-world assets. The implications of this are revolutionizing many industries, from construction to real estate, to infrastructure management, healthcare, and beyond. 
 
@@ -21,9 +25,13 @@ Overall, W3bstream represents a significant step forward in the DePin sector and
 
 ## SocialFi
 
+![lens](https://user-images.githubusercontent.com/77351244/224424026-204d82dd-cdf6-4064-8049-0f339370f627.png)
+
 One of the biggest points of focus during EthDenver was definitely SocialFi and the creator economy. Lens Protocol is spearheading the charge, allowing devs to leverage an incredibly powerful, composable and decentralized social graph to create social applications. Lens has unveiled a few interesting tools for developers in Denver, such as the LENS widgets that enable developers to easily integrate social features into their web applications with just a few lines of code. BigQuery was also unveiled, a way for devs to query large chunks of data and perform analytics with it, or use ML to run their own recommendations in their apps. This is the first step in allowing devs to build custom features on top of LENS without the API having to do it for them. The new creator economy is here, and creators can now connect with their audiences, monetize their content, and retain ownership and control over their intellectual property.
 
 ## Zk virtual machines? 
+
+![zk](https://user-images.githubusercontent.com/77351244/224423631-bbc4a8c0-b231-4c19-a42c-4393b13759a8.png)
 
 Anybody who's in web3 has surely heard of VM's (Virtual Machines). Most commonly the Ethereum Virtual Machine (EVM). In general, a virtual machine (VM) is a software program that simulates a computer system. It emulates the functions of a physical machine, including its hardware, operating system, and applications.
 
@@ -53,6 +61,8 @@ As we move toward a machine economy where machine work is financialized, e.g. us
 
 ## What is account abstraction? 
 
+![acc-abstraction](https://user-images.githubusercontent.com/77351244/224427675-248f99dc-4cd5-4265-8537-7b820ab3cc15.png)
+
 Account abstraction refers to the way smart contracts interact with the blockchain, and it's surely one of the best improvements in user experience for any account interacting with a dApp. 
 
 Smart contracts have been executed by sending transactions that were associated with a specific account on-chain. The account would hold the smart contract code and also the balance required to pay for gas fees.
@@ -61,7 +71,9 @@ With account abstraction, the goal is to separate the contract code from the acc
 
 Account abstraction allows for more flexibility in the way smart contracts are designed and executed. For example, it enables the creation of smart contracts that are executed by multiple accounts, or that can be paid for by a third party. 
 
-## Own your data forever with permanent storage! 
+## Own your data forever with decentralized storage! 
+
+![filecoin](https://user-images.githubusercontent.com/77351244/224426246-2ca155eb-dfba-43e1-a455-4c392e88c269.png)
 
 Decentralized storage platforms represent a revolutionary new approach to data storage, leveraging the power of blockchain technology to provide a more secure, reliable, and resilient storage infrastructure.
 
@@ -73,5 +85,8 @@ Decentralized storage is particularly important in DePin applications because it
 3. Censorship resistance: Decentralized storage platforms enable secure storage of data without the need for a centralized authority or intermediary, reducing the risk of censorship or other forms of interference.
 
 ## Conclusions
+
+![SEL_6629 copy](https://user-images.githubusercontent.com/77351244/224428029-e4ed6090-1834-4bfb-b9d5-817da45d2371.jpeg)
+
 
 Attending every project that came to Denver was a daunting task, but nonetheless, the space showcased some key areas of focus that were truly noteworthy. It's truly inspiring to see this new era of innovation and user empowerment unfold before our eyes. With each iteration, the new dApps are getting closer and closer to delivering an experience that is on par with their web2 counterparts, while also adding the unique flavors of web3. In the new decentralized world, data providers and content creators are finally in the driver's seat, and developers are once again at the forefront of innovation. 
