@@ -86,7 +86,6 @@ Decentralized storage is particularly important in DePin applications because it
 
 ## Conclusions
 
-![SEL_6629 copy](https://user-images.githubusercontent.com/77351244/224428029-e4ed6090-1834-4bfb-b9d5-817da45d2371.jpeg)
-
-
 Attending every project that came to Denver was a daunting task, but nonetheless, the space showcased some key areas of focus that were truly noteworthy. It's truly inspiring to see this new era of innovation and user empowerment unfold before our eyes. With each iteration, the new dApps are getting closer and closer to delivering an experience that is on par with their web2 counterparts, while also adding the unique flavors of web3. In the new decentralized world, data providers and content creators are finally in the driver's seat, and developers are once again at the forefront of innovation. 
+
+![SEL_6629 copy](https://user-images.githubusercontent.com/77351244/224428029-e4ed6090-1834-4bfb-b9d5-817da45d2371.jpeg)
