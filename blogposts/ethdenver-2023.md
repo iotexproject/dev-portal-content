@@ -1,6 +1,4 @@
-## Intro
-
-Get ready to dive into the latest and greatest in the decentralized web3 world! EthDenver 2023 has been an electrifying event that brought together innovators, entrepreneurs, and enthusiasts from all corners of the globe to push the boundaries of what's possible in blockchain. With a focus on DePin, DID, decentralized social media, and zero knowledge, this event has been a hub of creativity and collaboration. Let's explore the main points of focus and highlight some of the most exciting projects presented at EthDenver 2023.
+*Get ready to dive into the latest and greatest in the decentralized web3 world! EthDenver 2023 has been an electrifying event that brought together innovators, entrepreneurs, and enthusiasts from all corners of the globe to push the boundaries of what's possible in blockchain. With a focus on DePin, DID, decentralized social media, and zero knowledge, this event has been a hub of creativity and collaboration. Let's explore the main points of focus and highlight some of the most exciting projects presented at EthDenver 2023.*
 
 ## IoTeX Dev Workshop
 
