@@ -2,7 +2,7 @@ import { Button, Alert, Link } from '@chakra-ui/react'
 
 ## Introduction
 
-Welcome to this tutorial on creating a simple smart energy grid that rewards energy-efficient users using the IoTeX blockchain, W3bstream, and DePIN. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
+Welcome to this tutorial on creating a DePIN project using W3bstream and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
 
 In this tutorial, we will guide you through the process of building a smart energy grid from scratch. We will start by creating three smart contracts on the IoTeX blockchain that will authorize smart energy meters to send energy consumption data, keep track of device-owner bindings, and implement an ERC20 token used for the actual crypto rewards.
 
@@ -35,7 +35,7 @@ These folders will contain the different components of the project:
 3. The `simulator` subfolder contains the W3bstream-compatible smart-meter device simulator written in Node.js. This simulator is used to create fake data and send it to the W3bstream project for testing purposes.
 
 <Alert>
-You can find the full project repository at https://github.com/simonerom/w3bstream-power-meter."
+You can find the full project repository at https://github.com/simonerom/w3bstream-power-meter.
 </Alert>
 
 ## Creating the smart contracts
