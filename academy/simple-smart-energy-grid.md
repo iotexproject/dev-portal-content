@@ -96,7 +96,7 @@ contract ECOToken is ERC20, AccessControl {
 
 ## Building the W3bstream project
 
-For the W3bstream logic, we will first create the Applet that receives, validates, and stores IoT data to finally process rewards every 24 hours. For this purpose, we will use the W3bstream Applet Kit for AssemblyScript (learn more at <https://docs.w3bstream.com/get-started/hello-world/w3bstream-applet-kits/assemblyscript>).
+For the W3bstream logic, we will first create the Applet that receives, validates, and stores IoT data to finally process rewards every 24 hours. For this purpose, we will use the W3bstream Applet Kit for AssemblyScript (learn more at https://docs.w3bstream.com/get-started/hello-world/w3bstream-applet-kits/assemblyscript).
 
 Inside the w3bstream folder, let's create our AssemblyScript project with:
 
