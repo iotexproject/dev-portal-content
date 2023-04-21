@@ -1,8 +1,3 @@
----
-title: Building an Energy-Efficient Smart Grid that Rewards Responsible Users with W3bstream, and the IoTeX Blockchain.
-description: Learn how to create a DePIN project that enables the creation of a simple, smart energy grid. You'll be using cutting-edge technologies like W3bstream and IoTeX Blockchain to build a system that rewards users for their energy efficiency. By the end of this tutorial, you will have gained valuable insights into building an energy-efficient infrastructure that promotes responsible energy use.
-path: academy/simple-smart-energy.md
----
 import { Button, Alert, Link } from '@chakra-ui/react'
 
 ## Introduction
@@ -146,8 +141,7 @@ export function handle_data(rid: i32): i32 {
 We will add the required functions in a moment. The second handler, that we will call `handle_rewards_request`, is in charge of processing stored IoT data and triggering rewards to the respective owners based on certain energy consumption behavior:
 
 ```typescript
-// Handles a process rewards request message. This message can be sent 
-// periodically by the device itself.
+// Handles a rewards request message. This message can be sent periodically by the device itself.
 export function handle_rewards_request(rid: i32): i32 {
   const SECONDS_24H = 60 * 60 * 24;
   // Get the IoT message
@@ -174,6 +168,7 @@ export function handle_rewards_request(rid: i32): i32 {
   }
 }
 ```
+
 Let's start from the `getMessage()`, that would use the W3bstream KIT to obtain the actual data message from the W3bstream event:
 
 ```typescript
@@ -240,22 +235,22 @@ function validateSignature(message: JSON.Obj) {
   Log("IoT data message signature is valid);
 
   // Check that the public key corresponds to an authorized device on the blockchain
+  // ...
 
 }
 ```
 
-
 The `validateData()` and `validateRewardsRequest()` functions will perform simple fields validation, and we will leave them out, the reader can find them into the project repository. The other function of interest is the `storeData(message)`that will use the W3bstream SQL database to store the data point. We will see how to configure the DB in the next chapter where we will talk about deploying our project to W3bstream, by now it's important to say that we will store the data and the device id it belongs to.
 
-
 ```typescript
+
+```
 <Alert>
   Work in progress
 </Alert>
-```
-
 
 ## Building the smart energy meter device simulator
+
 <Alert>
 Work in progress
 </Alert>
