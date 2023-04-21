@@ -151,6 +151,16 @@ at the end, all deployed contract addresses will be saved in a .env file, along 
 
 Make sure you are in the same terminal where you exported the private key, so that it will be picked up by the w3bstream node too (for simplicity, we use the same blockchain account to deploy the contracts, for the w3bstream node and to receive rewards).
 
+For this workshop, we want are using a specific release of W3bstream, v0.9.1. If you run into issues, you can build this same image locally with:
+
+```
+git clone 
+git clone https://github.com/machinefi/w3bstream w3bstream-image
+git checkout v0.9.1
+make build_image
+make run_image
+```
+
 Fetch the docker-compose.yaml file
 
 ```bash
