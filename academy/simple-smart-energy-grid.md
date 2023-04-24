@@ -96,6 +96,61 @@ contract ECOToken is ERC20, AccessControl {
 
 ## Building the W3bstream project
 
+### The device message protocol
+
+The core part of the W3bstream project is the Applet, that defines the logic of our project to be executed by W3bstream. We will create the applet using the W3bstream Applet Kit package for AssemblyScript. However, Before we can build our W3bstream applet, we should clarify what data we expect our device to send us.
+
+We decided to have only two types of messages that our device can send: a data message and a rewards request message.
+
+#### The data message
+The data message contains energy consumption information and is sent to w3bstream in short intervals (e.g. 1 minute):
+
+```json
+{
+    "data": {
+        "sensor_reading": 0.421,
+        "timestamp": 1682091108
+    },
+    "public_key": "0xabcd...321",
+    "signature": "0432bef...c00"
+}
+```
+
+where:
+
+- `sensor_reading`: is the average power consumed by the user in the last 1 minute
+- `timestamp`: is the time when the value has been computed, in UNIX timestamp format
+- `public_key`: is the public key of the device, that will also serve as the unique device_id
+- `signature`: is the digital signature of the **data** object using elliptic curve cryptography with curve **secp256r1**:
+  
+```typescript
+  secp256r1.sign(sha256.hash(`{"sensor_reading": 0.421,"timestamp": 1682091108}`))
+```
+
+#### The rewards request message
+
+The rewards request message looks contains no energy data: it's only a request to periodically ping our W3bstream logic to make it process rewards. Since rewards are calculated based on data accumulated every 24h, this message could be sent every 24h or more:
+
+```json
+{
+    "data": {
+        "device_id": "0xefgh...675",
+        "timestamp": 1682091108
+    },
+    "public_key": "0xabcd...321",
+    "signature": "0432bef...c00"
+}
+```
+
+where:
+
+- `device_id`: is the the public key of the device for which the rewards processing is requested
+- `timestamp`: is the time when the request has been sent, in UNIX timestamp format
+- `public_key`: is the public key of the requester, we assume to be the device itself, that is also supposed to sign the request
+- `signature`: is the digital signature of the request (i.e. the **data** object) using elliptic curve cryptography with curve **secp256r1**
+
+### Creating the applet
+
 For the W3bstream logic, we will first create the Applet that receives, validates, and stores IoT data to finally process rewards every 24 hours. For this purpose, we will use the W3bstream Applet Kit for AssemblyScript (learn more at https://docs.w3bstream.com/get-started/hello-world/w3bstream-applet-kits/assemblyscript).
 
 Inside the w3bstream folder, let's create our AssemblyScript project with:
@@ -113,7 +168,7 @@ npm install @w3bstream/wasm-sdk
 npm run as build
 ```
 
-Edit the file `index.ts`inside the `assembly` folder, delete all the content, and let's start creating our applet.
+Edit the file `index.ts`inside the `assembly` folder, delete all the content, and let's start creating our W3bstream applet.
 
 We begin by importing some utility functions from the W3bstream Applet KIT:
 
@@ -121,35 +176,38 @@ We begin by importing some utility functions from the W3bstream Applet KIT:
 import { Log, GetDataByRID, JSON } from "@w3bstream/wasm-sdk";
 ```
 
-Then we create the first of two handlers in our applet: the `receive_data` handler that is in charge of validating and storing IoT data:
+Then we create the first of two handlers in our applet: the `receive_data` handler that is in charge of processing data messages: it will validate and store IoT data alongside the device id that generated it. In a later section we will see how to execute this handler each time a new data message is sent to our W3bstream project.
 
 ```typescript
+// This handler will be executed each time a new data message is sent to our W3bstream project
 export function handle_data(rid: i32): i32 {
-  // Get the IoT message
-  const message = getMessage(rid);
   // Verify device signature
-  validateSignature(message);
+  let message = validateSignature(rid);
   // validate fields
   validateData(message);
-  // Store the IoT data
-  storeMessage(message);
+  // Store the IoT data along with the device id 
+  storeData(message);
 
   return 0;
 }
 ```
 
-We will add the required functions in a moment. The second handler, that we will call `handle_rewards_request`, is in charge of processing stored IoT data and triggering rewards to the respective owners based on certain energy consumption behavior:
+We will add the required functions in a moment. The second handler, that we will call `handle_rewards_request`, is in charge of periodically processing IoT data stored for a certain device, and triggering rewards to the respective owner based on certain energy consumption behavior:
 
 ```typescript
-// Handles a rewards request message. This message can be sent periodically by the device itself.
+// This handler will be executed each time a "rewards request" message is sent to our W3bstream project
 export function handle_rewards_request(rid: i32): i32 {
+  // Make sure the request is coming from the device (not really required)
+  let message = validateSignature(rid);
+  // validate fields and make sure 24h has passed from last successful request
+  assert(validateRewardsRequest(message), "rewards request message not valid");
+  // process and trigger rewards for the device
+  return process_rewards(message);
+}
+
+function process_rewards(message): i32 {
+  // We will process rewards based on data sent in 24h intervals
   const SECONDS_24H = 60 * 60 * 24;
-  // Get the IoT message
-  const message = getMessage(rid);
-  // Verify device signature
-  validateSignature(message);
-  // validate fields
-  validateRewardsRequest(message);
   // Get the device id that is requesting the rewards calculation
   let device_id = message.getString("device_id");
   // Get the timestamp of the request
@@ -169,7 +227,8 @@ export function handle_rewards_request(rid: i32): i32 {
 }
 ```
 
-Let's start from the `getMessage()`, that would use the W3bstream KIT to obtain the actual data message from the W3bstream event:
+Let's start from this crucial function: `validateSignature()`.
+
 
 ```typescript
 function getMessage(rid: i32): JSON.Obj {
@@ -178,29 +237,6 @@ function getMessage(rid: i32): JSON.Obj {
 }
 ```
 
-For this project, we expect the device to send a data message with this format:
-
-```json
-{
-    "data": {
-        "sensor_reading": 0.421,
-        "timestamp": 1682091108
-    },
-    "public_key": "0xabcd...321",
-    "signature": "0432bef...c00"
-}
-```
-
-where:
-
-- `sensor_reading`: is the average power consumed by the user in the last 1 minute
-- `timestamp`: is the time when the value has been computed, in UNIX timestamp format
-- `public_key`: is the public key of the device, that will also serve as the unique device_id
-- `signature`: is the digital signature of the `data` object using elliptic curve cryptography with curve `secp256r1`:
-  
-  ```typescript
-    secp256r1.sign(sha256.hash(`{"sensor_reading": 0.421,"timestamp": 1682091108}`))
-  ```
 
 The next interesting function is `validateSignature(message)` that verifyis the signature in the message and authorize the device using the deviceRegistry on the blockchain. Let's start from importing the required package in AssemblyScript:
 
