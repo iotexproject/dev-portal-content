@@ -19,11 +19,11 @@ Before you can begin creating the project, you'll need to make sure you have the
 - Node.js installed on your system
 - Git installed on your system
 
-<alert>
+<Alert>
  A quick tutorial on how to create and fund an IoTeX testnet account can be found here:
 
 https://developers.iotex.io/community-posts/create-an-iotex-developer-account-and-fund-it-with-test-iotx-tokens
-</alert>
+</Alert>
 
 Once you have these prerequisites, you can start by creating the necessary folders for the project. In your terminal, run the following commands:
 
