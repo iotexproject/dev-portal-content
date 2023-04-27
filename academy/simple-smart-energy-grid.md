@@ -170,8 +170,6 @@ Output:
 ```js
 REGISTRY_CONTRACT=0x1b215fB19733C49bf529b2E5C225d169fFb427fc
 BINDING_CONTRACT=0xD4C853aEb247fa63348D82E16D9ac51D4dbDA0f9
-WALKTOEARN_CONTRACT=
-STEPTOKEN_CONTRACT=
 DEPLOYED_HEIGHT=19918062
 DEPLOYER_ADDRESS=0x00e27ACAF1d3D58861DF710719fc97C43fC976f6
 ```
@@ -412,50 +410,21 @@ Let's start from this crucial function: `validateSignature(rid)`. This function 
 
 For this function, we need to use some crypto primitives, so make sure we import the required package inside `index.ts`:
 
-```typescript
-import { crypto } from "as-wasm/crypto";
-```
-
-and add the function:
-
-```typescript
-function validateSignature(rid: i32): JSON.Obj {
-  // Extract the message from W3bstream's resource id
-  const message_string = GetDataByRID(rid);
-  // Parse the message striung as a JSON.Obj object
-  const message_json = JSON.parse(message) as JSON.Obj;
-  // Extracts, stringify and hashes the data object
-  const data_json = messageJson.getObject("data");
-  const data_string = data_json.toString();
-// Convert the public key to bytes
-  let publicKeyBytes = crypto.hexToBytes(message.getString("signature"));
-  // Create an elliptic curve point object from the public key
-  const publicKey = secp256r1.keyFromPublic(publicKeyBytes);
-  // Convert the signature to bytes
-  const signatureBytes = crypto.hexToBytes(message.getString("signature"));
-  // Create the hash of the data message
-  let messageHash = crypto.sha256(message.getObj("data").toString());
-  // Verify the signature using the public key and the message hash
-  const verified = crypto.verifySignature(publicKeyBytes, signatureBytes, messageHash);
-  assert(verified, "Invalid IoT data message signature");
-  Log("IoT data message signature is valid);
-  // Check that the public key corresponds to an authorized device on the blockchain
-  // ...
-
-}
-```
 
 ## Building the smart energy meter device simulator
 
-<Alert>
+```text
 Work in progress
-</Alert>
+```
+
 how to build the device simulator using Node.js. Discuss how the simulator generates data and sends it to the W3bstream project.
 
 ## Testing the system
-<Alert>
+
+```text
 Work in progress
-</Alert>
+```
+
 Test the entire system to ensure that everything is working as intended. This should include running the device simulator, sending data to the W3bstream project, and verifying that rewards are being triggered on the blockchain.
 
 ## Conclusion
