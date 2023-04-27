@@ -1,3 +1,4 @@
+import { Button, Alert, Link } from '@chakra-ui/react'
 ## Introduction
 
 Welcome to this tutorial on creating a DePIN project using W3bstream and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
@@ -13,10 +14,16 @@ So let's get started!
 
 Before you can begin creating the project, you'll need to make sure you have the following:
 
-- A wallet that is compatible with the IoTeX or Ethereum network, such as Metamask or ioPay
+- A blockchain wallet app that is compatible with the IoTeX or Ethereum network, such as [Metamask](https://metamask.io/) or [ioPay](https://iopay.me)
 - Some test tokens on one of the blockchains supported by W3bstream (IoTeX, Ethereum, Polygon)
 - Node.js installed on your system
 - Git installed on your system
+
+<alert>
+ A quick tutorial on how to create and fund an IoTeX testnet account can be found here:
+
+https://developers.iotex.io/community-posts/create-an-iotex-developer-account-and-fund-it-with-test-iotx-tokens
+</alert>
 
 Once you have these prerequisites, you can start by creating the necessary folders for the project. In your terminal, run the following commands:
 
