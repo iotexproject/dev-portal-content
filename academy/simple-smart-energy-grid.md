@@ -203,7 +203,7 @@ where:
 - `timestamp`: is the time when the value has been computed, in UNIX timestamp format
 - `public_key`: is the public key of the device, whose correspoinding private key is used by the device to sign the data message above. It will also serve as the unique  identity **device_id** of the device.
 - `signature`: is the digital signature of the **data** object performed by the device using elliptic curve cryptography with curve **secp256r1**:
-  secp256r1.sign(sha256.hash({"sensor_reading": 0.421,"timestamp": 1682091108}))
+  secp256r1.sign(sha256.hash(\{"sensor_reading": 0.421,"timestamp": 1682091108\}))
 
 ### The rewards request message
 
