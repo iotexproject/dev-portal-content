@@ -1,5 +1,3 @@
-import { Button, Alert, Link } from '@chakra-ui/react'
-
 ## Introduction
 
 Welcome to this tutorial on creating a DePIN project using W3bstream and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
@@ -34,9 +32,7 @@ These folders will contain the different components of the project:
 2. The `w3bstream` subfolder contains the W3bstream applet source code. The applet is written in AssemblyScript and validates and stores incoming IoT data, and processes the data every 24 hours to trigger rewards on the blockchain.
 3. The `simulator` subfolder contains the W3bstream-compatible smart-meter device simulator written in Node.js. This simulator is used to create fake data and send it to the W3bstream project for testing purposes.
 
-<Alert>
-You can find the full project repository at https://github.com/simonerom/w3bstream-power-meter.
-</Alert>
+**You can find the full project repository at [https://github.com/simonerom/w3bstream-power-meter](https://github.com/simonerom/w3bstream-power-meter).**
 
 ## Creating the smart contracts
 
