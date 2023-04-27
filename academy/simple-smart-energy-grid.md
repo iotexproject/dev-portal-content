@@ -359,8 +359,25 @@ function storeData(message_json: JSON.Obj) {
 the last relevant function is the `processRewards`: this function is in charge of querying IoT data for a specific device, implement some "energy efficient behavior validation" in a 24h interval based on the data, and calculate the amount of rewards for the owner of the device:
 
 ```typescript
-function process_rewards(message_json: JSON.Obj) { 
-  // WIP
+function process_rewards(message_json: JSON.Obj): i32 {
+  // We will process rewards based on data sent in 24h intervals
+  const SECONDS_24H = 60 * 60 * 24;
+  // Get the device id that is requesting the rewards calculation
+  let device_id = message_json.getString("device_id");
+  // Get the timestamp of the request
+  let request_time = message_json.getString("timestamp");
+  // Fetch the latest request for this device
+  let start_interval = getLastExecutionTime(device_id);
+  // Build the 24h interval
+  let end_interval = start_interval + SECONDS_24H;
+  // Make sure 24h has passed
+  assert(request_time >= end_interval, "Too early for rewards calculation (every 24h)");
+  while (request_time >= end_interval) {
+    // Evaluate energy consumption in the interval
+    let tokens = process_rewards(device_id, start_interval, end_interval);
+    start_interval = end_interval + 1;
+    end_interval = start_interval + SECONDS_24H;
+  }
 }
 ```
 
@@ -401,11 +418,6 @@ function validateRewardsRequest(rid: i32): JSON.Obj {
     return message_json;
 }
 ```
-
-Let's start from this crucial function: `validateSignature(rid)`. This function takes the `resource id` (passed by W3bstream when it calls a handler in our applet) to extract the message sent by the device and verify the signature. It returns the message as a JSON object if the signature is successfull, otherwise it returns null.
-
-For this function, we need to use some crypto primitives, so make sure we import the required package inside `index.ts`:
-
 
 ## Building the smart energy meter device simulator
 
