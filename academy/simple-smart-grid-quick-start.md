@@ -127,6 +127,7 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
 
 
 
+
 **Device Binding Contract Monitor**
 
 `Event Type` OnDeviceBinding
@@ -143,6 +144,7 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
 
 
 
+
 **Create these 3 event routes:**
 
 `DATA` --> handle_data
@@ -150,6 +152,7 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
 `OnDeviceRegistered` --> handle_device_registered
 
 `OnDeviceBinding` --> handle_device_binding
+
 
 
 
