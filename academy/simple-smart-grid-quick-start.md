@@ -111,7 +111,7 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
   <AlertDescription>Smart contract monitors: https://docs.w3bstream.com/get-started/w3bstream-studio/triggering-events/monitoring-smart-contracts</AlertDescription>
 </Alert>
 
-#### Registry Contract Monitor
+**Registry Contract Monitor**
 
 `Event Type` OnDeviceRegistered
 
@@ -125,7 +125,8 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
 
 `Topic` 0x05d7f0c690676ba31675b45bcdb9ff4c34bb10744ec89d329eacd93c79ecc029
 
-#### Device Binding Contract Monitor
+
+**Device Binding Contract Monitor**
 
 `Event Type` OnDeviceBinding
 
@@ -139,7 +140,8 @@ In your W3bstream project, delete the `DEFAULT` event route, and create two cont
 
 `Topic` 0x9fd2c28ce9affee8592933156880418279ba95f7c71e344a71d1928a7c982979
 
-Create these 3 event routes:
+
+**Create these 3 event routes:**
 
 `DATA` --> handle_data
 
@@ -148,9 +150,12 @@ Create these 3 event routes:
 `OnDeviceBinding` --> handle_device_binding
 
 
-Create the database tables:
+**Create the database tables:**
+
 `device_registry`: column(device_id, String), column(is_active, string)
+
 `device_bindings`: column(device_id, String), column(owner_address, string)
+
 `data_table`: column(public_key, String), column(sensor_reading, String), column(timestamp, String)
 
 Send the following test message from the Log section:
