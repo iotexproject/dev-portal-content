@@ -3,7 +3,8 @@ import { Button, Alert, Link } from '@chakra-ui/react'
 ## Introduction
 
 <Alert>
-This tutorial is work in progress. Please come back later or enable Academy content notifications in your profile.
+    This tutorial is work in progress. Please come back later or enable Academy content notifications in your profile.
+    A quick start to deploy and run this project can be found [here](https://developers.iotex.io/posts/simple-smart-grid-a-quick-start-guide).
 </Alert>
 
 Welcome to this tutorial on creating a DePIN project using W3bstream and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
