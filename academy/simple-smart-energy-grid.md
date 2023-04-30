@@ -20,7 +20,7 @@ Before you can begin creating the project, you'll need to make sure you have the
 - Node.js installed on your system
 - Git installed on your system
 
-<Alert flexDirection='column'>
+<Alert>
 A quick tutorial on how to create and fund an IoTeX testnet account can be found [here](https://developers.iotex.io/community-posts/create-an-iotex-developer-account-and-fund-it-with-test-iotx-tokens)
 </Alert>
 
