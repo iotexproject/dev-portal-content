@@ -156,8 +156,8 @@ Create the database tables:
 Send the following test message from the Log section:
 
 <Alert>
-  <AlertIcon>🎬</AlertIcon>
-  Send test data message: https://docs.w3bstream.com/get-started/w3bstream-studio/triggering-events/testing-events
+  <AlertTitle>🎬</AlertTitle>
+  <AlertDescription>Send test data message: https://docs.w3bstream.com/get-started/w3bstream-studio/triggering-events/testing-events</AlertDescription>
 </Alert>
 
 ```JSON
