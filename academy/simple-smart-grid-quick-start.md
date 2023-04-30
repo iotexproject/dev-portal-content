@@ -1,4 +1,4 @@
-import { Alert, AlertIcon } from '@chakra-ui/react'
+import { Alert, AlertTitle, AlertDescription } from '@chakra-ui/react'
 
 This is a quick start tutorial on deploying the [Simple Smart Grid](https://developers.iotex.io/posts/building-an-energy-efficient-smart-grid-that-rewards-responsible-users-with-w3bstream-and-the-iotex-blockchain) W3bstream example.
 
@@ -86,8 +86,8 @@ npm run asbuild
 Find the applet file `release.wasm` in `simple-smart-grid/w3bstream/build` and use it to create a new project in W3bstream: call it simple_smart_grid:
 
 <Alert>
-  <AlertIcon>🎬</AlertIcon>
-  Creating Projects: https://docs.w3bstream.com/get-started/w3bstream-studio/creating-projects
+  <AlertTitle>🎬</AlertTitle>
+  <AlertDescription>Creating Projects: https://docs.w3bstream.com/get-started/w3bstream-studio/creating-projects</AlertDescription>
 </Alert>
 
 Open the project in W3bstream Studio, go to Settings and find your W3bstream operator account:
@@ -106,9 +106,9 @@ Use MetaMask to send some test IOTX to the operator address (10 IOTX will allow 
 In your W3bstream project, delete the `DEFAULT` event route, and create two contract monitors with the following data:
 
 <Alert>
-  <AlertIcon>🎬</AlertIcon>
-  Event routes: https://docs.w3bstream.com/get-started/w3bstream-studio/creating-strategies
-  Smart contract monitors: https://docs.w3bstream.com/get-started/w3bstream-studio/triggering-events/monitoring-smart-contracts
+  <AlertTitle>🎬</AlertTitle>
+  <AlertDescription>Event routes: https://docs.w3bstream.com/get-started/w3bstream-studio/creating-strategies</AlertDescription>
+  <AlertDescription>Smart contract monitors: https://docs.w3bstream.com/get-started/w3bstream-studio/triggering-events/monitoring-smart-contracts</AlertDescription>
 </Alert>
 
 #### Registry Contract Monitor
