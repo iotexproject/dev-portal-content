@@ -103,6 +103,14 @@ In short, this function retrieves a data message, parses it and extracts the `pu
 
 Note that the only thing you need to modify in the function is the Token contract address we deployed earlier. 
 
+You can now build the applet with:
+
+```bash
+npm run asbuild
+```
+
+You'll now be able to use the `release.wasm` file when creating your W3bstream project, and remember to go to settings, grant minting rights to the W3bstream operator address, and fund that address with some tokens. 
+
 ## W3bstream Studio
 
 It's now time to jump onto W3bstream Studio and create the database tables and the event routing strategy needed for this application. For more detailed information on how to create a project in W3bstream Studio, create data tables, event monitors and event routing strategies, visit the official W3bstream [documentation](https://docs.w3bstream.com/get-started/w3bstream-studio).
