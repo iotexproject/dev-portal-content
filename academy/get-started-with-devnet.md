@@ -15,7 +15,7 @@ Just answer each prompt depending on what dependencies you'll need in your appli
 Enter the project directory the package just created and open your favorite code editor
 
 ```bash
-cd my-w3bstream-app
+cd my-ws-app
 code .
 ```
 
