@@ -30,7 +30,7 @@ cd blockchain && nano IOTEX_PRIVATE_KEY=<YOUR_PRIVATE_KEY> > .env
 npm run deploy:testnet
 ```
 
-We can then use the following command: 
+We will later use the following command: 
 
 ```bash
 npx hardhat add-erc20-minter --address <W3BSTREAM_OPERATOR_ADDRESS> --network testnet
@@ -38,7 +38,7 @@ npx hardhat add-erc20-minter --address <W3BSTREAM_OPERATOR_ADDRESS> --network te
 
 To grant W3bstream the rights to mint erc20 tokens from the contract we just deployed in our application. 
 
-Remember to fund the W3bstream operator address (which can be found in your project's settings, see "**W3bstream Studio**" section below on how to access your project) with enough IOTX test tokens to mint each time a data message is received by your project. 
+Remember to fund the W3bstream operator address (which can be found in your project's settings, see "**W3bstream Studio**" section below on how to access your project) with enough IOTX test tokens to mint each time a data message is received by your project. In order to get your operator address you'll have to create a new W3bstream project, and in order to do that, you'll need an applet. Which you'll be able to do in the next section. 
 
 For a more specific tutorial on how to manage device binding and device identity in a W3bstream application, check out this [link](https://developers.iotex.io/posts/manage-device-identity-and-binding-with-w3bstream). 
 
