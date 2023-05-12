@@ -46,13 +46,11 @@ To fund your account with test tokens, go to the [Developer Portal](https://deve
 
 ## Applet
 
-Enter the `assembly` folder in the `applet` directory and have a look at the `handlers.ts` file. 
+Enter the `assembly` folder in the `applet` directory and have a look at the `handlers` directory. You'll find the `binding.ts` file containing the `handle_device_binding` and the `handle_device_registered`, and the `start.ts` handler, which we won't use for this project. Go ahead and create a new file in this directory called `data-handler.ts`:
 
 ```bash
-cd applet/assembly && cat handlers.ts
+cd applet/assembly/handlers && nano data-handlers.ts
 ```
-
-You'll see the `handle_device_registered` and the `handle_device_binding` functions. Our next step is to add one more handler to handle the data stream from the simulated device to our W3bstream project. We simply want to mint 1 token for the owner of a valid device, every time a new data message is sent to our project.
 
 Add this import at the top of the file: 
 
@@ -60,7 +58,7 @@ Add this import at the top of the file:
 import { mintRewards } from "./rewards/mint-rewards";
 ```
 
-And then add the following function instead of the `start` handler: 
+And then add the following code, (our goal is to handle the data stream from the simulated device to our W3bstream project. We simply want to mint 1 token for the owner of a valid device, every time a new data message is sent to our project):
 
 ```typescript
 // This handler will be executed each time a new data message 
