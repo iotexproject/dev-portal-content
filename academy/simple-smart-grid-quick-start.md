@@ -22,9 +22,10 @@ cd w3bstream-examples/simple-smart-grid
 code .
 ```
 
-In the same directory, install node.js dependencies:
+In the blockchain directory, install node.js dependencies:
 
 ```bash
+cd blockchain
 npm install
 ```
 
