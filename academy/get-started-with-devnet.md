@@ -101,6 +101,12 @@ In short, this function retrieves a data message, parses it and extracts the `pu
 
 Note that the only thing you need to modify in the function is the Token contract address we deployed earlier. 
 
+Before building the applet, you'll have to import this handler in the `index.ts` file, by adding this line a the top of the file: 
+
+```typescript
+export * from ./handlers/data-handler
+```
+
 You can now build the applet with:
 
 ```bash
