@@ -7,7 +7,7 @@ The create-ws-app package allows you to easily get started with any DePIN applic
 To create a project, run the following command: 
 
 ```bash
-npx create-ws-app
+npx create-ws-app my-ws-app
 ```
 
 Just answer each prompt depending on what dependencies you'll need in your application. In this case, we'll use add all dependencies. 
@@ -19,14 +19,14 @@ cd my-ws-app
 code .
 ```
 
-You'll see three directories: `applet`, `blockchain` and `simulator` which will act as our device, periodically sending a simulated data message to our W3bsream project. 
+You'll see three directories: `applet`, `blockchain` and `simulator`. The latter contains a simple device simulator written in node.js that will help testing our w3bstream project by sending simulated data messages. 
 
 ## Blockchain
 
-There are four contracts to get you started with your application: `DeviceBinding`, `DevicesRegistry`, `NFT` and `Token`. We'll stick with these contracts. Next we'll create a `.env` file in the `blockchain` directory and add our private key to deploy the contracts to IoTeX Testnet. 
+There are four contracts to get you started with this application: `DeviceBinding`, `DevicesRegistry`, `NFT` and `Token`. We'll stick with these contracts. Next we'll create a `.env` file in the `blockchain` directory and add the private key of our developement address to deploy the contracts to IoTeX Testnet. 
 
 ```bash
-cd blockchain && nano IOTEX_PRIVATE_KEY=<YOUR_PRIVATE_KEY> > .env 
+cd blockchain && echo PRIVATE_KEY=0xABC...123 > .env 
 npm run deploy:testnet
 ```
 
@@ -38,7 +38,7 @@ npx hardhat add-erc20-minter --address <W3BSTREAM_OPERATOR_ADDRESS> --network te
 
 To grant W3bstream the rights to mint erc20 tokens from the contract we just deployed in our application. 
 
-Remember to fund the W3bstream operator address (which can be found in your project's settings, see "**W3bstream Studio**" section below on how to access your project) with enough IOTX test tokens to mint each time a data message is received by your project. In order to get your operator address you'll have to create a new W3bstream project, and in order to do that, you'll need an applet. Which you'll be able to do in the next section. 
+Remember to fund the W3bstream operator address with some test tokens. The W3bsteam operator address can be found in your project's settings in W3bsteam Studio: see "**W3bstream Studio**" section below on how to access your project settings. In order to get your operator address you'll have to first create a new W3bstream project, which you'll be able to do in the next section. 
 
 For a more specific tutorial on how to manage device binding and device identity in a W3bstream application, check out this [link](https://developers.iotex.io/posts/manage-device-identity-and-binding-with-w3bstream). 
 
@@ -97,7 +97,7 @@ export function handle_data(rid: i32): i32 {
 }
 ```
 
-In short, this function retrieves a data message, parses it and extracts the `public_key` of the device that sent the data. It then checks if the device is actually registered (lines 13-19) and then retrieves the `owner_address` by querying the DB. Once the `owner_address` is found, it then mints one token to it.
+In short, this function retrieves a data message sent by a device to to our W3bstream project, parses it and extracts the `public_key` of the device. It then checks if the device is actually registered (lines 13-19) and then retrieves the `owner_address` by querying the DB. Once the `owner_address` is found, it then mints one token to it.
 
 Note that the only thing you need to modify in the function is the Token contract address we deployed earlier. 
 
