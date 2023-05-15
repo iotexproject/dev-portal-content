@@ -8,17 +8,7 @@ In this article, we'll walk you through how to use w3bstream to send data from a
 
 ## Creating the w3bstream Project
 
-To start streaming data from your IoT device to the w3bstream network, you'll first need to create a new project on the w3bstream developer portal. Here's how to do it:
-
-1. Browse to <https://dev.w3bstream.com/>.
-2. Log in with MetaMask (![Image Placeholder](https://example.com)).
-3. Click "Create new project" (![Image Placeholder](https://example.com)).
-4. Select the "Hello world" template and give your project a name. For this tutorial, we will be using "quick_start" (![Image Placeholder](https://example.com)).
-5. Click on the project to open it (![Image Placeholder](https://example.com)).
-6. Go to the Devices tab and click "Add Device". Input a Publisher Key, which will be used as a unique identifier for your device. Click submit. (![Image Placeholder](https://example.com)).
-7. Now you should see the new device and a token that has been generated for this device. (![Image Placeholder](https://example.com)).
-8. Go to the Triggers tab. You should see the HTTP and MQTT endpoints that you should use for sending data from the device. (![Image Placeholder](https://example.com)).
-9. Go to the Log tab. This should be empty because no data has been received yet. When a message is received from the device, a log will be displayed. (![Image Placeholder](https://example.com)).
+To start streaming data from your IoT device to the w3bstream network, you'll first need to create a new project on the w3bstream developer portal. Checkout the "how to" section of the [W3bstream documentation](https://docs.w3bstream.com/get-started/w3bstream-studio) to learn how to quickly get started initiating a project, adding devices and creating event routing strategies. 
 
 With your w3bstream project set up, it's time to start streaming data from your IoT device.
 
@@ -124,7 +114,7 @@ The `create_payload()` function is used to build and sign message.
     
 2. On the w3bstream web interface, go to the Log tab. You should see an entry in the log with the message sent from the Raspberry Pi. Note that you may need to refresh the page in order for it to appear.
 
-## Conclussions
+## Conclusions
 
 In this project, we explored the process of setting up and running a w3bstream application on a Raspberry Pi. We also covered how to use the w3bstream web interface to create a project, register a publisher and view the data.
 
