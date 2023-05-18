@@ -4,7 +4,7 @@
 
 W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, w3bstream streams data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
 
-In this article, we'll walk you through how to use w3bstream to send data from a Raspberry Pi to a w3bstream node. We'll cover how to create and configure the w3bstream project in the w3bstream web interface and how to build a C++ program that uses the W3bstream IoT SDK to publish data from a Raspberry Pi. By the end of this article, you'll have the skills and knowledge you need to start building your own IoT projects on the w3bstream network.
+In this article, we'll walk you through how to use w3bstream to send data from a Raspberry Pi to a w3bstream node. We'll cover how to create and configure the w3bstream project in the w3bstream web interface and how to build a C++ program that uses the W3bstream Client SDK for Linux Embedded systems to publish data from a Raspberry Pi. By the end of this article, you'll have the skills and knowledge you need to start building your own IoT projects on the w3bstream network.
 
 ## Creating the w3bstream Project
 
@@ -16,7 +16,7 @@ With your w3bstream project set up, it's time to start streaming data from your 
 
 ### Introduction
 
-In this section, we will be using the w3bstream IoT SDK to publish data from a Raspberry Pi to the w3bstream network. The w3bstream IoT SDK provides an easy-to-use interface for sending data from IoT devices to the w3bstream network. This will allow us to monitor and analyze the data in real-time using the w3bstream web UI.
+In this section, we will be using the w3bstream Client SDK to publish data from a Raspberry Pi to the w3bstream network. The w3bstream Client SDK provides an easy-to-use interface for sending data from IoT devices to the w3bstream network. This will allow us to monitor and analyze the data in real-time using the w3bstream web UI.
 
 Before we begin, it is assumed that you have a basic understanding of the Raspberry Pi and C++ programming. Additionally, you will need to have a project set up on the w3bstream web UI. If you have not already done so, please refer to the previous section on creating a w3bstream project.
 
@@ -27,10 +27,12 @@ Before we can build and run our application, we need to make sure our environmen
 1. Install the required system packages:
 
     ```bash
-    sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev git
     ```
-
-    These packages are necessary for building the w3bstream IoT SDK.
+    
+    These packages are necessary for building the w3bstream Client SDK.
 
 2. Clone the repository:
 
@@ -40,9 +42,9 @@ Before we can build and run our application, we need to make sure our environmen
 
     This will download the w3bstream IoT SDK and change directory into the project directory.
 
-### Building the Application: Using the W3bstream IoT SDK
+### Building the Application: Using the W3bstream Client SDK
 
-To build the application using the W3bstream IoT SDK, follow these steps:
+To build the application using the W3bstream Client SDK, follow these steps:
 
 1. Create a directory to store the build output:
 
