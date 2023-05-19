@@ -53,7 +53,7 @@ To build the application using the W3bstream IoT SDK, follow these steps:
 2. Run the following command to configure the build:
 
     ```bash
-    cmake -DBUILD_EXAMPLE_DEVICE_REGISTRATION=ON -DGIT_SUBMODULE_UPDATE=ON -S ./ -B ./build-out
+    cmake -DBUILD_EXAMPLE_QUICK_START_RPI=ON -DGIT_SUBMODULE_UPDATE=ON -S ./ -B ./build-out
     ```
 
     This will clone the required Git submodules and generate the build files in the `build-out` directory.
