@@ -1,87 +1,166 @@
-# W3bstream Quick Start - Sending data from Raspberry Pi
-
 ## Introduction
 
-W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, w3bstream streams data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
+W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream streams orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
 
-In this article, we'll walk you through how to use w3bstream to send data from a Raspberry Pi to a w3bstream node. We'll cover how to create and configure the w3bstream project in the w3bstream web interface and how to build a C++ program that uses the W3bstream IoT SDK to publish data from a Raspberry Pi. By the end of this article, you'll have the skills and knowledge you need to start building your own IoT projects on the w3bstream network.
+In this article, we'll walk you through how to use the W3bstream Client SDK for Linux devices to send data from a Raspberry Pi to a W3bstream project. We'll cover how to importt and use the SDK in C++, build the firmware, publish a data message and receiving it in a W3bstream applet. 
+
+By the end of this article, you'll have the skills and knowledge you need to start building your own W3bstream-compatible IoT devices.
 
 ## Creating the w3bstream Project
 
-To start streaming data from your IoT device to the w3bstream network, you'll first need to create a new project on the w3bstream developer portal. Checkout the "how to" section of the [W3bstream documentation](https://docs.w3bstream.com/get-started/w3bstream-studio) to learn how to quickly get started initiating a project, adding devices and creating event routing strategies. 
+To start streaming data from your IoT device, you'll first need to deploy a new W3bstream Project. You can deploy the standard "Hello World" project on the W3bstream DevNet that by default will log each message received by authorized devices. Checkout the [Deploy "Hello World" section]([https://docs.w3bstream.com/get-started/w3bstream-studio](https://docs.w3bstream.com/get-started/deploying-an-applet)) in the W3bstream documentation to learn how to quickly get started initiating a project, adding a device account. 
 
 With your w3bstream project set up, it's time to start streaming data from your IoT device.
 
 ## Sending data from Raspberry Pi
 
-### Introduction
-
-In this section, we will be using the w3bstream IoT SDK to publish data from a Raspberry Pi to the w3bstream network. The w3bstream IoT SDK provides an easy-to-use interface for sending data from IoT devices to the w3bstream network. This will allow us to monitor and analyze the data in real-time using the w3bstream web UI.
-
-Before we begin, it is assumed that you have a basic understanding of the Raspberry Pi and C++ programming. Additionally, you will need to have a project set up on the w3bstream web UI. If you have not already done so, please refer to the previous section on creating a w3bstream project.
-
 ### Prerequisites: Setting up the Environment
 
-Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites:
+Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites. 
 
-1. Install the required system packages:
+Connect to your Raspberry Pi using ssh:
+```
+ssh pi@raspberrypi.local
+```
+
+update the system and install the required system packages:
 
     ```bash
-    sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev
+    sudo apt update
+    sudo apt upgrade
+    sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev git
     ```
 
     These packages are necessary for building the w3bstream IoT SDK.
 
-2. Clone the repository:
+2. Clone the W3bstream Client SDK for Linux:
+Let's create a folder for our firmware and clone the Client SDK inside:
 
     ```bash
-    git clone https://github.com/machinefi/w3bstream-iot-sdk && cd w3bstream-iot-sdk
+    mkdir my-firmware && cd my-firware
+    git clone https://github.com/machinefi/w3bstream-iot-sdk 
     ```
 
-    This will download the w3bstream IoT SDK and change directory into the project directory.
+### Create the project file
+Create a new `CMakeLists.txt` and copy paste this basic project configuration:
+```
+# CMake 3.10: Ubuntu 20.04.
+# https://cliutils.gitlab.io/modern-cmake/chapters/intro/dodonot.html
+cmake_minimum_required(VERSION 3.16) 
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+
+project(
+  TEST
+  VERSION 1.0
+  LANGUAGES C CXX)
+
+set(SOURCES 
+    main.cpp
+)
+
+add_executable(my-firmware ${SOURCES})
+
+target_link_libraries(my-firmware
+    PRIVATE ws_iot_sdk
+    PRIVATE curl
+)
+
+add_subdirectory(w3bstream-iot-sdk)
+```
+### Creating the firmware code
+Create a `main.cpp`file where we will code our firmware
+
+```
+nano main.cpp
+```
+
+Start with the required imports:
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sstream>
+#include <cstdio>
+#include <iomanip>
+#include <fcntl.h>
+#include <unistd.h>
+#include <time.h>
+#include <string>
+#include <algorithm>
+#include <iostream>
+#define _BSD_SOURCE
+#include <sys/time.h>
+#include <thread>
+#include <curl/curl.h>
+#include <fstream>
+```
+and add the import for the W3bstream Client SDK and a custom enum for return codes:
+```cpp
+#include "psa/crypto.h"
+// Custom types.
+enum ResultCode
+{ SUCCESS, ERROR, ERR_HTTP, ERR_CURL, ERR_FILE_READ, ERR_PSA, };
+```
+Go ahead with some constants:
+```cpp
+// User configuration and constants.
+namespace
+{
+    // Publisher details.
+    // The publisher token.
+    std::string device_token = "";
+    // The project name.
+    std::string project_name = "";
+
+    // HTTP server details.
+    std::string host = "devnet-staging-api.w3bstream.com";  // The w3bstream server ip or hostname.
+    std::string publish_url = "https://" + host + "/srv-applet-mgr/v0/event/" + project_name;
+
+    // Constants for using the SDK.
+    const size_t public_key_size = 65;
+    const size_t private_key_size = 32;
+    const size_t private_key_size_bits = private_key_size*8;
+
+    // Variables to hold global state, etc.
+    psa_key_id_t key_id;                                    // The PSA API key slot id.
+    std::string device_id = "";                                // The device id. In our case, the public key.
+}
+```
+
+Make sure you fetch the W3bstream project name from the settings page of your project and the device token from the devices section, and use them to set the `project_name` and `device_token` variables. 
+
+
 
 ### Building the Application: Using the W3bstream IoT SDK
 
 To build the application using the W3bstream IoT SDK, follow these steps:
 
-1. Create a directory to store the build output:
+1. Run the following command to configure the build:
 
-    ```bash
-    mkdir ./build-out
-    ```
-
-2. Run the following command to configure the build:
-
-    ```bash
-    cmake -DBUILD_EXAMPLE_QUICK_START_RPI=ON -DGIT_SUBMODULE_UPDATE=ON -S ./ -B ./build-out
-    ```
+```bash
+cmake -DGIT_SUBMODULE_UPDATE=ON -S ./ -B ./build-out
+```
 
     This will clone the required Git submodules and generate the build files in the `build-out` directory.
 
 3. Run the following command to build the example Quick Start application:
 
-    ```bash
-    cmake --build build-out --target example-quick-start-rpi
-    ```
+```bash
+cmake --build build-out --target my-firmware
+```
 
-    This will compile the source code and generate an executable in the `build-out` directory called `example-quick-start-rpi`.
+This will compile the source code and generate an executable in the `build-out` directory called `example-quick-start-rpi`.
 
 ### Running the Application: Sending Data to w3bstream
 
-This section provides a detailed guide on how to run the example application on Raspberry Pi, which sends data to the w3bstream platform using the IoT SDK. We will outline how the application uses the IoT SDK to establish a connection and transmit verifiable data.
-
-The application can be run with the following command:  
+At this point you can run the firmware by just typing
 
 ```bash
-cd build-out/examples/quick-start-rpi
-./example-quick-start-rpi -t "publisher_token"
+buiuld-out/my-firmware
 ```
-
-More command line options can be passed to the application. Run the following to see all available options: 
-
-```bash
-./example-quick-start-rpi -h
-```
+the firmware will just send a single message to your W3bstream project: open the logs section of the project and find the output of the applet:
 
 #### Application workflow
 
