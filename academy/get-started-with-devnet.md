@@ -77,9 +77,9 @@ Once the tables are created, we need to create the contract monitors:
 
 `Chain Id`: 4690
 
-`Contract address`: <Your DeviceRegistry contract address>
+`Contract address`: Your DeviceRegistry contract address
 
-`Block Start`: <Block number where your contract was deployed>
+`Block Start`: Block number where your contract was deployed
 
 `Block End`: 0
 
@@ -92,9 +92,9 @@ Once the tables are created, we need to create the contract monitors:
 
 `Chain Id`: 4690
 
-`Contract address`: <Your DeviceBinding contract address>
+`Contract address`: Your DeviceBinding contract address
 
-`Block Start`: <Block number where your contract was deployed>
+`Block Start`: Block number where your contract was deployed
 
 `Block End`: 0
 
