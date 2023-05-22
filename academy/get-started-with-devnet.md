@@ -75,6 +75,8 @@ It's now time to jump onto W3bstream Studio and create the database tables and t
 Let's create a project using the `release.wasm` file we just deployed, add a device and create the `devices_registry` and `device_binding` tables. 
 
 `devices_registry`: column(device_id, String), column(is_active, Bool)
+
+
 `device_binding`: column(device_id, String), column(owner_address, String)
 
 You can see below how the `devices_registry` table would look like: 
@@ -131,7 +133,10 @@ It's now time to use the data simulator and send data to our project.
 
 ## Data Simulator
 
-The data simulator package allows you to configure a script that will periodically send data messages to your W3bstream project. The first step is to copy the `.env.template` file into a `.env` file with the following fields: `PUB_TOKEN`, `PROJECT_NAME`, and `EVENT_TYPE` and replace the default values with your own ones. The `PUB_TOKEN` is found in the  `devices` tab of your project, while the `EVENT_TYPE` is the name of the W3bstream event that you chose to trigger in the contract monitor earlier. 
+The data simulator package allows you to configure a script that will periodically send data messages to your W3bstream project. The first step is to copy the `.env.template` file into a `.env` file with the following fields: `PUB_TOKEN`, `PROJECT_NAME`, and `EVENT_TYPE` and replace the default values with your own ones. The `PUB_TOKEN` is found in the  `devices` tab of your project, while the `EVENT_TYPE` is the name of the W3bstream event that you chose to trigger in the contract monitor earlier. The `PROJECT_NAME` is found in the settings tab of your project: 
+
+![project_name](https://github.com/iotexproject/dev-portal-content/assets/77351244/eda17c0c-15ae-4cc9-b5b7-7afc01027637)
+
 
 ```bash
 sed -e 's/pub_token/<YOUR_TOKEN>/g' -e 's/project_name/<YOUR_PROJECT_NAME>/g' -e 's/event_type/<W3BSTREAM_EVENT_NAME>/g' .env.template > .env
