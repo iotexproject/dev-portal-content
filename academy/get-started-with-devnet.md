@@ -74,15 +74,14 @@ It's now time to jump onto W3bstream Studio and create the database tables and t
 
 Let's create a project using the `release.wasm` file we just deployed, add a device and create the `devices_registry` and `device_binding` tables. 
 
-`devices_registry`: column(device_id, String), column(is_active, Bool)
+`devices_registry`: column(device_id, String), column(is_registered, Bool), column(is_active, Bool)
 
 
 `device_binding`: column(device_id, String), column(owner_address, String)
 
 You can see below how the `devices_registry` table would look like: 
 
-![devices_registry](https://github.com/iotexproject/dev-portal-content/assets/77351244/19152f34-bb12-46d3-bb82-c7c59c6d0efc)
-
+![devices_registry](https://github.com/iotexproject/dev-portal-content/assets/77351244/866a48b6-e0c1-46ce-a02e-d1a9d428c5b9)
 
 Once the tables are created, we need to create the contract monitors: 
 
@@ -163,7 +162,7 @@ npm start
 
 The script will now run periodically (every 10 seconds by default) and each time a new message is sent, your wallet will be rewarded with a token. The only problem is that the first time you send a message, it will fail, because we haven't registered our simulated device and bound it to a valid owner. You'll will see a log similar to this when your messages start being sent: 
   
-![message-error](https://github.com/iotexproject/dev-portal-content/assets/77351244/bc6eae34-50f0-415a-8679-1f8f1366a09d)
+![message-error](https://github.com/iotexproject/dev-portal-content/assets/77351244/ab13f599-d57a-4494-ae9e-7abcd7665a2f)
 
 All you have to do is to copy the `public_key` you got in the log, and use it in these commands that you'll have to run from the `blockchain` folder: 
   
