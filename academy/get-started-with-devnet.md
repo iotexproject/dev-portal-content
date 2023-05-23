@@ -46,8 +46,7 @@ In short, this function retrieves the `payload` of the data message sent by a de
 
 Note that the only thing you need to do here, for the purpose of this exercise, is to assign the address of the erc20 token we deployed earlier to the `TOKEN_CONTRACT_ADDRESS` variable, as shown below: 
 
-![token_contract_address](https://github.com/iotexproject/dev-portal-content/assets/77351244/cd48e8d3-d6b1-4551-a8a7-917098392a05)
-
+![token_contract_address](https://github.com/iotexproject/dev-portal-content/assets/77351244/cf3a520f-b245-472e-b329-abfa61811bc8)
 
 You can now build the applet with from the `assembly` directory with: 
 
@@ -72,10 +71,13 @@ Don't forget to also fund this address, as mentioned earlier.
 
 It's now time to jump onto W3bstream Studio and create the database tables and the event routing strategy needed for this application. For more detailed information on how to create a project in W3bstream Studio, create data tables, event monitors and event routing strategies, visit the official W3bstream [documentation](https://docs.w3bstream.com/get-started/w3bstream-studio).
 
-Let's create a project using the `release.wasm` file we just deployed, add a device and create the `devices_registry` and `device_binding` tables. 
+Let's create a project using the `release.wasm` file we just deployed, add a device, as shown below
+
+![add-device](https://github.com/iotexproject/dev-portal-content/assets/77351244/de1fff5d-def2-4edc-a320-698ab968afd0)
+
+and create the `devices_registry` and `device_binding` tables. 
 
 `devices_registry`: column(device_id, String), column(is_registered, Bool), column(is_active, Bool)
-
 
 `device_binding`: column(device_id, String), column(owner_address, String)
 
@@ -174,7 +176,7 @@ npx hardhat register-device --deviceid <YOUR_DEVICE_ID> --network testnet
 npx hardhat bind-device --deviceid <YOUR_DEVICE_ID> --userid <YOUR_ADDRESS> --network testnet
 ```
 
-Start the script again to start sending messages to your project. To visualize your new token rewards, simply import the token address in your metamask wallet, and make sure you're on the IoTeX Testnet. 
+Run the `npm start` command again to start sending messages to your project. To visualize your new token rewards, simply import the token address in your metamask wallet, and make sure you're on the IoTeX Testnet. 
 
 ## Conclusions
 
