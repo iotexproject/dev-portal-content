@@ -164,14 +164,14 @@ The script will now run periodically (every 10 seconds by default) and each time
   
 ![message-error](https://github.com/iotexproject/dev-portal-content/assets/77351244/ab13f599-d57a-4494-ae9e-7abcd7665a2f)
 
-All you have to do is to copy the `public_key` you got in the log, and use it in these commands that you'll have to run from the `blockchain` folder: 
+All you have to do is to copy the `deviceId` you got in the log, and use it in these commands that you'll have to run from the `blockchain` folder: 
   
 ```typescript
 // register a new device
-npx hardhat register-device --deviceid <YOUR_DEVICE_PUBLIC_KEY> --network testnet
+npx hardhat register-device --deviceid <YOUR_DEVICE_ID> --network testnet
 
 // bind a device with an owner
-npx hardhat bind-device --deviceid <YOUR_DEVICE_PUBLIC_KEY> --userid <YOUR_ADDRESS> --network testnet
+npx hardhat bind-device --deviceid <YOUR_DEVICE_ID> --userid <YOUR_ADDRESS> --network testnet
 ```
 
 Start the script again to start sending messages to your project. To visualize your new token rewards, simply import the token address in your metamask wallet, and make sure you're on the IoTeX Testnet. 
