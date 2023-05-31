@@ -19,7 +19,7 @@ With your w3bstream project set up, it's time to start streaming data from your 
 Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites. 
 
 Connect to your Raspberry Pi using ssh:
-```
+```bash
 ssh pi@raspberrypi.local
 ```
 
@@ -43,7 +43,7 @@ Let's create a folder for our firmware and clone the Client SDK inside:
 
 ### Create the project file
 Create a new `CMakeLists.txt` and copy paste this basic project configuration:
-```
+```text
 # CMake 3.10: Ubuntu 20.04.
 # https://cliutils.gitlab.io/modern-cmake/chapters/intro/dodonot.html
 cmake_minimum_required(VERSION 3.16) 
