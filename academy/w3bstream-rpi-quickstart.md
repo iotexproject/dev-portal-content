@@ -366,5 +366,5 @@ buiuld-out/my-firmware
 ```
 the firmware will just send a single message to your W3bstream project: open the logs section of the project and find the output of the applet:
 
-<img width="1026" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/8fb6d287-d2b6-40b1-893b-af29dbd1b2f6">
+<img width="1026" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/8fb6d287-d2b6-40b1-893b-af29dbd1b2f6"></img>
 
