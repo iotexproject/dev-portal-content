@@ -1,28 +1,24 @@
 import { Button, Alert, AlertIcon, AlertTitle, AlertDescription, Link, Box, flexWrap } from '@chakra-ui/react'
 
-## Introduction
-
 <Alert status='success'>
     <AlertIcon />
     <AlertTitle>About W3bstream</AlertTitle>
     <AlertDescription>
-        W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream streams orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
+        W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
     </AlertDescription>
 </Alert>
+Welcome to this tutorial! Here, we will guide you through the process of using the W3bstream Client SDK for Linux devices. Specifically, we will show you how to send data from a Raspberry Pi to a W3bstream project. This tutorial will cover the steps involved in importing and using the SDK in C++, building the firmware, publishing a data message, and receiving it in a W3bstream applet.
 
-In this article, we'll walk you through how to use the W3bstream Client SDK for Linux devices to send data from a Raspberry Pi to a W3bstream project. We'll cover how to importt and use the SDK in C++, build the firmware, publish a data message and receiving it in a W3bstream applet. 
-
-By the end of this article, you'll have the skills and knowledge you need to start building your own W3bstream-compatible IoT devices or migrate existing ones.
+By the end of this tutorial, you will have the necessary skills and knowledge to either create your own W3bstream-compatible IoT devices or migrate existing ones. Let's get started!
 
 ## Creating the w3bstream Project
+To begin streaming data from your IoT device, the first step is to deploy a new W3bstream Project. You can deploy the standard "Hello World" project on the W3bstream DevNet, which by default logs each message received by authorized devices to the W3bstream console. To quickly get started with initiating a project and adding a device account, refer to the [Deploy "Hello World" section](https://docs.w3bstream.com/get-started/w3bstream-studio](https://docs.w3bstream.com/get-started/deploying-an-applet) in the W3bstream documentation.
 
-To start streaming data from your IoT device, you'll first need to deploy a new W3bstream Project. You can deploy the standard "Hello World" project on the W3bstream DevNet that by default will log each message received by authorized devices to the W3bstream console. Checkout the [Deploy "Hello World" section]([https://docs.w3bstream.com/get-started/w3bstream-studio](https://docs.w3bstream.com/get-started/deploying-an-applet)) in the W3bstream documentation to learn how to quickly get started initiating a project, adding a device account. 
-
-With your w3bstream project set up, it's time to start streaming data from your IoT device.
+Once you have your W3bstream project set up, it's time to proceed with streaming data from your IoT device.
 
 ## Setting up the Environment
 
-Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites: 
+Before building and running our application, we need to ensure that our environment is properly configured. Here are the prerequisites:
 
 1. Connect to your Raspberry Pi using ssh:
 ```bash
@@ -41,7 +37,7 @@ These packages are necessary for building the w3bstream IoT SDK.
 
 3. Clone the W3bstream Client SDK for Linux:
 
-Let's create a folder for our firmware and clone the Client SDK inside:
+Create a folder for your firmware and clone the Client SDK inside it:
 
 ```bash
 mkdir my-firmware && cd my-firware
@@ -49,7 +45,7 @@ git clone https://github.com/machinefi/w3bstream-iot-sdk
 ```
 
 ## Create the project file
-Create a new `CMakeLists.txt` and copy paste this basic project configuration. These are mostly standard settings, however, in your own project you may want to configure the `SOURCES` setting, include more libraries subdirectories, or rename the generated executable file name.
+To configure the basic project settings, create a new CMakeLists.txt file and copy-paste the following code. These settings are mostly standard, but in your own project, you may want to adjust the SOURCES setting, include additional library subdirectories, or rename the generated executable file name.
 
 ```text
 # CMake 3.10: Ubuntu 20.04.
@@ -79,15 +75,16 @@ add_subdirectory(w3bstream-iot-sdk)
 ```
 
 ## Creating the firmware
-Create a `main.cpp` file that will contain the source code of our firmware
-
+To begin, create a main.cpp file that will contain the source code for our firmware. You can use any text editor of your choice to create this file. For example, you can use the Nano text editor by running the following command:
 ```bash
 nano main.cpp
 ```
+Alternatively, you can use your preferred text editor to create the main.cpp file.
 
 ### Header
 
-Start with some standard imports:
+Let's start by importing some standard libraries:
+
 ```cpp
 #define _BSD_SOURCE
 #include <stdio.h>
@@ -98,12 +95,13 @@ Start with some standard imports:
 #include <curl/curl.h>
 ```
 
-then add the import for the W3bstream Client SDK:
+Next, add the import for the W3bstream Client SDK:
 
 ```cpp
 #include "psa/crypto.h"
 ```
- and a custom enum that we can use to manage return status codes:
+
+Additionally, we can define a custom enumeration to manage return status codes:
  
 ```cpp
 // Custom types
@@ -112,7 +110,7 @@ enum ResultCode { SUCCESS, ERROR, ERR_HTTP, ERR_CURL, ERR_FILE_READ, ERR_PSA, };
 
 ### Endpoint configuration
 
-Go ahead with some variables that can be used to configure the connection to the W3bstream network and a few others that help using the W3bstream SDK:
+Let's define some variables that can be used to configure the connection to the W3bstream network, as well as a few others that will help in using the W3bstream SDK:
 
 ```cpp
 // User configuration and constants.
@@ -132,14 +130,14 @@ namespace
 }
 ```
 
-Make sure you copy the HTTP endpoint of your W3bstream project from the Events section page in the W3bstream Studio UI:
+To configure the project_route, make sure you copy the HTTP endpoint of your W3bstream project from the Events section page in the W3bstream Studio UI
 <img width="1330" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/ee7a171b-cac9-4bab-bcea-6074a76b4108"></img>
 
-copy a device auth token from the devices section:
+Additionally, you need to set the device_token variable to a valid device authorization token that you obtained from the Devices section in the W3bstream Studio UI.
 
 <img width="1330" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/16b9b17d-de54-4396-96eb-0616ef3f4e72"></img>
 
-and use them to set the `project_route` and `device_token` variables respectively. 
+Replace the "project_route" with the actual HTTP endpoint of your W3bstream project, and the "device_token" with the appropriate value you obtained from the W3bstream Studio UI.
 
 ```cpp
 namespace
@@ -153,7 +151,7 @@ namespace
 ```
 
 ### Payload creation
-Let's go ahead and create some useful functions. In this get started demo we want our device to send a simple payload to our W3bstream project, like this:
+Let's create some useful functions for payload creation. In this "Get Started" demo, we want our device to send a simple payload to our W3bstream project. The payload should be in the following format:
 
 ```json
 {
@@ -165,7 +163,8 @@ Let's go ahead and create some useful functions. In this get started demo we wan
 }
 ```
 
-So let's start with the `create_payload` function: this function takes an integer value that may represent a sensor reading or a digital I/O input status, a string that represents a unique device id, and builds the W3bstream message payload in the form of the stringyfied JSON message above:
+We'll start with the create_payload function. This function takes an integer value, which may represent a sensor reading or a digital I/O input status, and a string that represents a unique device ID. It then builds the W3bstream message payload in the form of the JSON message shown above. Here's the code:
+
 ```cpp
 std::string create_payload(int value)
 {
@@ -186,9 +185,12 @@ std::string create_payload(int value)
     return payload;
 }
 ```
+The create_payload function converts the value parameter to a string and then builds the payload string by concatenating the necessary JSON elements. It uses the device_id variable defined earlier to include the device ID in the payload.
+
+This function will be useful for creating the payload to be sent by your device to the W3bstream project.
 
 ### Public key generation
-Now let's focus on how to use the W3bstream Client SDK to generate a public/private key pair. The `generate_key` below will generate the pair in the form of a `key_id`, and then recover the public key only to return it as a string. We will use this public key later to providea unique device id to be included in the data message:
+Now let's focus on how to use the W3bstream Client SDK to generate a public/private key pair. The `generate_key` function below will generate the key pair in the form of a `key_id` and then recover the public key to return it as a string. We will use this public key later to provide a unique device ID to be included in the data message:
 
 ```cpp
 static ResultCode generate_key(std::string &public_key)
@@ -232,8 +234,12 @@ static ResultCode generate_key(std::string &public_key)
 	return ResultCode::SUCCESS;
 }
 ```
+The generate_key function uses the W3bstream Client SDK to generate an ECDSA key pair. It sets the necessary attributes for the key, generates the key using the PSA API, and then exports the public key from the key pair. The exported public key is stored as a hex string in the public_key parameter.
+
+This function will be used to generate a unique device ID for the W3bstream project.
+
 ### Sending the message to W3bstream
-the third function we explore is `publish_message`. This function takes care of creating the actual message according to the W3bstream protocol, and sends it over a HTTP POST request:
+The next function we'll explore is `publish_message`. This function takes care of creating the actual message according to the W3bstream protocol and sends it over an HTTP POST request:
 
 ```cpp
 ResultCode publish_message(std::string endpoint, std::string payload, std::string device_token)
@@ -269,8 +275,13 @@ ResultCode publish_message(std::string endpoint, std::string payload, std::strin
     return ResultCode::SUCCESS;
 }
 ```
+The publish_message function uses the cURL library to send an HTTP POST request to the specified endpoint with the provided payload. It sets the necessary cURL options such as the URL, payload, headers, and SSL usage. If the request is successful, the function returns `ResultCode::SUCCESS`. Otherwise, it returns an appropriate error code.
+
+This function will be used to publish the message to the W3bstream project endpoint using the generated payload and the device token for authentication.
+
 ### Utility functions
-The last function is just a utility function that gets the current and returns it as a string:
+The last function is a utility function called get_time_str that retrieves the current time and returns it as a string:
+
 ```cpp
 std::string get_time_str()
 {
@@ -282,62 +293,49 @@ std::string get_time_str()
 	return buf;
 }
 ```
+The get_time_str function uses the time function to retrieve the current time, and then formats it using the strftime function with the "%X" format specifier. This format specifier represents the time in the "HH:MM:SS" format. The resulting time string is stored in the buf character array and returned as a string.
+
+This utility function can be used to display the current time in log messages or other parts of the code where the timestamp is needed.
 
 ## Firmware workflow
 
-At this point we are ready to analyze the main() function and go through the firmware workflow:
+The main function of the firmware handles the overall workflow of the application. Here's a breakdown of the steps performed in the main function:
+
+1. Initialize PSA Crypto API:
+```cpp
+std::string public_key;
+ResultCode res = generate_key(public_key);
+```
+This function initializes the PSA Crypto library provided by the W3bstream Client SDK.
+
+2. Generate a public/private key pair and store the public key in device_id:
 
 ```cpp
-int main(int argc, char* argv[])
-{
-	// Initialize PSA Crypto.
-    psa_status_t status = psa_crypto_init();
-    if (status != PSA_SUCCESS)
-	{
-        std::cerr << "Failed to initialize PSA crypto library: " << status << std::endl;
-        return (-1);
-    }
-
-	// Generate a public/private key pair and store the public key in device_id
-	std::string public_key;
-	ResultCode res = generate_key(public_key);
-	if (res != ResultCode::SUCCESS)
-	{
-		std::cerr << "Failed to generate keys. " << std::endl;
-		return 1;
-	}
-
-    // Publish a message to W3bstream 
-    std::string payload = create_payload(random(), public_key);
-
-	res = publish_message(project_route, payload, publisher_token);
-	if (res != ResultCode::SUCCESS)
-	{
-		std::cerr << "Failed to publish message. " << std::endl;
-	}
-	else 
-	{
-		std::cout << "Successfully published message. " << std::endl;
-
-	}
-
-	// Cleanup
-	psa_destroy_key(key_id);
-
-	return 0;
-}
+std::string public_key;
+ResultCode res = generate_key(public_key);
 ```
 
-The example application firmware first initializes the PSA Crypto API provided by the W3bstream Client SDK. A single function call to  `psa_crypto_init()` is required for this:
+This step generates a new ECDSA key pair using the W3bstream Client SDK. The public key is extracted from the generated key pair and stored in the device_id variable. The generate_key function is responsible for this process.
 
-```c++
-psa_status_t status = psa_crypto_init();
+3. Create the payload for the message:
+```cpp
+std::string payload = create_payload(random(), public_key);
 ```
+In this step, the create_payload function is called to create the message payload. It takes a random value (obtained using the random() function) and the public key as inputs. The payload is formatted as a JSON string.
 
-We used an ECDSA key pair to obtain a public key and use it to serve as a unique device_id to be included in the message. So we create a payload according to our W3bstream project expectations, using a random value and the device id.
+4. Publish the message to W3bstream:
+```cpp
+res = publish_message(project_route, payload, publisher_token);
+```
+The publish_message function is called to send the message to the W3bstream project. It takes the project endpoint, the payload, and the publisher token as inputs. The function performs an HTTP POST request to the endpoint, including the payload in the request body.
 
-Finally, the message W3bstream message is constructed merging our payload with some protocol data like the project auth token and a W3bstream event id, ans is sent to the network. 
+5. Cleanup
+```cpp
+psa_destroy_key(key_id);
+```
+After the message is published, the key pair generated earlier is destroyed to ensure proper cleanup.
 
+The main function handles the key generation, payload creation, and message publishing. It also performs error handling for each step to provide appropriate feedback.
 
 ## Building the Applictaion Firmware
 
@@ -369,6 +367,4 @@ buiuld-out/my-firmware
 the firmware will just send a single message to your W3bstream project: open the logs section of the project and find the output of the applet:
 
 <img width="1026" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/8fb6d287-d2b6-40b1-893b-af29dbd1b2f6">
-
-## What's next?
 
