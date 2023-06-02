@@ -1,39 +1,46 @@
+import { Button, Alert, AlertIcon, AlertTitle, AlertDescription, Link, Box, flexWrap } from '@chakra-ui/react'
+
 ## Introduction
 
-W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream streams orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
+<Alert status='success'>
+    <AlertIcon />
+    <AlertTitle>About W3bstream</AlertTitle>
+    <AlertDescription>
+        W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream streams orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
+    </AlertDescription>
+</Alert>
 
 In this article, we'll walk you through how to use the W3bstream Client SDK for Linux devices to send data from a Raspberry Pi to a W3bstream project. We'll cover how to importt and use the SDK in C++, build the firmware, publish a data message and receiving it in a W3bstream applet. 
 
-By the end of this article, you'll have the skills and knowledge you need to start building your own W3bstream-compatible IoT devices.
+By the end of this article, you'll have the skills and knowledge you need to start building your own W3bstream-compatible IoT devices or migrate existing ones.
 
 ## Creating the w3bstream Project
 
-To start streaming data from your IoT device, you'll first need to deploy a new W3bstream Project. You can deploy the standard "Hello World" project on the W3bstream DevNet that by default will log each message received by authorized devices. Checkout the [Deploy "Hello World" section]([https://docs.w3bstream.com/get-started/w3bstream-studio](https://docs.w3bstream.com/get-started/deploying-an-applet)) in the W3bstream documentation to learn how to quickly get started initiating a project, adding a device account. 
+To start streaming data from your IoT device, you'll first need to deploy a new W3bstream Project. You can deploy the standard "Hello World" project on the W3bstream DevNet that by default will log each message received by authorized devices to the W3bstream console. Checkout the [Deploy "Hello World" section]([https://docs.w3bstream.com/get-started/w3bstream-studio](https://docs.w3bstream.com/get-started/deploying-an-applet)) in the W3bstream documentation to learn how to quickly get started initiating a project, adding a device account. 
 
 With your w3bstream project set up, it's time to start streaming data from your IoT device.
 
-## Sending data from Raspberry Pi
+## Setting up the Environment
 
-### Prerequisites: Setting up the Environment
+Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites: 
 
-Before we can build and run our application, we need to make sure our environment is properly set up. Here are the prerequisites. 
-
-Connect to your Raspberry Pi using ssh:
+1. Connect to your Raspberry Pi using ssh:
 ```bash
 ssh pi@raspberrypi.local
 ```
 
-update the system and install the required system packages:
+2. Update the system and install the required system packages:
 
-    ```bash
-    sudo apt update
-    sudo apt upgrade
-    sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev git
-    ```
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt-get install -y python3-pip build-essential cmake libcurl4-openssl-dev git
+```
 
-    These packages are necessary for building the w3bstream IoT SDK.
+These packages are necessary for building the w3bstream IoT SDK.
 
-2. Clone the W3bstream Client SDK for Linux:
+3. Clone the W3bstream Client SDK for Linux:
+
 Let's create a folder for our firmware and clone the Client SDK inside:
 
     ```bash
@@ -41,8 +48,9 @@ Let's create a folder for our firmware and clone the Client SDK inside:
     git clone https://github.com/machinefi/w3bstream-iot-sdk 
     ```
 
-### Create the project file
-Create a new `CMakeLists.txt` and copy paste this basic project configuration:
+## Create the project file
+Create a new `CMakeLists.txt` and copy paste this basic project configuration. These are mostly standard settings, however, in your own project you may want to configure the `SOURCES` setting, include more libraries subdirectories, or rename the generated executable file name.
+
 ```text
 # CMake 3.10: Ubuntu 20.04.
 # https://cliutils.gitlab.io/modern-cmake/chapters/intro/dodonot.html
@@ -69,73 +77,115 @@ target_link_libraries(my-firmware
 
 add_subdirectory(w3bstream-iot-sdk)
 ```
-### Creating the firmware code
-Create a `main.cpp`file where we will code our firmware
+
+## Creating the firmware code
+Create a `main.cpp` file that will contain the source code of our firmware
 
 ```
 nano main.cpp
 ```
 
-Start with the required imports:
+Start with some standard imports:
 ```cpp
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sstream>
-#include <cstdio>
-#include <iomanip>
-#include <fcntl.h>
-#include <unistd.h>
-#include <time.h>
-#include <string>
-#include <algorithm>
-#include <iostream>
 #define _BSD_SOURCE
-#include <sys/time.h>
-#include <thread>
+#include <stdio.h>
+#include <sstream>
+#include <iomanip>
+#include <time.h>
+#include <iostream>
 #include <curl/curl.h>
-#include <fstream>
 ```
-and add the import for the W3bstream Client SDK and a custom enum for return codes:
+
+then add the import for the W3bstream Client SDK:
+
 ```cpp
 #include "psa/crypto.h"
+```
+ and a custom enum that we can use to manage return status codes:
+ 
+```cpp
 // Custom types.
 enum ResultCode
 { SUCCESS, ERROR, ERR_HTTP, ERR_CURL, ERR_FILE_READ, ERR_PSA, };
 ```
-Go ahead with some constants:
+
+Go ahead with some variables that can be used to configure the connection to the W3bstream network and a few others that help using the W3bstream SDK:
+
 ```cpp
 // User configuration and constants.
 namespace
 {
-    // Publisher details.
-    // The publisher token.
-    std::string device_token = "";
-    // The project name.
-    std::string project_name = "";
+	// Connection details.
+	std::string publisher_token = "";           // The publisher token.
+	std::string project_route = "";     		// The w3bstream endpoint.
 
-    // HTTP server details.
-    std::string host = "devnet-staging-api.w3bstream.com";  // The w3bstream server ip or hostname.
-    std::string publish_url = "https://" + host + "/srv-applet-mgr/v0/event/" + project_name;
+	// Constants.
+	const size_t public_key_size = 65;
+	const size_t private_key_size_bits = 256;
 
-    // Constants for using the SDK.
-    const size_t public_key_size = 65;
-    const size_t private_key_size = 32;
-    const size_t private_key_size_bits = private_key_size*8;
-
-    // Variables to hold global state, etc.
-    psa_key_id_t key_id;                                    // The PSA API key slot id.
-    std::string device_id = "";                                // The device id. In our case, the public key.
+	// Variables to hold global state, etc.
+	psa_key_id_t key_id;						// The PSA API key slot id.
+	std::string device_id = "";					// The device id. In our case, the public key.
 }
 ```
 
-Make sure you fetch the W3bstream project name from the settings page of your project and the device token from the devices section, and use them to set the `project_name` and `device_token` variables. 
+Make sure you copy the HTTP endpoint of your W3bstream project from the Events section page in the W3bstream Studio UI:
+<img width="1330" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/07e62b14-2def-459f-b6cd-02cfe8c2fe95"></img>
+
+copy a device auth token from the devices section:
+<img width="1330" alt="image" src="https://github.com/iotexproject/dev-portal-content/assets/11096047/16b9b17d-de54-4396-96eb-0616ef3f4e72"></img>
+
+
+and use them to set the `project_route` and `device_token` respectively. 
+
+```cpp
+namespace
+{
+    // The device auth token.
+    std::string device_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJQYXlsb2FkIjoiOTAyNzcxMjI4MDMyMzA3NiIsImlzcyI6InczYnN0cmVhbSJ9.RCOIGP6JtanL9JzBakxpFf7JVSQmYAd7tanhHJK5MFc";
+    // The project name.
+    std::string project_name = "eth_0x2c37a2cbcfaccdd0625b4e3151d6260149ee866b_smart_energy";
+...
+}
+```
+
+Let's go ahead and create some useful functions. In this get started demo we want our device to send a simple payload to our W3bstream project, like this:
+```json
+{
+  "data": {
+    "value": "0",
+    "timestamp": "1666788776"
+  },
+  "device_id": "1834f959f...29d0fef2557"
+}
+```
+
+So let's start from the create_payload function:
+```cpp
+
+
+So we can create a function that gets the current timestamp as a string:
+```cpp
+std::string get_time_str()
+{
+	time_t now = time(0);
+	struct tm tstruct;
+	char buf[80];
+	tstruct = *localtime(&now);
+	strftime(buf, sizeof(buf), "%X", &tstruct);
+	return buf;
+}
+```
+
+and the function that creates the actual message IoT message, that will be the payload of the W3bstream message:
+
+```cpp
 
 
 
-### Building the Application: Using the W3bstream IoT SDK
+## Building the Applictaion Firmware: Using the W3bstream IoT SDK
 
-To build the application using the W3bstream IoT SDK, follow these steps:
+To build the application using the W3bstream IoT SDK, you can follow these steps:
 
 1. Run the following command to configure the build:
 
@@ -143,15 +193,15 @@ To build the application using the W3bstream IoT SDK, follow these steps:
 cmake -DGIT_SUBMODULE_UPDATE=ON -S ./ -B ./build-out
 ```
 
-    This will clone the required Git submodules and generate the build files in the `build-out` directory.
+This will clone the required Git submodules and generate the build files in the `build-out` directory.
 
-3. Run the following command to build the example Quick Start application:
+3. Run the following command to build the example application:
 
 ```bash
 cmake --build build-out --target my-firmware
 ```
 
-This will compile the source code and generate an executable in the `build-out` directory called `example-quick-start-rpi`.
+This will compile the source code and generate an executable in the `build-out` directory called `my-firmware` (or any oter name you configured in your CMake.txt.
 
 ### Running the Application: Sending Data to w3bstream
 
@@ -162,16 +212,16 @@ buiuld-out/my-firmware
 ```
 the firmware will just send a single message to your W3bstream project: open the logs section of the project and find the output of the applet:
 
-#### Application workflow
 
-The example application first initializes the PSA Crypto API provided by the IoT SDK. A single function call to  `psa_crypto_init()` is required for this:
+#### Firmware workflow
+
+The example application firmware first initializes the PSA Crypto API provided by the W3bstream Client SDK. A single function call to  `psa_crypto_init()` is required for this:
 
 ```c++
 psa_status_t status = psa_crypto_init();
 ```
 
-The application uses an ECDSA key pair to sign the data. The user can provide the key storage using the `keystore_path` command line option. If the keystore_path is not specified, the running directory is used. If the keystore does not contain any key information, a new key is generated. If a key is already present, then that key will be used, unless the `generate_key` option is used.  
-The key material is stored in the keystore directory. Two files will be used: `private.key` and `public.key`.  
+The application uses an ECDSA key pair to sign the data. 
 
 The application needs to import the key into the PSA Crypto API, so it can be used for signing. The `import_key()` funtion takes care of this.  
 
