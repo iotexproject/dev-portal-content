@@ -30,3 +30,29 @@ Be ready to receive requests for improvements to your PR and to make changes to 
 
 #### Images
 You can use images in your markdown by simply copy/pasting your media in the content area while you're writing. Make sure you **do not use** the HTML `<img />` tag, use the markdown syntax `![image title](image url)` instead.
+
+#### MDX Content
+Developer Portal content supports MDX, which allows you to use JSX in your markdown content. You can import components, such as interactive charts or alerts, and embed them within your content.
+
+Example:
+```mdx
+import { Button, Alert, Link, Box, flexWrap } from '@chakra-ui/react'
+
+// Buttons
+<Button colorScheme="brand" my={2} mr={4}>
+    <Link href='https://developers.iotex.io' isExternal>
+      Developer Portal Home
+    </Link>
+</Button>
+
+// Alerts
+<Alert status='success'>
+    <AlertIcon />
+    <AlertTitle>About W3bstream</AlertTitle>
+    <AlertDescription>
+        W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world.
+    </AlertDescription>
+</Alert>
+```
+
+[Learn more about MDX.](https://mdxjs.com/)
