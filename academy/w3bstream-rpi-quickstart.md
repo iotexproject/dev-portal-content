@@ -1,8 +1,6 @@
-import { Button, Alert, AlertIcon, AlertTitle, AlertDescription, Link, Box, flexWrap } from '@chakra-ui/react'
-
 <Alert status='success'>
     <AlertIcon />
-    <AlertTitle>About W3bstream</AlertTitle>
+    <AlertTitle minW="10%" >About W3bstream</AlertTitle>
     <AlertDescription>
         W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
     </AlertDescription>
