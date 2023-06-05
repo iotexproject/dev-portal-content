@@ -1,11 +1,13 @@
-import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
+import { Alert, AlertIcon, AlertTitle, AlertDescription, Box } from '@chakra-ui/react';
 
 <Alert status='success'>
     <AlertIcon />
-    <AlertTitle minW="10%" >About W3bstream</AlertTitle>
-    <AlertDescription>
-        W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
-    </AlertDescription>
+	<Box>
+	    <AlertTitle>About W3bstream</AlertTitle>
+	    <AlertDescription>
+		W3bstream is a powerful new framework that enables developers to connect data generated in the physical world to the blockchain world. Using the IoTeX blockchain, W3bstream orchestrates a network of nodes that receive and verify data from IoT devices and machines, and generates proofs of real-world facts that can be used by dApps on different blockchains.  
+	    </AlertDescription>
+	</Box>
 </Alert>
 Welcome to this tutorial! Here, we will guide you through the process of using the W3bstream Client SDK for Linux devices. Specifically, we will show you how to send data from a Raspberry Pi to a W3bstream project. This tutorial will cover the steps involved in importing and using the SDK in C++, building the firmware, publishing a data message, and receiving it in a W3bstream applet.
 
