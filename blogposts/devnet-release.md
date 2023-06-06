@@ -10,7 +10,7 @@ The Devnet release comes together with [W3bstream Studio](https://devnet.w3bstre
 2. Trusted Metrics: Trusted Metrics provide a seamless way for developers to establish and monitor their project metrics, enabling the creation of insightful dashboards, offering flexibility in dashboard selection, and providing convenient access through an API.
 3. [Database Creation](https://docs.w3bstream.com/get-started/video-how-to/create-database-tables): Studio enables developers to create database tables for storing and querying data streamed to their project, and for any other application-specific data.
 4. [Applets & Triggers](https://docs.w3bstream.com/get-started/basic-concepts/applets-and-handlers): Applets define the logic of a project in the form of event handlers, while Triggers orchestrate the timing of handlers execution actions based on either on-chain events or incoming data messages. 
-5. Chain agnosticism: W3bstream, and therefore the Devnet release, is chain agnostic. For now, besides IoTeX Mainnet and Testnet, Polygon Mainnet/Mumbai Testnet, Ethereum Mainnet/Goerli testnet are also supported. 
+5. Chain agnosticism: W3bstream, and therefore the Devnet release, is chain agnostic. Besides IoTeX Mainnet and Testnet, there will be gradual support for the main L1s and L2s, such as Polygon Mainnet/Mumbai Testnet, Ethereum Mainnet/Goerli testnet. 
 6. [Client SDKs](https://docs.w3bstream.com/client-device-sdks/introduction): The devnet release comes with four client SDKs to send IoT data to w3bstream, for Linux-based devices, ESP32, and Android/iOS devices, while Arduino boards will be supported soon. 
 
 
