@@ -1,7 +1,7 @@
 Learn how to use the W3bstream framework and the IoTeX chain to build decentralized applications based on real world data streams from smart devices
 
 ## TL;DR
-The W3bstream framework, developed by the IoTeX core team, abstracts away a lot of the complexities of  creating decentralized applications based on real world data. With W3bstream, data streams from real world events or activities can become verifiable proofs for smart contracts to trigger any application specific tokeneconomy, essentially making on-chain transactions out of in-app actions. In this webinar, the IoTeX DevRel team will show devs how to create a simple application that rewards a user sending data messages from a "whitelisted" location. 
+The W3bstream framework, developed by the IoTeX core team, abstracts away a lot of the complexities of  creating decentralized applications based on real world data. With W3bstream, data streams from real world events or activities can become verifiable proofs for smart contracts to trigger any application specific tokeneconomy, essentially making on-chain transactions out of in-app actions. In this webinar, the IoTeX DevRel team will show devs how to create a simple decentralized bike-sharing application that rewards people for renting their bikes. 
 
 ## Date
 July 12th, 12pm EDT
