@@ -10,7 +10,7 @@ July 12th, 12pm EDT
 IoTeX DevRel Team (Simone Romano and Giuseppe De Luca) 
 
 ## Co-hosts/Partners
-[ABC](https://theafricablockchaincenter.com/), DecOps, [Think&Dev](https://thinkanddev.com/), and [Intu](https://intu.xyz/).
+[ABC](https://theafricablockchaincenter.com/), [DecOps](https://decops.xyz/), [Think&Dev](https://thinkanddev.com/), and [Intu](https://intu.xyz/).
 
 ## Duration
 90min
@@ -24,7 +24,7 @@ In order to follow along and build your application, you'll need the following t
 - [AssemblyScript](https://docs.w3bstream.com/applets-development/w3bstream-applet-kits/assemblyscript)
 
 ## Joining the livestream
-Use the following link to join the livestream: 
+[Click here to join the livestream](https://www.youtube.com/watch?v=_8eOv0fmMgE)
 
 ## Extra Material
 More info on W3bsream can be found on our page https://w3bstream.com/ or in the [official documentation](https://docs.w3bstream.com/introduction/readme).
