@@ -66,7 +66,25 @@ In the context of our example, the registration process includes the following a
 
 For detailed insights, the Device Registry, Device Binding, and SBT Token contracts can be located within the blockchain hardhat project directory of the project repository.
 
-[Inclusion of relevant code snippets showcasing the device registration, binding, and minting processes]
+The following snippet of code showes how the Device Registry contract gets called to register a new device id on the blockchain:
+```Typescript
+// adapter/features/web3/services/viem/registrationContract.ts
+
+export async function registerDevice(deviceIds: string[]) {
+
+  /* ... */
+
+  const { request } = await publicClient.simulateContract({
+    account: walletClient.account,
+    address: registryConfig.address as `0x${string}`,
+    abi: registryConfig.abi,
+    functionName: "registerDevices",
+    args: [devicesToRegister],
+  });
+  const hash = await walletClient.writeContract(request);
+  return publicClient.waitForTransactionReceipt({ hash, confirmations: 1 });
+}
+```
 
 ## Data fetching
 
@@ -74,9 +92,24 @@ Once a user has successfully registered their DIMO devices within our project, t
 
 Ideally, our web application would securely store the user's API token, orchestrating periodic data retrieval and seamless forwarding to our W3bstream logic. To provide clarity and facilitate the step-by-step process, we've introduced a dedicated "Sync Data" page. Upon logging in, users initiate a request to fetch the latest driving data. This acquired data is then seamlessly channeled into the W3bstream project, where it undergoes meticulous processing and analysis.
 
-[Display relevant code snippets illustrating DIMO authentication, data fetching, and subsequent transmission to W3bstream.]
+The following code snippets shows the DIMO client code that fetches the device data:
+```typescript
+// adapter/features/data/services/dimo/client.ts
 
-For each DIMO device associated with the user, the daily distance traveled since the last data fetch is is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
+/* ... */
+
+// Fetch DIMO device data 
+export const dimoDeviceDataAxiosInstance = (token: string) =>
+  axios.create({
+    baseURL: DIMO_DEVICE_DATA_API_BASE_URL,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+```
+
+For each DIMO device associated with the user, the daily distance traveled since the last data fetch is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
 
 ```JSON
 {
