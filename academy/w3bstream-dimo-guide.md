@@ -29,19 +29,20 @@ For a live demonstration, please visit [dimows.vercel.app](dimows.vercel.app).
 
 Let's take a glimpse into the appearance of this example DePIN app. The initial step involves enabling a DIMO user (i.e., an individual who possesses a car equipped with a [DIMO device](https://dimo.zone)) to register for our DePIN project. To achieve this, users are required to provide their DIMO API token within the Registration section of the application:
 
-[image 0]
+<img width="1490" alt="image" src="https://github.com/simonerom/dev-portal-content/assets/11096047/c60dfe8c-32d2-4343-ba6a-5e237ca82d62"/>
 
 Once a user is registered, they can log in at any time by providing their API token again. The application will then display all the DIMO-equipped cars owned by that user.
 
-[image 1]
+![devices-list](https://github.com/simonerom/dev-portal-content/assets/11096047/3f92becc-32ca-41d8-8347-0c8155f59a34)
 
-Subsequently, after retrieving data from the DIMO API and transmitting it to W3bstream, data processing takes place into our W3bstream project's applet. It will identify the owner of the devices, validate the cumulative distance driven and finally proove it to the NFT contract on the IoTeX Blockchain by minting a token to the owner of the device:
+Subsequently, the user can initiate the data fetching from the DIMO API:
 
-[image 2]
+![sync-data](https://github.com/simonerom/dev-portal-content/assets/11096047/9ba28ada-6fb6-4814-bd20-ec5445faca72)
 
-Finally, the app presents a collection of minted NFTs, giving users the ability to initiate the NFT withdrawal process:
+after retrieving data from the DIMO API and transmitting it to W3bstream, data processing takes place in our W3bstream project's applet. Finally, the app presents a collection of minted NFTs, giving users the ability to initiate the NFT withdrawal process:
 
-[image 3]
+![available-claims](https://github.com/simonerom/dev-portal-content/assets/11096047/cd3d2d5b-c7a2-4ead-a97b-7b3dbfb42668)
+
 
 Now let's get into the details of the main steps of this application.
 
@@ -62,8 +63,6 @@ In the context of our example, the registration process includes the following a
 1. Utilizing the DIMO API token provided by the user, access the user's data and retrieve the list of registered DIMO device IDs.
 2. Register each distinct device ID within a designated registry contract on the IoTeX blockchain.
 3. Obtain the user's wallet address through Metamask login and generate binding records within the binding registry contract. These records solidify the connection between each device ID owned by the user and their respective wallet address.
-
-![Screenshot of the registration process]
 
 For detailed insights, the Device Registry, Device Binding, and SBT Token contracts can be located within the blockchain hardhat project directory of the project repository.
 
