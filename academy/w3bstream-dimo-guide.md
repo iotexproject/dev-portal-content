@@ -117,7 +117,7 @@ const res = await dimoDeviceDataAxiosInstance(
 
 For each DIMO device associated with the user, the daily distance traveled since the last data fetch is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
 
-```JSON
+```json
 {
   "deviceId": "0xbca809a5...18ec722ed",
   "distances": [
@@ -174,7 +174,7 @@ The handler logic is self-explanatory:
 
 The second relevant handler in the Applet is the `handle_analyze_data` function, that is executed periodically by our W3bstream project:
 
-```Typescript
+```typescript
 export function handle_analyze_data(rid: i32): i32 {
   const drivenDistances = getDrivenDistance();
   processDistances(drivenDistances);
