@@ -59,7 +59,8 @@ In the context of our example, the registration process includes the following a
 For detailed insights, the Device Registry, Device Binding, and SBT Token contracts can be located within the blockchain hardhat project directory of the project repository.
 
 The following snippet of code showes how the Device Registry contract gets called to register a new device id on the blockchain:
-```Typescript
+
+```typescript
 // adapter/features/web3/services/viem/registrationContract.ts
 
 export async function registerDevice(deviceIds: string[]) {
