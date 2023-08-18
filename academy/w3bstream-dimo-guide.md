@@ -21,7 +21,7 @@ Within this guide, we delve into this method by harnessing the extensive network
 
 ## The code
 
-The project depicted in this guide is open source, and the complete code can be accessed on GitHub at github.com/machinefi/dimo-demo.
+The project depicted in this guide is open source, and the complete code can be accessed on GitHub at [github.com/machinefi/dimo-demo](github.com/machinefi/dimo-demo).
 
 For a live demonstration, please visit [dimows.vercel.app](dimows.vercel.app).
 
