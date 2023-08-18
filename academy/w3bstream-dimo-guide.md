@@ -34,7 +34,7 @@ Let's take a glimpse into the appearance of this example DePIN app. The initial 
 4. Subsequently, the user can initiate the data fetching from the DIMO API. After retrieving data from the DIMO API and transmitting it to W3bstream, data processing takes place in our W3bstream project's applet.
 5. Finally, the app presents a collection of minted NFTs, giving users the ability to initiate the NFT withdrawal process.
 
-<img width="1839" alt="image" src="https://github.com/simonerom/dev-portal-content/assets/11096047/4c935b1b-6587-42d7-a5d9-e5a2d830277b">
+<img width="1839" alt="image" src="https://github.com/simonerom/dev-portal-content/assets/11096047/4c935b1b-6587-42d7-a5d9-e5a2d830277b"></img>
 
 Now let's get into the details of the main steps of this application.
 
