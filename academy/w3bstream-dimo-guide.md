@@ -27,21 +27,14 @@ For a live demonstration, please visit [dimows.vercel.app](dimows.vercel.app).
 
 ## The final project
 
-Let's take a glimpse into the appearance of this example DePIN app. The initial step involves enabling a DIMO user (i.e., an individual who possesses a car equipped with a [DIMO device](https://dimo.zone)) to register for our DePIN project. To achieve this, users are required to provide their DIMO API token within the Registration section of the application:
+Let's take a glimpse into the appearance of this example DePIN app. The initial step involves enabling a DIMO user (i.e., an individual who possesses a car equipped with a [DIMO device](https://dimo.zone)) to register for our DePIN project. To achieve this, users are required to 
 
-[image 0]
+1. Provide their DIMO API token within the Registration section of the application. Once a user is registered, they can log in at any time by providing their API token again.
+3. The application will then display all the DIMO-equipped cars owned by that user.
+4. Subsequently, the user can initiate the data fetching from the DIMO API. After retrieving data from the DIMO API and transmitting it to W3bstream, data processing takes place in our W3bstream project's applet.
+5. Finally, the app presents a collection of minted NFTs, giving users the ability to initiate the NFT withdrawal process.
 
-Once a user is registered, they can log in at any time by providing their API token again. The application will then display all the DIMO-equipped cars owned by that user.
-
-[image 1]
-
-Subsequently, after retrieving data from the DIMO API and transmitting it to W3bstream, data processing takes place into our W3bstream project's applet. It will identify the owner of the devices, validate the cumulative distance driven and finally proove it to the NFT contract on the IoTeX Blockchain by minting a token to the owner of the device:
-
-[image 2]
-
-Finally, the app presents a collection of minted NFTs, giving users the ability to initiate the NFT withdrawal process:
-
-[image 3]
+<img width="1839" alt="image" src="https://github.com/simonerom/dev-portal-content/assets/11096047/4c935b1b-6587-42d7-a5d9-e5a2d830277b">
 
 Now let's get into the details of the main steps of this application.
 
@@ -63,11 +56,27 @@ In the context of our example, the registration process includes the following a
 2. Register each distinct device ID within a designated registry contract on the IoTeX blockchain.
 3. Obtain the user's wallet address through Metamask login and generate binding records within the binding registry contract. These records solidify the connection between each device ID owned by the user and their respective wallet address.
 
-![Screenshot of the registration process]
-
 For detailed insights, the Device Registry, Device Binding, and SBT Token contracts can be located within the blockchain hardhat project directory of the project repository.
 
-[Inclusion of relevant code snippets showcasing the device registration, binding, and minting processes]
+The following snippet of code showes how the Device Registry contract gets called to register a new device id on the blockchain:
+```Typescript
+// adapter/features/web3/services/viem/registrationContract.ts
+
+export async function registerDevice(deviceIds: string[]) {
+
+  /* ... */
+
+  const { request } = await publicClient.simulateContract({
+    account: walletClient.account,
+    address: registryConfig.address as `0x${string}`,
+    abi: registryConfig.abi,
+    functionName: "registerDevices",
+    args: [devicesToRegister],
+  });
+  const hash = await walletClient.writeContract(request);
+  return publicClient.waitForTransactionReceipt({ hash, confirmations: 1 });
+}
+```
 
 ## Data fetching
 
@@ -75,9 +84,37 @@ Once a user has successfully registered their DIMO devices within our project, t
 
 Ideally, our web application would securely store the user's API token, orchestrating periodic data retrieval and seamless forwarding to our W3bstream logic. To provide clarity and facilitate the step-by-step process, we've introduced a dedicated "Sync Data" page. Upon logging in, users initiate a request to fetch the latest driving data. This acquired data is then seamlessly channeled into the W3bstream project, where it undergoes meticulous processing and analysis.
 
-[Display relevant code snippets illustrating DIMO authentication, data fetching, and subsequent transmission to W3bstream.]
+The following code snippets shows the DIMO client code that fetches the device data:
+```typescript
+// adapter/features/data/services/dimo/client.ts
 
-For each DIMO device associated with the user, the daily distance traveled since the last data fetch is is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
+/* ... */
+
+// Create the Axios instance 
+export const dimoDeviceDataAxiosInstance = (token: string) =>
+  axios.create({
+    baseURL: DIMO_DEVICE_DATA_API_BASE_URL,
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+```
+```Typescript
+// adapter/features/data/services/dimo/get-driven-distance.ts
+
+/* ... */
+
+// Fetch the daily distance data from the DIMO API
+const res = await dimoDeviceDataAxiosInstance(
+    token
+  ).get<DrivenDistanceResponse>(
+    DIMO_DRIVEN_DISTANCE_API +
+      `/${deviceId}/daily-distance?time_zone=America/Los_Angeles`
+);
+```
+
+For each DIMO device associated with the user, the daily distance traveled since the last data fetch is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
 
 ```JSON
 {
