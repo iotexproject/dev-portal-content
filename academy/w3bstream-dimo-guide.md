@@ -101,7 +101,7 @@ export const dimoDeviceDataAxiosInstance = (token: string) =>
     },
   });
 ```
-```Typescript
+```typescript
 // adapter/features/data/services/dimo/get-driven-distance.ts
 
 /* ... */
