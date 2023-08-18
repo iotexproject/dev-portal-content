@@ -98,7 +98,7 @@ The following code snippets shows the DIMO client code that fetches the device d
 
 /* ... */
 
-// Fetch DIMO device data 
+// Create the Axios instance 
 export const dimoDeviceDataAxiosInstance = (token: string) =>
   axios.create({
     baseURL: DIMO_DEVICE_DATA_API_BASE_URL,
@@ -108,6 +108,21 @@ export const dimoDeviceDataAxiosInstance = (token: string) =>
     },
   });
 ```
+```Typescript
+// adapter/features/data/services/dimo/get-driven-distance.ts
+
+/* ... */
+
+// Fetch the daily distance data from the DIMO API
+const res = await dimoDeviceDataAxiosInstance(
+    token
+  ).get<DrivenDistanceResponse>(
+    DIMO_DRIVEN_DISTANCE_API +
+      `/${deviceId}/daily-distance?time_zone=America/Los_Angeles`
+);
+```
+
+
 
 For each DIMO device associated with the user, the daily distance traveled since the last data fetch is requested to the API. Ultimately, this results in the generation of a JSON message, which the web application dispatches to W3bstream using the [W3bstream Client SDK for Node JS](https://docs.w3bstream.com/client-sdks/pc-client-sdks/node-js). The message structure is exemplified below:
 
