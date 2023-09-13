@@ -1,6 +1,6 @@
-W3bstream allows you to create DePIN applications that leverage real world data streams to generate token rewards for users, based on specific application logic. Such an application usually involves a hardware component, an off-chain logic applet, and the on-chain logic/tokeneconomy smart contracts. 
+W3bstream allows you to create [DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/) applications that leverage real world data streams to generate token rewards for users, based on specific application logic. Such an application usually involves a hardware component, an off-chain logic applet, and the on-chain logic/tokeneconomy smart contracts. 
 
-The create-ws-app package allows you to easily get started with any DePIN application built on W3bstream. The package repository can be found [here](https://github.com/machinefi/create-ws-app), and the npm package can be found [here](https://www.npmjs.com/package/create-ws-app).
+The create-ws-app package allows you to easily get started with any [DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/) application built on [W3bstream](https://w3bstream.com/). The package repository can be found [here](https://github.com/machinefi/create-ws-app), and the npm package can be found [here](https://www.npmjs.com/package/create-ws-app).
 
 ## Create the project
 
