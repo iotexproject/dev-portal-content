@@ -9,7 +9,7 @@ import { Alert, AlertIcon, AlertTitle, AlertDescription, Box } from '@chakra-ui/
 	    </AlertDescription>
 	</Box>
 </Alert>
-Welcome to this tutorial! Here, we will guide you through the process of using the W3bstream Client SDK for Linux devices. Specifically, we will show you how to send data from a Raspberry Pi to a W3bstream project. This tutorial will cover the steps involved in importing and using the SDK in C++, building the firmware, publishing a data message, and receiving it in a W3bstream applet.
+Welcome to this tutorial! Here, we will guide you through the process of using the [W3bstream](https://w3bstream.com/) Client SDK for Linux devices. Specifically, we will show you how to send data from a Raspberry Pi to a W3bstream project. This tutorial will cover the steps involved in importing and using the SDK in C++, building the firmware, publishing a data message, and receiving it in a W3bstream applet.
 
 By the end of this tutorial, you will have the necessary skills and knowledge to either create your own W3bstream-compatible IoT devices or migrate existing ones. Let's get started!
 
