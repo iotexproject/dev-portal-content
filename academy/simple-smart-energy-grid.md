@@ -7,9 +7,9 @@ import { Button, Alert, Link } from '@chakra-ui/react'
     A quick start to deploy and run this project can be found [here](https://developers.iotex.io/posts/simple-smart-grid-a-quick-start-guide).
 </Alert>
 
-Welcome to this tutorial on creating a DePIN project using W3bstream and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
+Welcome to this tutorial on creating a [DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/) project using [W3bstream](https://w3bstream.com/) and blockchain. We will build a simple smart energy grid that rewards energy-efficient users. With the increasing demand for energy worldwide, it has become increasingly important to find innovative ways to conserve and manage energy. A smart energy grid is one such solution that can help promote responsible energy use and reduce wastage.
 
-In this tutorial, we will guide you through the process of building a smart energy grid from scratch. We will start by creating three smart contracts on the IoTeX blockchain that will authorize smart energy meters to send energy consumption data, keep track of device-owner bindings, and implement an ERC20 token used for the actual crypto rewards.
+In this tutorial, we will guide you through the process of building a smart energy grid from scratch. We will start by creating three smart contracts on the [IoTeX](https://iotex.io/) blockchain that will authorize smart energy meters to send energy consumption data, keep track of device-owner bindings, and implement an ERC20 token used for the actual crypto rewards.
 
 We will then show you how to create a W3bstream project composed of an Applet, in the form of a WASM module built in AssemblyScript, that validates and stores incoming IoT data. The module will process the data every 24 hours to evaluate users behavior and trigger rewards on the blockchain. Finally, we will build a smart energy meter device simulator using Node.js to create some data and send it to our W3bstream project.
 
