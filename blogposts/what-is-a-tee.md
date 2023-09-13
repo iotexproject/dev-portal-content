@@ -17,9 +17,9 @@ The **Pebble Tracker**, from IoTeX, uses a TEE and thus can be used when the gre
 
 ## What happens in this environment?
 
-The IoTeX Pebble Tracker uses a Trusted Execution Environment to ensure the integrity of the data by capturing and cryptographically signing real-world data. It's similar to the chips in your smartphone that manage FaceID/fingerprints and to crypto hardware wallets to manage private keys. The signature Pebble Tracker produces is then attached to the IoT data message. This allows it to be verified against tampering and enables the identification of the exact device that generated the data. Every Pebble Tracker, when manufactured, is registered on the IoTeX blockchain.
+The [IoTeX](https://iotex.io/) Pebble Tracker uses a Trusted Execution Environment to ensure the integrity of the data by capturing and cryptographically signing real-world data. It's similar to the chips in your smartphone that manage FaceID/fingerprints and to crypto hardware wallets to manage private keys. The signature Pebble Tracker produces is then attached to the IoT data message. This allows it to be verified against tampering and enables the identification of the exact device that generated the data. Every Pebble Tracker, when manufactured, is registered on the [IoTeX](https://iotex.io/) blockchain.
 
-With the blockchain + IoT technology companies enviroBLOQ and AhoyDAO, third parties are paying money for the data from these devices these companies use. Those third parties rely on the fact that the data, or proofs based on that data, are completely reliable. That’s what makes the entire process from trusted device to any dApp groundbreaking. The integrity of the device data can be proven. This data integrity is foundational to a MachineFi economy.
+With the blockchain + IoT technology companies [enviroBLOQ](https://envirobloq.io/) and AhoyDAO, third parties are paying money for the data from these devices these companies use. Those third parties rely on the fact that the data, or proofs based on that data, are completely reliable. That’s what makes the entire process from trusted device to any dApp groundbreaking. The integrity of the device data can be proven. This data integrity is foundational to a MachineFi economy.
 
 For a general explanation, we found this Wikipedia entry on Trusted Execution Environment informative. (excerpt)
 
