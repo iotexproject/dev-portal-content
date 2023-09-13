@@ -10,11 +10,11 @@ During the 90-minute workshop, developers were taught how to use the trusted loc
 
 Allowing developers to incorporate trusted location-based functionality into their decentralized applications is just one example of how W3bstream can be used to create innovative solutions that connect the physical world with blockchain.
 
-## DePin
+## [DePin](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/?ref=iopay.me)
 
 ![depin](https://user-images.githubusercontent.com/77351244/224421713-6b078bd0-e488-4ea2-ba46-3e252611d23b.jpeg)
 
-The DePin sector is a fascinating area of blockchain development that aims to connect the blockchain to real-world assets. The implications of this are revolutionizing many industries, from construction to real estate, to infrastructure management, healthcare, and beyond. 
+The [DePin](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/?ref=iopay.me) sector is a fascinating area of blockchain development that aims to connect the blockchain to real-world assets. The implications of this are revolutionizing many industries, from construction to real estate, to infrastructure management, healthcare, and beyond. 
 
 IoTeX seeks to provide the underlying infrastructure to enable any DePin project to thrive. This is made possible by IoTeX's Layer-2 infrastructure, W3bstream, which facilitates the interaction, storage and computation of data from smart devices to smart contracts. W3bstream enables developers to create decentralized applications that can interact with the real world while supporting the tokenization of real-world users' behavior.
 
