@@ -1,6 +1,6 @@
 Gnosis Safe is a popular Ethereum-based multi-signature wallet designed for teams and organizations to manage their digital assets securely. GS has been widely used by many decentralized applications in the web3 space and it has become the go-to tool for many developers wishing to add an extra layer of security in their products. 
 
-IoTeX partner [Protofire](https://protofire.io/) has deployed a Gnosis Safe fork on the IoTeX network for a tri-party collaboration to enable robust tools for the IoTeX developer ecosystem.
+[IoTeX](https://iotex.io/) partner [Protofire](https://protofire.io/) has deployed a Gnosis Safe fork on the IoTeX network for a tri-party collaboration to enable robust tools for the IoTeX developer ecosystem.
 
 Gnosis Safe is widely used in the DeFi sector to help guard $36 billion ETH and ERC20 in TVL. 
 
@@ -28,5 +28,5 @@ After integrating Gnosis with the IoTeX chain, popular dapps that require GS can
 
 Overall, Gnosis Safe is a popular multi-signature wallet solution that has been widely adopted by many dApps in the Ethereum ecosystem to offer their users enhanced security and control over their digital assets.
 
-To create your own Gnosis safe on the IoTeX chain, check out https://safe.iotex.io/
+To create your own Gnosis safe on the [IoTeX](https://iotex.io/) chain, check out https://safe.iotex.io/
 
