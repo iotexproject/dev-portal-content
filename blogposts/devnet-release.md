@@ -1,4 +1,4 @@
-[W3bstream](https://w3bstream.com/), developed by the [IoTeX](https://iotex.io/) core team, is a cutting-edge computational infrastructure designed to revolutionize the way applications can verify and utilize real-world data to tokenize user behaviors in the physical world. W3bstream effectively acts as the underlying infrastructure for DePIN (Decentralized Physical Infrastructure Network) projects, driving innovation and collaboration in the web3 landscape.
+[W3bstream](https://w3bstream.com/), developed by the [IoTeX](https://iotex.io/) core team, is a cutting-edge computational infrastructure designed to revolutionize the way applications can verify and utilize real-world data to tokenize user behaviors in the physical world. W3bstream effectively acts as the underlying infrastructure for [DePIN](https://iotex.io/blog/what-are-decentralized-physical-infrastructure-networks-depin/) (Decentralized Physical Infrastructure Network) projects, driving innovation and collaboration in the web3 landscape.
 
 ## W3bstream Devnet 
 
