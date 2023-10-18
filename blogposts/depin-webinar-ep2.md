@@ -1,5 +1,5 @@
 ## Date:
-Wednesday October 25th, 9am Eastern Time
+Wednesday October 25th, 9am Eastern Time (EDT)
 
 ## TL;DR
 W3bstream offers a custom zero-knowledge infrastructure to scale applications that need verifiable processing of high volumes of data. Thanks to W3bstream, developers are able to easily build DePIN dApps based on trusted real-world events. 
@@ -28,7 +28,7 @@ AssemblyScript
 Follow Social Media Links of Co-Hosts/Partners to earn credits from Credshields and devnet access of Airchains Modular Zk Rollups 
 
 ## Joining the livestream
-[LINK TBD]
+[Building a DePIN Bike-Sharing App (ep.2)](https://www.youtube.com/watch?v=ENteptPNcDo)
 
 ## Extra Material
 More info on W3bstream can be found on our [page](https://w3bstream.com/) or in the [official documentation](https://docs.w3bstream.com/introduction/readme). If you're interested in browsing through more learning material on how to build with W3bstream, follow this [link](https://developers.iotex.io/academy/all?w3bstream).
