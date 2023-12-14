@@ -31,7 +31,7 @@ You'll be required to:
 - Send a test message to the node with your wallet address in the "0x" format. 
 - Collect the proof transaction hash from the node logs (you'll need it when submitting your application).
 
-**Expected Deliverable**: Link to your project's repository including instructions to build your prover and generate the proof. 
+**Expected Deliverable**: Link to your project's repository including a Readme file instructions to build your prover and generate the proof. 
 
 ## Submission Deadline
 - All submissions should be done by January 6th, 2024. 
