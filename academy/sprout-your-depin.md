@@ -43,6 +43,8 @@ You'll be required to:
 All successful submissions in each category will receive a unique limited-edition NFT minted on the IoTeX Mainnet, available on the [MIMO NFT Exchange](https://nft.mimo.exchange/).
 
 ## Community and Support
+- Telegram: Join the [Builders Zone](https://t.me/IoTeXGroup/820930) for real-time discussions and support.
 - Discord Community: [Join our Discord server](https://discord.gg/AajbtmpQ) for real-time discussions and support.
 - Stack Overflow: For detailed questions, use the IoTeX tag on Stack Overflow.
+
 We encourage creativity and technical prowess in your submissions. Show us what you can do with the IoTeX Protocol!
