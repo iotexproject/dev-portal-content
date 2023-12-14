@@ -20,6 +20,7 @@ You'll be required to:
 - Send a test message to your node triggering one of the preset examples.
 - Collect the proof transaction hash from the node logs (you'll need it when submitting your application).
 - Make sure the proof is written to the IoTeX testnet.
+
 **Expected Deliverable**: Create and share a short video on the steps you've taken to complete this challenge. Extra points for the quality of your submitted content.
 
 ### Circuit Builders 
@@ -29,6 +30,7 @@ You'll be required to:
 - The cicruit should prove knowledge of a certain wallet address input (it should be yours!).
 - Send a test message to the node with your wallet address in the "0x" format. 
 - Collect the proof transaction hash from the node logs (you'll need it when submitting your application).
+
 **Expected Deliverable**: Link to your project's repository including instructions to build your prover and generate the proof. 
 
 ## Submission Deadline
