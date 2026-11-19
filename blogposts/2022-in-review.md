@@ -12,7 +12,7 @@ The [IoTeX Developer Portal was born in June 2022](https://developers.iotex.io/p
 
 ## Community Stats
 
-Our [Discord](https://discord.gg/iotex) server is thriving: With more than 1600 active users, and weekly events such as our OFFICE HOURS, the iotex team is getting closer and closer to our devepers community. We have finally surpassed the 5k followers on our [iotex_dev](https://twitter.com/iotex_dev) twitter account, while our youtube channel is recording more than 2k views a month just on developer content. Part of this success is also due to our recurring developer events like the IoTeXperts Livestreams. 2023 will see a lot more engagement and many more live coding sessions to involve our developers, renamed #IoDevs (another new thing that happened this year). 
+Our [Discord](https://iotex.io/discord) server is thriving: With more than 1600 active users, and weekly events such as our OFFICE HOURS, the iotex team is getting closer and closer to our devepers community. We have finally surpassed the 5k followers on our [iotex_dev](https://twitter.com/iotex_dev) twitter account, while our youtube channel is recording more than 2k views a month just on developer content. Part of this success is also due to our recurring developer events like the IoTeXperts Livestreams. 2023 will see a lot more engagement and many more live coding sessions to involve our developers, renamed #IoDevs (another new thing that happened this year). 
 
 
 ## The Halo Grants
